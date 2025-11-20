@@ -1,0 +1,13 @@
+lorom
+
+org $91EA07
+JMP $EA2D
+
+org $91EA72
+JMP $EA9B
+
+org $91F1FC
+CLC : RTS
+
+org $91F26E
+CLC : RTS
