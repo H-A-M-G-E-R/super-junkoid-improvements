@@ -125,7 +125,7 @@ dw $E732 ; RTS out the routine to update animation frame while unpausing while w
 org $90F41E
 SamusCommand1C:
 {
-LDA #$0A1F : AND #$00FF : CMP #$0003 : BEQ + : CMP #$0014 : BNE ++ ; if spinjumping or walljumping:
+LDA $0A1F : AND #$00FF : CMP #$0003 : BEQ + : CMP #$0014 : BNE ++ ; if spinjumping or walljumping:
 +
 JSL UnderwaterCheck : BCS ++ ; If not underwater:
 LDA $09A2 : BIT #!ScrewAttack : BNE .ScrewAttack
