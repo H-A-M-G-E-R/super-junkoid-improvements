@@ -45,12 +45,13 @@ TDC : INC : STA $1B8F,x ; Enemy projectile instruction timer = 1
 LDA #$84FB : STA $1A03,x ; Enemy projectile pre-instruction = RTS
 LDA $1BD7,x : AND #$7FFF : STA $1BD7,x ; Enemy projectile properties &= 7FFFh (don't detect collision with projectiles)
 PHX : JSL CreateExplosion : PLX ; Create projectile explosion (see "enemy hit explosion.asm", also Y = [collided projectile index], and [X] needs to preserved for the next loop)
-LDA $0C18,y : BIT #$0008 : BNE .ret ; If projectile is not plasma beam:
-LDA $0C04,y : ORA #$0010 : STA $0C04,y ; Flag projectile for deletion
+LDA $0C18,y : BIT #$0008 : BNE + ; If projectile is not plasma beam:
+  LDA $0C04,y : ORA #$0010 : STA $0C04,y ; Flag projectile for deletion
++
+RTS
 
 .Dud
 JSL $A0A8BC ; Create a dud shot
-.ret
 RTS
 
 assert pc() <= $A09A5A
