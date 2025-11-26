@@ -18,7 +18,7 @@ TDC : TAY : JML $848482
 
 org $82E915 : JSL SpawnPLMAtLastSlot
 
-org $84F617 ; Freespace
+org $84F623 ; Freespace
 HandlePLMAtLastSlot:
 PHB : PHK : PLB
 STZ $1C25 ; PLM draw tilemap index = 0

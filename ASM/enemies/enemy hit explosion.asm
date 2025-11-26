@@ -1,7 +1,7 @@
 lorom
 
 !Freespace = $B492C6 ; overwrite debug handler
-!SpriteObjectPointer = $B4BDA8
+!SpriteObjectPointer = $B4F4B8
 
 org $A0A808
 PLX : JSL CreateExplosion : BRA $00
@@ -44,9 +44,10 @@ LDA #$000C : BRA .PlaySound ; beam explosion sound
 LDX #MissileExplosionSpriteObjectInstructionList
 CMP #$0100 : BEQ .Missile
 CMP #$0200 : BNE .NotSuperMissile
-LDX #$001D ; super missile explosion
-LDA #$0014 : STA $183E ; super missile earthquake type
-LDA.w #31 : STA $1840 ; super missile earthquake duration (just 1 frame longer so all creepy crawlies fall)
+;LDX #$001D ; super missile explosion
+; zahav no earthquake
+;LDA #$0014 : STA $183E ; super missile earthquake type
+;LDA.w #31 : STA $1840 ; super missile earthquake duration (just 1 frame longer so all creepy crawlies fall)
 .Missile
 LDA #$0007 ; missile explosion sound
 .PlaySound
@@ -126,14 +127,12 @@ org $828B4B : BRA + : org $828B54 : + ; skip debug handler
 
 ; Allows using an instruction list pointer as sprite object ID
 
-!SpriteObjectTable = $BDA8
-
 org $B4BC40
 TDC : STA $7EF078,x : STA $7EF178,x : STA $7EF278,x : STA $7EF2F8,x
 LDA $12 : STA $7EF0F8,x
 LDA $14 : STA $7EF1F8,x
 LDA $18 : STA $7EF078,x
 LDA $16 : BMI +
-ASL : TAY : LDA.w !SpriteObjectTable,y
+ASL : TAY : LDA.w !SpriteObjectPointer,y
 +
 STA $7EEF78,x

@@ -57,5 +57,7 @@ org $A0BAB1 ; change where bt's drops are
 AND #$00FF : CLC : ADC #$0080
 
 ; Adjust Golden Torizo's health thresholds
-org $AAD474 : LDA.w #8192/7
-org $AAD49B : LDA.w #8192*4/5
+org $AAD474 : LDA.w #3208/7
+org $AAD49B : LDA.w #3208*4/5
+
+org $86B00E : JSL $808111 ; fix golden torizo egg hatch timer (see https://patrickjohnston.org/bank/86#B001)

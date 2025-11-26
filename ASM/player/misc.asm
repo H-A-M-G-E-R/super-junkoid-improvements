@@ -11,10 +11,10 @@ org $91E749 ; Update Samus pose due to change of equipment - standing
 BIT #$0080
 org $91E75F
 BIT #$0080
-;org $91E7AB ; Update Samus pose due to change of equipment - spin jumping (rewritten in "spinjump.asm")
-;BIT #$0040
-;org $91E7BA
-;BIT #$0040
+org $91E7AB ; Update Samus pose due to change of equipment - spin jumping (rewritten in "spinjump.asm")
+BIT #$0040
+org $91E7BA
+BIT #$0040
 org $91E840 ; Update Samus pose due to change of equipment - morph ball
 BRA $00
 org $91E867 ; Update Samus pose due to change of equipment - spring ball

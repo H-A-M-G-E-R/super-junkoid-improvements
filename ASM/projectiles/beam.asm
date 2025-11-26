@@ -98,23 +98,23 @@ dw $0016 ; 9: Plasma + wave
 dw $0014 ; Ah: Plasma + ice
 dw $0015 ; Bh: Plasma + ice + wave
 
-org $90B8D0		;hi-jack
-	JMP $F740	;free space
+;org $90B8D0		;hi-jack
+;	JMP $F740	;free space
 
-org $90F740		;new code here
-	LDA $09A6
-	BIT #$1000	;normally, charge won't be equiped unless you have it
-	BNE Charge	;if charge is equiped, go there
-	LDA $09D2 : DEC : BEQ + ;if missiles selected, fire charged shot and consumes a missile. if not, fire uncharged shot
-	LDA $09A6
-	JMP $B8D3	;back to original code
-	+
-	DEC $09C6   ;decrement missiles by 1
-	BNE Charge
-	-
-	STZ $09D2   ;deselect missiles
-	STZ $0A04
-Charge:
-	LDA $0A04
-	BNE -		;auto-cancel
-	JMP $B9C7   ;CHARGE BEAM YES
+;org $90F740		;new code here
+;	LDA $09A6
+;	BIT #$1000	;normally, charge won't be equiped unless you have it
+;	BNE Charge	;if charge is equiped, go there
+;	LDA $09D2 : DEC : BEQ + ;if missiles selected, fire charged shot and consumes a missile. if not, fire uncharged shot
+;	LDA $09A6
+;	JMP $B8D3	;back to original code
+;	+
+;	DEC $09C6   ;decrement missiles by 1
+;	BNE Charge
+;	-
+;	STZ $09D2   ;deselect missiles
+;	STZ $0A04
+;Charge:
+;	LDA $0A04
+;	BNE -		;auto-cancel
+;	JMP $B9C7   ;CHARGE BEAM YES

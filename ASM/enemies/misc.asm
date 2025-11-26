@@ -40,3 +40,16 @@ SyncSnowmanFlashingAndStun:
 LDA $0F9C,x : STA $0FDC,x : STA $101C,x ; sync flashing
 LDA $0F8A,x : STA $0FCA,x : STA $100A,x ; sync stunned AI handler
 LDA $0F9E,x : RTS ; restore from hijack
+
+;;; Botwoon ;;;
+; botwoon can spit below half health
+org $B398BB : BRA + : org $B398C1 : +
+; set botwoon speed when spitting
+org $B39916 : JSR +
+org $B39675 ; overwrite unused data
++
+JSR $995D : LDA #$99E4 : RTS
+
+; restore botwoon speedup
+org $B3997F : LDA #$0001
+org $B39988 : LDA #$0002

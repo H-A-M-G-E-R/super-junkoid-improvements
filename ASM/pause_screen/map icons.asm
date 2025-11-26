@@ -14,7 +14,7 @@ dw $0001, $0001 : db $FF : dw $208E
 ; Debug elevator icon
 dw $0001, $0000 : db $FF : dw $208F
 ; ?
-dw $0001, $0000 : db $FF : dw $20B8
+dw $0001, $0000 : db $FF : dw $2098
 org $82CF7C
 ; Map cursor
 dw $0004, $0004 : db $03 : dw $EEAF,

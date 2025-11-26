@@ -7,9 +7,9 @@
 lorom
 
 ;freespace  pointers
-!UniversalbankFreespace = $80E100 ; place this in any bank, if you have many rooms in your hack, make sure there's a lot of space
+!UniversalbankFreespace = $82FC60 ; place this in any bank, if you have many rooms in your hack, make sure there's a lot of space
 !Bank80Freespace = $80E030 ; freespace in $80, doesn't need much
-!Bank82Freespace = $82FD00 ; freespace in $82, doesn't need much
+!Bank82Freespace = $82FC30 ; freespace in $82, doesn't need much
 
 
 ;hijacks
@@ -76,7 +76,7 @@ draw:
   STA $D2,x
   LDA #$7EDF
   STA $D3,x
-  LDA #$5805
+  LDA #$5800
   STA $D5,x
   TXA
   CLC
