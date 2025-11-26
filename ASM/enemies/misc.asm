@@ -41,6 +41,22 @@ LDA $0F9C,x : STA $0FDC,x : STA $101C,x ; sync flashing
 LDA $0F8A,x : STA $0FCA,x : STA $100A,x ; sync stunned AI handler
 LDA $0F9E,x : RTS ; restore from hijack
 
+HyperBeamWeaknessCheck: ; ignore weaknesses for hyper beam so i can murder the pumpkin
+LDA $12 : AND #$000F : CMP #$0007 : BNE .merge ; projectile type
+.hyper
+LDA $0E32 : AND #$007F : ORA #$0002 : STA $0E32
+.merge
+LDA $187A : LSR : JML $A0A74E
+
+HyperBeamWeaknessCheck2:
+LDA $B40000,x : AND #$00FF : CMP #$00FF : BEQ .freezeDontKill
+JML $A0A716
+.freezeDontKill
+LDA $12 : AND #$000F : CMP #$0007 : BEQ .hyper ; projectile type
+LDA #$00FF : JML $A0A716
+.hyper
+LDA #$0002 : JML $A0A716
+
 ;;; Botwoon ;;;
 ; botwoon can spit below half health
 org $B398BB : BRA + : org $B398C1 : +
@@ -53,3 +69,12 @@ JSR $995D : LDA #$99E4 : RTS
 ; restore botwoon speedup
 org $B3997F : LDA #$0001
 org $B39988 : LDA #$0002
+
+; spazer is plasma (for hyper)
+org $A09CCB : AND #$000C ; extended spritemap
+org $A0A202 : BIT #$000C ; non-extended spritemap
+org $84F18E : BIT #$000C ; plasma block
+
+org $A0A74A : JML HyperBeamWeaknessCheck
+org $A0A712 : JML HyperBeamWeaknessCheck2
+org $A0A745 : BEQ $00

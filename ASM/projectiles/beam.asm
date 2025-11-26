@@ -118,3 +118,51 @@ dw $0015 ; Bh: Plasma + ice + wave
 ;	LDA $0A04
 ;	BNE -		;auto-cancel
 ;	JMP $B9C7   ;CHARGE BEAM YES
+
+org $93F62C
+MultiplyDamageFromMeteorShards:
+{
+; check projectile type (beam or bomb)
+LDA $0C18,x : AND #$0F00 : BEQ +
+CMP #$0500 : BNE .no
++
+LDA $0000,y : STA $26 ; projectile damage
+LDA $09D8 : AND #$000F : CLC : ADC #$0004 : STA $28 ; number of meteor shards + 4
+JSL $A0B6FF ; 16-bit multiplication
+LDA $2A : LSR : LSR : RTS ; / 4
+
+.no
+LDA $0000,y : RTS
+}
+
+; Bomb damage scales depending on beams equipped, including hyper beam. It's set to half the charged beam damage. Vulnerabilities remain unchanged.
+SetBombDamage:
+{
+LDA $0C18,x : AND #$0F00 : CMP #$0500 : BNE .NotBomb ; If bomb:
+LDA $09A6 : AND #$000F : ASL : TAY ; equipped beams
+LDA $83D9,y : TAY : JSR MultiplyDamageFromMeteorShards : LSR ; charged beam damage / 2
+LDY $0A76 : BEQ .NoHyper : LDA $83BF : LSR : .NoHyper ; If hyper: bomb damage = half of hyper beam damage
+STA $0C2C,x ; Else: bomb damage = half of charged beam damage
+.NotBomb : PLB : PLP : RTL
+}
+
+SetHyperBeamTrailTimer:
+{
+LDA #$0004 : STA $0C90,x ; trail timer
+JML $938000 ; restore from hijack
+}
+
+org $9380CC : JMP SetBombDamage
+
+org $90BCF9 : LDA #$9017 ; hyper beam type
+org $90BD35 : LDA #$0007 ; hyper beam fire rate
+org $90BD29 : LDA #$B0F1 ; hyper beam pre-instruction (spawn trail, don't delete if flagged for deletion)
+
+org $90BD0F : JSL SetHyperBeamTrailTimer
+
+org 4*$7+$90C2D1 ; fast beam
+dw $0A00,round($0A00*2/3, 0)
+
+if defined("spritesomething")
+  org $91E5F0 : LDA #$1007 ; let me freeze enemies with the hyper beam
+endif

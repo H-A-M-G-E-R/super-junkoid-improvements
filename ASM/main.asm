@@ -94,6 +94,8 @@ org $E4F058 : incbin "music/Another_Medium.nspc"
 org $DAE2DE : incbin "music/CORE.nspc"
 org read3($BAA171+$2A) : incbin "music/gargoyle_vanilla.nspc"
 org read3($BAA171+$6C) : incbin "music/twin_vulcan_vanilla.nspc"
+org read3($BAA171+$72) : incbin "music/be_menaced_by_orn_vanilla.nspc"
+org read3($BAA171+$75) : incbin "music/hbiuwd_vanilla.nspc"
 check bankcross full
 
 org $A9F29A : LDA #$0000 ; no crashy when shitroid stops draining you
