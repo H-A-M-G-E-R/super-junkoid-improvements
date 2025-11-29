@@ -57,6 +57,9 @@ LDA #$00FF : JML $A0A716
 .hyper
 LDA #$0002 : JML $A0A716
 
+;;; Metroid ;;;
+org $A3EF8C : LDA.w #30 ; metroids get stunned by bombs for longer, making them less annoying
+
 ;;; Botwoon ;;;
 ; botwoon can spit below half health
 org $B398BB : BRA + : org $B398C1 : +

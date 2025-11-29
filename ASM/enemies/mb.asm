@@ -72,7 +72,7 @@ LDA #$B32A : STA $0FA8
 STZ $0FF0 : STZ $0FF2
 
 ; debug
-org $A98D67 : LDA.w #1
-org $A9B60A : LDA #$AEE1 : STA $0FA8 : JMP $AEE1
+;org $A98D67 : LDA.w #1
+;org $A9B60A : LDA #$AEE1 : STA $0FA8 : JMP $AEE1
 ;org $A98D67 : LDA.w #26000
 ;org $A9B60A : LDA #$B8EB : STA $0FA8 : JMP $B8EB
