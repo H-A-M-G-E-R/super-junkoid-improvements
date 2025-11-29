@@ -7,6 +7,7 @@ incsrc "ASM/controller options scroll fix 1.1.asm"
 incsrc "ASM/faster nintendo logo + spc echo improvements.asm"
 incsrc "ASM/faster startup.asm"
 incsrc "ASM/ice castle haze.asm"
+incsrc "ASM/intro_skip.asm"
 incsrc "ASM/item fanfare skip without sound.asm"
 ;incsrc "ASM/misc.asm"
 incsrc "ASM/RNG.asm"
@@ -17,9 +18,9 @@ incsrc "ASM/upload to apu space optimization.asm"
 incsrc "ASM/water fix.asm"
 
 ; Player
+incsrc "ASM/player/acid_immunity.asm"
 incsrc "ASM/player/always draw atmospheric effects.asm"
 incsrc "ASM/player/draw speedboost echo fix.asm"
-;incsrc "ASM/player/dreamer's crown.asm"
 ;incsrc "ASM/player/fix y offsets.asm"
 ;incsrc "ASM/player/footsteps.asm"
 ;incsrc "ASM/player/ITEMWavedash.asm"
@@ -29,7 +30,6 @@ incsrc "ASM/player/remove springball lock.asm"
 ;incsrc "ASM/player/sparksuit.asm"
 incsrc "ASM/player/speed_booster_vertical_momentum_fix.asm" ; already did for normal jumps but not for walljumps
 ;incsrc "ASM/player/spinjump.asm"
-;incsrc "ASM/player/VariaGravityPickupFix.asm"
 
 incsrc "ASM/player/misc.asm"
 
@@ -45,6 +45,7 @@ incsrc "ASM/enemies/enemy touch ai rewrite.asm"
 ; Normal enemies
 incsrc "ASM/enemies/ghosts face towards you.asm"
 incsrc "ASM/enemies/fireflea touch ai fix.asm"
+incsrc "ASM/enemies/ninja_junko.asm"
 incsrc "ASM/enemies/shaktool.asm"
 
 ; Bosses
@@ -59,7 +60,6 @@ incsrc "ASM/enemies/misc.asm"
 
 ; Projectiles
 incsrc "ASM/projectiles/beam.asm"
-;incsrc "ASM/projectiles/bomb damage scale.asm" todo check
 incsrc "ASM/projectiles/Charge flare optimization.asm"
 incsrc "ASM/projectiles/update projectiles in door transitions.asm"
 
@@ -96,7 +96,10 @@ org read3($BAA171+$2A) : incbin "music/gargoyle_vanilla.nspc"
 org read3($BAA171+$6C) : incbin "music/twin_vulcan_vanilla.nspc"
 org read3($BAA171+$72) : incbin "music/be_menaced_by_orn_vanilla.nspc"
 org read3($BAA171+$75) : incbin "music/hbiuwd_vanilla.nspc"
+; $78 is credits song
 check bankcross full
+
+org $8BDE33 : BRA + : org $8BDE41 : + ; for some reason loading this song crashes possibly because i replaced other music
 
 org $A9F29A : LDA #$0000 ; no crashy when shitroid stops draining you
 

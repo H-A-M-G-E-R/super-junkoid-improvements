@@ -38,10 +38,10 @@ LDA $0B78,y : STA $14
 STZ $18
 LDA $0C18,y : AND #$0F00 : BNE .NotBeam
 LDA $0C04,y : AND #$000F : ASL : TAX : JSR (BeamOffsetPointers,x)
-LDX #BeamExplosionSpriteObjectInstructionList
+LDX #BeamExplosionSpriteObject
 LDA #$000C : BRA .PlaySound ; beam explosion sound
 .NotBeam
-LDX #MissileExplosionSpriteObjectInstructionList
+LDX #MissileExplosionSpriteObject
 CMP #$0100 : BEQ .Missile
 CMP #$0200 : BNE .NotSuperMissile
 ;LDX #$001D ; super missile explosion
@@ -86,35 +86,36 @@ LDA $0C04,y : AND #$000F : ASL : TAX : JSR (BeamOffsetPointers,x)
 JSL $B4BC26
 PLY : PLX : RTL
 
-BeamExplosionSpriteObjectInstructionList:
+BeamExplosionSpriteObject:
 dw $0003,$CAC9,
    $0003,$CAD7,
-   $0003,S1,
-   $0003,S2,
-   $0003,S3,
-   $0003,S4,
+   $0003,.S1,
+   $0003,.S2,
+   $0003,.S3,
+   $0003,.S4,
    $BD07
-S1:
+.S1
 dw $0004, $0000 : db $00 : dw $FC60,
           $0000 : db $F8 : dw $7C60,
 		  $01F8 : db $00 : dw $BC60,
 		  $01F8 : db $F8 : dw $3C60
-S2:
+.S2
 dw $0004, $0000 : db $00 : dw $FC61,
           $0000 : db $F8 : dw $7C61,
 		  $01F8 : db $00 : dw $BC61,
 		  $01F8 : db $F8 : dw $3C61
-S3:
+.S3
 dw $0004, $0000 : db $00 : dw $FC62,
           $0000 : db $F8 : dw $7C62,
 		  $01F8 : db $00 : dw $BC62,
 		  $01F8 : db $F8 : dw $3C62
-S4:
+.S4
 dw $0004, $0000 : db $00 : dw $FC63,
           $0000 : db $F8 : dw $7C63,
 		  $01F8 : db $00 : dw $BC63,
 		  $01F8 : db $F8 : dw $3C63
-MissileExplosionSpriteObjectInstructionList:
+
+MissileExplosionSpriteObject:
 dw $0003,$CBC0,
    $0003,$CBC7,
    $0003,$CBDD,
@@ -122,6 +123,21 @@ dw $0003,$CBC0,
    $0003,$CC09,
    $0003,$CC1F,
    $BD07
+
+WaterFootstepSpriteObject:
+dw $0003,.S1,
+   $0003,.S2,
+   $0003,.S3,
+   $0003,.S4,
+   $BD07
+.S1
+dw $0001, $01FC : db $FC : dw $2A2C
+.S2
+dw $0001, $01FC : db $FC : dw $2A2D
+.S3
+dw $0001, $01FC : db $FC : dw $2A2E
+.S4
+dw $0001, $01FC : db $FC : dw $2A2F
 
 org $828B4B : BRA + : org $828B54 : + ; skip debug handler
 

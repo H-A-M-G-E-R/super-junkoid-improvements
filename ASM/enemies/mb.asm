@@ -50,8 +50,29 @@ LDA #$0016 : JSL $80914D : RTS ; restore mb's footstep sfx
 org $A9B4F2 : SEC : RTS ; let me spark mother brain lol, wait she's immune to it lol
 
 ; fast intro
-org $A988CD : JMP $8C02
+org $A988B5
+BPL +
+
+org $A988CB
+BCC +
+JMP $8C02
++
+RTS
+
 org $A98C30 : RTS
 org $A98D73 : LDA #$0001
 org $A98D85 : LDA #$0001
 org $A98DAE : LDA #$0001
+
+; mother brain sets main boss bit
+org $A9B30F
+LDA #$0001 : JSL $8081A6
+LDA #$000E : JSL $8081FA
+LDA #$B32A : STA $0FA8
+STZ $0FF0 : STZ $0FF2
+
+; debug
+org $A98D67 : LDA.w #1
+org $A9B60A : LDA #$AEE1 : STA $0FA8 : JMP $AEE1
+;org $A98D67 : LDA.w #26000
+;org $A9B60A : LDA #$B8EB : STA $0FA8 : JMP $B8EB
