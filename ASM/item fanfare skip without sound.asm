@@ -1,8 +1,8 @@
 lorom
 
 org $85846F
-BRA +
-org $8584A3
+LDX #$000A : BRA +
+org $858493
 +
 
 org $848BDD : INY : RTS

@@ -12,7 +12,6 @@ incsrc "ASM/item fanfare skip without sound.asm"
 ;incsrc "ASM/misc.asm"
 incsrc "ASM/RNG.asm"
 ;incsrc "ASM/room header edits.asm"
-;incsrc "ASM/skip to crateria.asm" ; Skips the intro monologue written by the snake reading Junko's mind
 incsrc "ASM/transfer samus tiles optimization + animated tiles fix.asm"
 incsrc "ASM/upload to apu space optimization.asm"
 incsrc "ASM/water fix.asm"
@@ -41,12 +40,16 @@ incsrc "ASM/enemies/enemy projectile-projectile collision.asm"
 incsrc "ASM/enemies/enemy spritemaps.asm"
 incsrc "ASM/enemies/enemy tile loading rewrite 1.03.asm"
 incsrc "ASM/enemies/enemy touch ai rewrite.asm"
+incsrc "ASM/enemies/oam_drawing.asm"
+
+incsrc "ASM/enemies/enemy_projectile_spritemaps.asm"
 
 ; Normal enemies
 incsrc "ASM/enemies/ghosts face towards you.asm"
 incsrc "ASM/enemies/fireflea touch ai fix.asm"
 incsrc "ASM/enemies/ninja_junko.asm"
 incsrc "ASM/enemies/shaktool.asm"
+incsrc "ASM/enemies/slasher_sisters.asm"
 
 ; Bosses
 incsrc "ASM/enemies/draygon.asm"
@@ -68,7 +71,7 @@ incsrc "ASM/projectiles/misc.asm"
 ; HUD
 incsrc "ASM/hud/minimap.asm"
 incsrc "ASM/hud/Room names.asm"
-;incsrc "ASM/hud/transparent hud kinda.asm" not working
+incsrc "ASM/hud/transparent hud kinda.asm"
 
 ; Pause screen
 incsrc "ASM/pause_screen/Instant Unpause (SRAM Expansion).asm"

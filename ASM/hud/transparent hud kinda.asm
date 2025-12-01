@@ -17,9 +17,9 @@ LDA $70 : STA $2130
 LDA $73 : AND #$FB : STA $2131
 LDA $6A : ORA #$04 : STA $212C
 REP #$20
-LDA #$0006 : LDY #$001F : LDX #$0098 : RTS
+LDA #$0006 : LDY #$001F : LDX #$0078 : RTS ; compatibility with tundain's fx-compatible message boxes
 
-org $809616+4 : dw InterruptCommand4
+org $80D280+4 : dw InterruptCommand4
 
 org $80988B
 !a = $80988B

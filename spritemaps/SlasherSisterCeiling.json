@@ -1,0 +1,704 @@
+{
+ "game": "sm",
+ "name": "SlasherSisterCeiling",
+ "gfx": "AQECAhAfID9xX7/qn/+A/wABAAIAHwA/AH8A/wD/AP+EhAYGCMjQ/OC8jH4e/2rrBIQGBgjIEPAg8AD8AP4E/gAAAAAAAAAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAABAAABAQAAAAACAAEAICAA/AAAAQEAAAAAAAAAAAAgAPwAAEBAwICAgNCAoICAgBAAAABAQICAgICAgIDAgOAAIAAAAAAAAAAAAAABAQIDBwUAAAAAAAAAAAAAAAEAAwAHCAgYGAQEAwIhIQD8Df4e+QgIGBgEBAICASEA/AD/AP8AAAAAAAAAAACAwADggPDAAAAAAAAAAIAAAAAAAIAAwAYHBgcDAwICAAIBBwEJAQkABwAHBAcBAwABAAAABgAWh5jO0UBfAACA0ADmwMDA2F/gHqCfoMH/Di8AGQA/BCdgAGCgICBAQAAAwMBAQDAwAIAAIMDggMCAgAAAAIAAwAAAAAA4dEp2w7/n30t/fHwAAAAAQAAwADAAAAAEAAAAAAAAADg0WmbTr4P/S398fAAAAAAAACAAIABkAAQAAAAAAAAAABhmfuOf599Pf3x8AAAAABgAGAAYABAAMAAAAAAAMDBISEhIMDAAAAAAAAAAADAwSEhISDAwAAAAAAAAAAAYGCQkQkJCQiQkGBgAAAAAGBgkJEJCQkIkJBgYAACA/KD4qPhoeWx9NDUgYGD1A/8E/wT/BX4Bekl6HD8ACgQHACIwRmKe8goE9AQEEwMI/OQceIDgAvwG+AwA+NDsAgMHBQsOCQ8IDwgPCg8KDwADAAcADwAPAA8ADwAPAA8N/h75+Kfx/wb+AMAAgoOEAP8A/wD/AP8A/zD/TvFH+IiAyMDEwOTgpKhgaCA4ADAAkADAAMgA6EDggPBA4MBACw4JDwgPCA8KDwoPBgcGBwAPAA8ADwAPAA8ADwAHAAf4p/H/Bv4AwACCg4SHmM/QAP8A/wD/MP9O8Uf4X+AeoNDg0OCQoHBAIAAgAGAA4CAAwADAQMCAwEDAwEAAgAAgAwMCAgADAQcBCQQcAWELSwQHAQMAAAAAAAYAAwAeADRAXwAAAPAg5gDAXNw3N29vn6DB/w4PABkAPwAjAMgAkCAgQEAAAMDAQEA4ODw839/A4IDAgIAAAACAAMAAwAAgAAA8PEJCQkJCQkJCPDwAAAAAPDxCQkJCQkJCQjw8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+ "palette": [
+  4281876480,
+  4290250776,
+  4285005824,
+  4282390528,
+  4280811520,
+  4290291848,
+  4289751152,
+  4288170048,
+  4287117376,
+  4286087352,
+  4281878632,
+  4279775288,
+  4278720552,
+  4290820272,
+  4285558896,
+  4278253696
+ ],
+ "gfx_offset": 256,
+ "palette_offset": 0,
+ "spritemaps": [
+  {
+   "name": "SlasherSisterCeilingSpritemap_Idle0",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": -12,
+     "y": -12,
+     "big": false,
+     "tile": 267,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": 0,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": 4,
+     "y": -12,
+     "big": false,
+     "tile": 267,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -8,
+     "y": -7,
+     "big": true,
+     "tile": 256,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "SlasherSisterCeilingSpritemap_Idle1",
+   "spritemap": [
+    {
+     "x": 0,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": 4,
+     "y": -13,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -8,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": -12,
+     "y": -12,
+     "big": false,
+     "tile": 267,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": -8,
+     "y": -8,
+     "big": true,
+     "tile": 256,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "SlasherSisterCeilingSpritemap_Idle2",
+   "spritemap": [
+    {
+     "x": -2,
+     "y": -13,
+     "big": false,
+     "tile": 269,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": 4,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -8,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": -12,
+     "y": -12,
+     "big": false,
+     "tile": 267,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": -8,
+     "y": -8,
+     "big": true,
+     "tile": 256,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "SlasherSisterCeilingSpritemap_Idle3",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -13,
+     "big": false,
+     "tile": 267,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": -2,
+     "y": -12,
+     "big": false,
+     "tile": 269,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": 4,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -12,
+     "y": -12,
+     "big": false,
+     "tile": 267,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": -8,
+     "y": -9,
+     "big": true,
+     "tile": 256,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "SlasherSisterCeilingSpritemap_Idle4",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -12,
+     "big": false,
+     "tile": 267,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": -12,
+     "y": -13,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": -2,
+     "y": -12,
+     "big": false,
+     "tile": 269,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": 4,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -8,
+     "y": -9,
+     "big": true,
+     "tile": 256,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "SlasherSisterCeilingSpritemap_Idle5",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -13,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": -12,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": -2,
+     "y": -12,
+     "big": false,
+     "tile": 269,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": 4,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -8,
+     "y": -8,
+     "big": true,
+     "tile": 256,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "SlasherSisterCeilingSpritemap_Idle6",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": -12,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": 0,
+     "y": -13,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": 4,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -8,
+     "y": -8,
+     "big": true,
+     "tile": 256,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "SlasherSisterCeilingSpritemap_Idle7",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": -12,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": 0,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": 4,
+     "y": -13,
+     "big": false,
+     "tile": 267,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -8,
+     "y": -7,
+     "big": true,
+     "tile": 256,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "SlasherSisterCeilingSpritemap_Shooting0",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": -12,
+     "y": -12,
+     "big": false,
+     "tile": 267,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": 0,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": 4,
+     "y": -12,
+     "big": false,
+     "tile": 267,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -12,
+     "y": -10,
+     "big": false,
+     "tile": 266,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -4,
+     "y": -10,
+     "big": false,
+     "tile": 265,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": 4,
+     "y": -10,
+     "big": false,
+     "tile": 264,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -12,
+     "y": -2,
+     "big": true,
+     "tile": 259,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -4,
+     "y": -2,
+     "big": true,
+     "tile": 258,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "SlasherSisterCeilingSpritemap_Shooting1",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": -12,
+     "y": -12,
+     "big": false,
+     "tile": 267,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": 0,
+     "y": -12,
+     "big": false,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": 4,
+     "y": -12,
+     "big": false,
+     "tile": 267,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -12,
+     "y": -8,
+     "big": false,
+     "tile": 282,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -4,
+     "y": -8,
+     "big": false,
+     "tile": 281,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": 4,
+     "y": -8,
+     "big": false,
+     "tile": 280,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -12,
+     "y": 0,
+     "big": true,
+     "tile": 262,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -4,
+     "y": 0,
+     "big": true,
+     "tile": 261,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "SlasherSisterCeilingBulletSpritemap_0",
+   "spritemap": [
+    {
+     "x": -3,
+     "y": -3,
+     "big": false,
+     "tile": 270,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "SlasherSisterCeilingBulletSpritemap_1",
+   "spritemap": [
+    {
+     "x": -4,
+     "y": -4,
+     "big": false,
+     "tile": 271,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "SlasherSisterCeilingBulletSpritemap_2",
+   "spritemap": [
+    {
+     "x": -4,
+     "y": -4,
+     "big": false,
+     "tile": 283,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  }
+ ],
+ "ext_hitboxes": [],
+ "ext_spritemaps": []
+}
