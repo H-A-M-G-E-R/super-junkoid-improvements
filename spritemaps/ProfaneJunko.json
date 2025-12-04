@@ -1,0 +1,2079 @@
+{
+ "game": "sm",
+ "name": "ProfaneJunko",
+ "gfx": "AAAAAAAAADAAGAALAAQAAwAAAAAAcABMAGcAFAALABwAAAAADAwYHggeGH54HOQsAAAADAASAOEA4QCBAIIgEgAAAwMAAAAAAQEHBxgfID8AAAADAAAAAAABAQcAHwA/AAAAAICAgIAAAODgcPA8/AAAAAAAgACAAADg4BDwDPwAAAAAAAMAAwACAQKA4lCyAAAAAwAEAAQABQD04B3wDQAAAAAAAIAAAMAAQAAAAAAAAAAAAIAAQAAgAKAAQAAfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAAAAAAEAAwACAQCA4lCyAAAAAQACAAQABQD24B3wDQAAAAAAAIAAgAAAAAAAAAEAAACAAIAAQABAAIEAAQAeAAAAAAAAAAAAAACAAIAAgAAAAAAAAAAAAIAAQABAAEAAAAAAAQEBAQMDBAcLDAsMAAAAAAAAAAAAAAAAAAAAAAAA4OCw8BDwWLjYOMg42DgAAAAAAAAAAAAAAAAAAAAAAAAAAAAADw89P2B/T3BneAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAgMDAIODQMNAwAAAAAAAAAAAAAAAAAAAAAAAAQgAkABAACAAkAEIAAAAAAAAAAAAAAAAAAAAAAAAAAABCACQAEAAIACQAQgAAAAAAAAAAAAAAAAAAAAAAAAAJHwU6HjcZCWcgTgFcGhoWCSALQB9AGWZlGEsQXgEeAUBYoLCuvklvQ32H8Y7AnYBApABMhkABkAGAAQgAMQFiAAAAAAAAgIBAwECAgAAAAAAAAAAAAIAAQABAIIBAAIAAAEIAJAAQAAgAJABCAAAAAAAAAAAAAAAAAAAAAAAAACzsxMQQDg0CAAAAAAAAAADsEsQ7AOEAEAAPAAAAAAAAEA8gEIBggAAAAAAAAAAAAAAgAM8AEABgAIAAAAAAAAAA4AAgAAAAAAAAAAAAAAAAABAA0AAgAAAAAAAAAAAAACzsxMQQDg0CAAAAAAAAAADsEsQ7AOEAEAAPAAAAAAAAEA8gEIBggAAAAAAAAAAAAAAgAM8AEABgAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAsMCwwEBwMDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2DjQMCDgwMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7PAsMBAcDAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANAw0DAg4MDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABCACQAEAAIACQAQgAAAAAAAAAAAAAAAAAAAAAAAAAAAEIAJAAQAAgAJABCAAAAAAAAAAAAAAAAAAAAAAAAABAIGQkRAQAAAAAAAAAAAAAQAxkAEQgAAAAAAAAAAAAAGAAQABAODQIAAAAAAAAAAADkAC4AIQAQAA8AAAAAAAMAAAAACgxErBEBMgMyGukJAAAADwrxBBMB7gLMEsUJFgAAAAAAgICAgCAAIEgICJgAAACAgECAYABAANAIsAhkAAAAAAAAAAAAAQECgOJQsgAAAAAAAAABAAIA9OAd8A0AAAAAAADAMACYAAAAAAAAAAAAAADwAAgAZACYAAAAHwAAQgAkABAACAAkAEIAAAAAAAAAAAAAAAAAAAAAAAAAAABCACQAEAAIACQAQgAAAAAAAAAAAAAAAAAAAAAAAAAAAEIAJAAQAAgAJABCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQEBAQEBAAAAAAAAAAABAQEBAQEBAQAAUG+4x4T7gf6A7qLiwMDSwAB/gP+A/wD/AP8A/wD/kv8G/gf/B/uzTwH/g/9Lf2t/Av4B/wH/Af8A/wD/AP8A/wAAAAAAAAAAgICAgICAgIAAAAAAAAAAAICAgICAgICAGQYVAwAAAQMABw4OCA4YBwMACQgQECMgx8BOQQgBAAD9w39B/4P/BV+hH+IPcjc4/gB+APwA+gD+AP0AfYA/wNLd6O/Dw8DAwMDAwMBAgADAIOAQgzxAIUAhQCHAIYBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAECAwIBAAAAAAAAAAAAAAICAAIAAQIAAQAAAAAAAIgLEJ4E9EhJ8I9GNghIADAIdBBhBAtItsAABokItgBIKJggQAjICJhgUMDAAAAAAAhEIJwIMAhgYIDAAAAAAAAs7MTEEA4NAgAAAAAAAAAA7BLEOwDhABAADwAAAAAAABAPIBCAYIABAAcABAAAAAAAIADPABEAZgCIAAsABAAAAAAAgACAAIAAAAAAAAAAAACAAEAAQABAAIAAAAAAAAAAAEIAJAAQAAgAJABCAAAAAAAAAAAAAAAAAAAAAAAAAAAAQgAkABAACAAkAEIAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQAAAAAAAAAAAAMDBAEBAQEAAAAAAAAAAAMABwDA/97h7vGPj3p9jffOMz7hAMBAwODggIB4AP0A/wD/AENXQn7G/s7+HBwgJEBZwdoB/wL+Bv9MfRDzANsApkAkAAAMDBgeCB4Yfngc5CxA2AAOABMAIQDhAIEAgyATQCcYBAwABgACAQQCAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEWCTggGSAQIBAgEGAQAGAH6AEGAQYADwAAAAAAAAAAgEAAgACAAAAAAAAAAAAAAMAggECAQACAAAAAAAAAAAAAAAAAAAAAAAAAAwMAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAICAgIAAAAAAAAAAAAAAAAAAgACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAQEBAQEAAAEBAwMDAwEBAQEBAQEBAAABAQIDAgMBAYDuouLAwNLAwP/e4e7xj48A/wD/AP+S/wDAQMDg4ICAAf+D/0t/a39DV0J+xv7M/AD/AP8A/wD/Af8C/gb+THwAAEIAJAAQAAgAJABCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIEAwQCBgEDAAEAAgEAAwABAAAAAAAAAAAAAAAA3yEf4g8yBxgAAwwMgA6MAP4A/QA9wB/gA3wAEwABAAIEGgnVEIgAgAAAgIAAAAAACOHBIoBlgFkAgYABAIEAACOzr79Jb0N9h/GOwJyAODADTIdAAZABgAEIADEAYjDEAAAAAAAAAAAAAAEBAgMEBwAAAAAAAAAAAAAAAQADAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwABAAAAAAABAAECBAIAAwAMAAIAAQABAAIABAAJCgoPDIcEgwKAAIAAAQcKDQoVD5AHSANEAEMATwfYDzAAAAAAgIDAQACAgIDAwAAAAIAAwIBgwCCAYIBgQCAA4AEBDw8QHyA/UG+4x4T7gf4AAQAPAB8APwB/gP+A/wD/AADw8Aj4BPwC/gf/B/uzTwAAMPAI+AT8Av4B/wH/Af8AAAAAAAAAAAAAAAAAAAAAAAAQEA8PGBgAAAAAAAAAAB8ffhFpHgwfBwcAAAAAAQAfAB8Aj4APAAcAAAAAAQEC+v3tF84z/uF9Q39B/4P/BfgA/QD/AP8AfgB+APwA+gBAUDx87v7+/hwcICRAWcHSALxAghIDREUQ8wDbAKZALAAADAwYHggeGH54HOQsQNgADgATACEA4QCBAIMgE0AnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAwAGAQAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAMABgEABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwMAgICAg/PwC/gH/AAAAAADAACAAIAT8Av4B/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABgADAAEAAAAAAAAAAAAKAAkABAACAAEAAAAAAAA0NyIiCHCwQAAAAAAAAAAAN0gi3QCHAAgA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYABgEAAwAAICBgYBAQCAgAAAAAAQAKDRcYEB8wPzA9NDy4+Po4AA8QHxAfID8gPyA/4D/yPwD/AP+AfzbJAN9QXwkPTQ8A/wD/AP8A/wD/AP8A/0D/gIDAwOBgYOAg4GDgYOBg4ICAQMAg4CDgAOAA4ADgAOAPCA8IHxA/ID8gV2ghPtBfDwAPAB8APwA/QH+AP8AfIKJi5CToa/i65CH9Uvpd3DzCH8AbgBRIBcEaogCgAOADAAAMDBgeCB4Yfngc5CxAWAAOABMAIQDhAIEAgyATQKcAAEIAJAAQAAgAJABCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMDDA8QHwAAAAAAAAAAAAAAAwAPAB8DAwEBAAAAAAAAAAAAAAAAAgMBAQAAAAAAAAAAAAAAAOD/7/B3eEdHDQ4WGyc5LzCA4KDgcHBAQAwAHgA/AD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEEBQIuCCYLZxtXH1Mdmz+5AToAUQBRA5AToBOgGWA5QAAAAAAAAAAAAAAAAAAAAAAAAQABAAEAAQAAAAAAAAAA6AdAvgX0B8iwj0I+CUkFNgAQAAEFCgMwgEACgQm2BEgDAwMDAAAAAAAAAAAAAAAAAwADAAAAAAAAAAAAAAAAAHi/e7z9nn9TPyEXCBkWDwzgOOg4/Bx+ED8AHwAfAA8ACOrIL9g/+f9Iqq7uyHzcPAAfAB8AHwkPABegEfQC6Apg4EDAwMCAgAAAAAAAAAAAIOBAwMDAgIAAgAAAAAAAAKxvwCFmBjEHMAdkEkQiBgAPEAEeAAkAAAAAAAAAAAAABvYB4QDAAAAAAAAAAAAAAPAJ4RbAIQDBAIEAAQABAACjs6+/SW9DfYfxjsCcgDgwA0yHQAGQAYABCAAxAGIwxAYADAIADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEDAwAAAAAAAAAAAAAAAAEBAgMoN1xjQ3zA/8D30fHg4OTgAD9Af0B/gP+A/4D/AP8E/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAX3BfcH9gf0BXaEd4Q1xtbn8AfwB/AH8AfwB/AF8gbxAAAAAAAAAAAAAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAD+/ENAKTESsEQE6AzIKbwg/QBAvCrEEEwHuAsQCxQuQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFNgQ/AxsADQAFAAQABAAABEgEQAMkABIACgALAAoADAAAAAACBgAADwgWGiE5IDMAAAAHAgkAHwgQFgEgBiAMAAAAAMDAENCkZBZ0grKEuAAAAMDAMBAsBBoGiQJNAEIAAAAAAAABARwcIC4BAA0YAAAAAAAPAR4cIyARAH4YYgAAAAAAAODgEHAwBAC0AJQAAAAAAADgGBCMIMoASgBqAAAAAAAAAQMAAAcECw0IDQAAAAAAAwEEAA8ECAsACAIAAAAAAACAgCCgKOgM+AT0AAAAAACAgGAgWCgUDAIECgAAAAAAAAAAAAAAAAAeYgUAAAAAAAAAAAAAAB8C4QOYAAAAAAAAAAAAAAwABojGCAAAAAAAAAAAABwA0oBxADEAAAAAAAAPMABwADAAHgIFAAAAAAA/AEAAjwBMAiEDGAAAAAAAAAAAAAAMAAaIxggAAAAAAAAAgAAcANKAcQAxAAAPMAAwAAwAFgIVARIADAA/AEAATwAyAikDKAEsABMAAAAAgAAAAAAADAAGiMYIAIAAgABAAIAAHADSgHEAMQAADBACEAAMAAYCBQECAAAAPAAiAC0AEgIZAwgBDAAHAAAAAAAAAAAAAAwABojGCAAAAAAAAAAAABwA0oBxADEAAAEAAwAAAwACAgEBAgAAAAEAAgAEAAQCBQMEAQQABwAAgADAAABAAMAMAAaIxggAgABAACAAoAA8ANKAcQAxIjQADA0EBwgMCwQEAAAAACAJADMAMgAwCBAECwADAAAkWCzACMAgtFAwYCAAAAAAAIIAEgA0IEhQiGCQAOAAAAUGMgMoOBAZBwEDCAAAAAAEeDJMKEcQJgEYAAQAAwAAgEzUNNAwiEgAgLAwYEAAAAAyFAoQDAg0AHgwSGCQAGAAAgQGBAYEBAICAAAAAAAAAB0EGQQZBAsCBQABAAAAANiAEABAaKBgwEAAAAAAAACAJADoQJCgEMAgAMAAAAAAPgABAAEMBggEAwEIAwQAAADBAH4EEgYRAwgAFgAIAAfmCL5cfOB83Lzg+NgwAAAAABEAAQADAAIAAgAGAMwAeAYAAQABDAYIBAMBCAMEAAAACQAeBBIGEQMIABYACAAH5gi+XHzgfNy84PjYMAAAAAARAAEAAwACAAIABgDMAHgGAAEAAQwGCAQDAQgDBAAAAAkAHgQSBhEDCAAWAAgAB+YIvlx84HzcvOD42DAAAAAAEQABAAMAAgACAAYAzAB4BgABAAEMBggEAwEIAwQAAAAJAB4EEgYRAwgAFgAIAAfmCL5cfOB83Lzg+NgwAAAAABEAAQADAAIAAgAGAMwAeAYAAQABDAYIBAMBCAMEAAAACQAeBBIGEQMIABYACAAH5gi+XHzgfNy84PjYMAAAAAARAAEAAwACAAIABgDMAHg=",
+ "palette": [
+  4282122300,
+  4294494376,
+  4290279544,
+  4282914824,
+  4278190328,
+  4291821568,
+  4285532160,
+  4282908672,
+  4280287232,
+  4285567160,
+  4281354344,
+  4280297552,
+  4278253664,
+  4294506496,
+  4289214464,
+  4279769112
+ ],
+ "gfx_offset": 256,
+ "palette_offset": 0,
+ "spritemaps": [
+  {
+   "name": "ProfaneJunkoSpritemap_0_A6EC5B",
+   "spritemap": [
+    {
+     "x": -12,
+     "y": 2,
+     "big": true,
+     "tile": 302,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -20,
+     "y": 2,
+     "big": true,
+     "tile": 301,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -4,
+     "y": -14,
+     "big": true,
+     "tile": 299,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -20,
+     "y": -14,
+     "big": true,
+     "tile": 297,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -4,
+     "y": -22,
+     "big": false,
+     "tile": 259,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -12,
+     "y": -22,
+     "big": false,
+     "tile": 258,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoSpritemap_1_A6EC99",
+   "spritemap": [
+    {
+     "x": 6,
+     "y": -8,
+     "big": false,
+     "tile": 342,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -2,
+     "y": 0,
+     "big": true,
+     "tile": 329,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -10,
+     "y": -16,
+     "big": true,
+     "tile": 324,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -18,
+     "y": 0,
+     "big": true,
+     "tile": 327,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -26,
+     "y": -16,
+     "big": true,
+     "tile": 322,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -10,
+     "y": -32,
+     "big": true,
+     "tile": 320,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoSpritemap_2_A6ECDC",
+   "spritemap": [
+    {
+     "x": 0,
+     "y": -35,
+     "big": false,
+     "tile": 347,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -8,
+     "y": 5,
+     "big": false,
+     "tile": 375,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": 0,
+     "y": -11,
+     "big": true,
+     "tile": 357,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": 0,
+     "y": -27,
+     "big": true,
+     "tile": 354,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -16,
+     "y": -27,
+     "big": true,
+     "tile": 352,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -8,
+     "y": -35,
+     "big": false,
+     "tile": 331,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -8,
+     "y": -11,
+     "big": true,
+     "tile": 356,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoSpritemap_3_A6ED29",
+   "spritemap": [
+    {
+     "x": -6,
+     "y": -1,
+     "big": true,
+     "tile": 334,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -22,
+     "y": -1,
+     "big": true,
+     "tile": 332,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoSpritemap_4_A6ED4E",
+   "spritemap": [
+    {
+     "x": -7,
+     "y": 11,
+     "big": true,
+     "tile": 334,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -23,
+     "y": 11,
+     "big": true,
+     "tile": 332,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoSpritemap_5_A6ED6E",
+   "spritemap": [
+    {
+     "x": -3,
+     "y": 19,
+     "big": true,
+     "tile": 334,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -19,
+     "y": 19,
+     "big": true,
+     "tile": 332,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoSpritemap_6_A6ED8E",
+   "spritemap": []
+  },
+  {
+   "name": "ProfaneJunkoSpritemap_7_A6ED95",
+   "spritemap": [
+    {
+     "x": -16,
+     "y": -8,
+     "big": true,
+     "tile": 288,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": 0,
+     "y": -8,
+     "big": true,
+     "tile": 290,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -2,
+     "y": 6,
+     "big": true,
+     "tile": 290,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": 0,
+     "y": -16,
+     "big": false,
+     "tile": 274,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -16,
+     "y": -24,
+     "big": true,
+     "tile": 256,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoSpritemap_8_A6EDB5",
+   "spritemap": [
+    {
+     "x": 0,
+     "y": 16,
+     "big": true,
+     "tile": 366,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "big": true,
+     "tile": 364,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 0,
+     "y": -16,
+     "big": true,
+     "tile": 362,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 0,
+     "y": -32,
+     "big": true,
+     "tile": 360,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": -16,
+     "y": 16,
+     "big": true,
+     "tile": 366,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -16,
+     "y": 0,
+     "big": true,
+     "tile": 364,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -16,
+     "y": -16,
+     "big": true,
+     "tile": 362,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -16,
+     "y": -32,
+     "big": true,
+     "tile": 360,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoSpritemap_9_A6EE57",
+   "spritemap": [
+    {
+     "x": -4,
+     "y": 2,
+     "big": true,
+     "tile": 302,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 4,
+     "y": 2,
+     "big": true,
+     "tile": 301,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": -12,
+     "y": -14,
+     "big": true,
+     "tile": 299,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 4,
+     "y": -14,
+     "big": true,
+     "tile": 297,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": -4,
+     "y": -22,
+     "big": false,
+     "tile": 259,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 4,
+     "y": -22,
+     "big": false,
+     "tile": 258,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoSpritemap_10_A6EE95",
+   "spritemap": [
+    {
+     "x": -14,
+     "y": -8,
+     "big": false,
+     "tile": 342,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": -14,
+     "y": 0,
+     "big": true,
+     "tile": 329,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": -6,
+     "y": -16,
+     "big": true,
+     "tile": 324,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 2,
+     "y": 0,
+     "big": true,
+     "tile": 327,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 10,
+     "y": -16,
+     "big": true,
+     "tile": 322,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": -6,
+     "y": -32,
+     "big": true,
+     "tile": 320,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoSpritemap_11_A6EED8",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -35,
+     "big": false,
+     "tile": 347,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 0,
+     "y": 5,
+     "big": false,
+     "tile": 375,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": -16,
+     "y": -11,
+     "big": true,
+     "tile": 357,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": -16,
+     "y": -27,
+     "big": true,
+     "tile": 354,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 0,
+     "y": -27,
+     "big": true,
+     "tile": 352,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 0,
+     "y": -35,
+     "big": false,
+     "tile": 331,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": -8,
+     "y": -11,
+     "big": true,
+     "tile": 356,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoSpritemap_12_A6EF25",
+   "spritemap": [
+    {
+     "x": -10,
+     "y": -1,
+     "big": true,
+     "tile": 334,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 6,
+     "y": -1,
+     "big": true,
+     "tile": 332,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoSpritemap_13_A6EF4A",
+   "spritemap": [
+    {
+     "x": -9,
+     "y": 11,
+     "big": true,
+     "tile": 334,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 7,
+     "y": 11,
+     "big": true,
+     "tile": 332,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoSpritemap_14_A6EF6A",
+   "spritemap": [
+    {
+     "x": -13,
+     "y": 19,
+     "big": true,
+     "tile": 334,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 3,
+     "y": 19,
+     "big": true,
+     "tile": 332,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoSpritemap_15_A6EF8A",
+   "spritemap": []
+  },
+  {
+   "name": "ProfaneJunkoSpritemap_16_A6EF91",
+   "spritemap": [
+    {
+     "x": 0,
+     "y": -8,
+     "big": true,
+     "tile": 288,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": -16,
+     "y": -8,
+     "big": true,
+     "tile": 290,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": -14,
+     "y": 6,
+     "big": true,
+     "tile": 290,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": -8,
+     "y": -16,
+     "big": false,
+     "tile": 274,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 0,
+     "y": -24,
+     "big": true,
+     "tile": 256,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailSpritemap_0_A6DC90",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -8,
+     "big": true,
+     "tile": 384,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailSpritemap_1_A6DC97",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -8,
+     "big": true,
+     "tile": 386,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailSpritemap_2_A6DC9E",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -8,
+     "big": true,
+     "tile": 388,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailSpritemap_3_A6DCA5",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -8,
+     "big": true,
+     "tile": 384,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailSpritemap_4_A6DCAC",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -8,
+     "big": true,
+     "tile": 386,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailSpritemap_5_A6DCB3",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -8,
+     "big": true,
+     "tile": 388,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_0_A6DCDA",
+   "spritemap": [
+    {
+     "x": -16,
+     "y": -8,
+     "big": true,
+     "tile": 390,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_1_A6DCE1",
+   "spritemap": [
+    {
+     "x": -16,
+     "y": -12,
+     "big": true,
+     "tile": 392,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_2_A6DCE8",
+   "spritemap": [
+    {
+     "x": -14,
+     "y": -13,
+     "big": true,
+     "tile": 394,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_3_A6DCEF",
+   "spritemap": [
+    {
+     "x": -12,
+     "y": -16,
+     "big": true,
+     "tile": 396,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_4_A6DCF6",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -16,
+     "big": true,
+     "tile": 398,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_5_A6DCFD",
+   "spritemap": [
+    {
+     "x": -4,
+     "y": -16,
+     "big": true,
+     "tile": 396,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_6_A6DD04",
+   "spritemap": [
+    {
+     "x": -2,
+     "y": -13,
+     "big": true,
+     "tile": 394,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_7_A6DD0B",
+   "spritemap": [
+    {
+     "x": 0,
+     "y": -12,
+     "big": true,
+     "tile": 392,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_8_A6DD12",
+   "spritemap": [
+    {
+     "x": 0,
+     "y": -8,
+     "big": true,
+     "tile": 390,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_9_A6DD19",
+   "spritemap": [
+    {
+     "x": 0,
+     "y": -4,
+     "big": true,
+     "tile": 392,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_10_A6DD20",
+   "spritemap": [
+    {
+     "x": -2,
+     "y": -2,
+     "big": true,
+     "tile": 394,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_11_A6DD27",
+   "spritemap": [
+    {
+     "x": -4,
+     "y": 0,
+     "big": true,
+     "tile": 396,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_12_A6DD2E",
+   "spritemap": [
+    {
+     "x": -7,
+     "y": 0,
+     "big": true,
+     "tile": 398,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_13_A6DD35",
+   "spritemap": [
+    {
+     "x": -12,
+     "y": -1,
+     "big": true,
+     "tile": 396,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_14_A6DD3C",
+   "spritemap": [
+    {
+     "x": -14,
+     "y": -2,
+     "big": true,
+     "tile": 394,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_15_A6DD43",
+   "spritemap": [
+    {
+     "x": -16,
+     "y": -4,
+     "big": true,
+     "tile": 392,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_16_A6DD4A",
+   "spritemap": [
+    {
+     "x": 20,
+     "y": -33,
+     "big": true,
+     "tile": 261,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": 12,
+     "y": -33,
+     "big": true,
+     "tile": 260,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_17_A6DD6A",
+   "spritemap": [
+    {
+     "x": 20,
+     "y": -28,
+     "big": true,
+     "tile": 264,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": 12,
+     "y": -28,
+     "big": true,
+     "tile": 263,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_18_A6DD85",
+   "spritemap": [
+    {
+     "x": 28,
+     "y": -16,
+     "big": false,
+     "tile": 310,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": 12,
+     "y": -24,
+     "big": true,
+     "tile": 292,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_19_A6DD96",
+   "spritemap": [
+    {
+     "x": 28,
+     "y": -24,
+     "big": false,
+     "tile": 310,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": 12,
+     "y": -24,
+     "big": true,
+     "tile": 292,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_20_A6DDA7",
+   "spritemap": [
+    {
+     "x": 20,
+     "y": -22,
+     "big": true,
+     "tile": 264,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": 12,
+     "y": -22,
+     "big": true,
+     "tile": 263,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_21_A6DDC2",
+   "spritemap": [
+    {
+     "x": 20,
+     "y": -17,
+     "big": true,
+     "tile": 261,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": true
+    },
+    {
+     "x": 12,
+     "y": -17,
+     "big": true,
+     "tile": 260,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_22_A6DDE2",
+   "spritemap": [
+    {
+     "x": -36,
+     "y": -33,
+     "big": true,
+     "tile": 261,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": -28,
+     "y": -33,
+     "big": true,
+     "tile": 260,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_23_A6DE02",
+   "spritemap": [
+    {
+     "x": -36,
+     "y": -28,
+     "big": true,
+     "tile": 264,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": -28,
+     "y": -28,
+     "big": true,
+     "tile": 263,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_24_A6DE1D",
+   "spritemap": [
+    {
+     "x": -36,
+     "y": -16,
+     "big": false,
+     "tile": 310,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": -28,
+     "y": -24,
+     "big": true,
+     "tile": 292,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_25_A6DE2E",
+   "spritemap": [
+    {
+     "x": -36,
+     "y": -24,
+     "big": false,
+     "tile": 310,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -28,
+     "y": -24,
+     "big": true,
+     "tile": 292,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_26_A6DE3F",
+   "spritemap": [
+    {
+     "x": -36,
+     "y": -22,
+     "big": true,
+     "tile": 264,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -28,
+     "y": -22,
+     "big": true,
+     "tile": 263,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoTailTipWingSpritemap_27_A6DE5A",
+   "spritemap": [
+    {
+     "x": -36,
+     "y": -17,
+     "big": true,
+     "tile": 261,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -28,
+     "y": -17,
+     "big": true,
+     "tile": 260,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoFireballSpritemap_0_8D80CA",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -8,
+     "big": true,
+     "tile": 266,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoFireballSpritemap_1_8D80D1",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -8,
+     "big": true,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoFireballSpritemap_2_8D80D8",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -8,
+     "big": true,
+     "tile": 266,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoFireballSpritemap_3_8D80DF",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -8,
+     "big": true,
+     "tile": 268,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  }
+ ],
+ "ext_hitboxes": [
+  {
+   "name": "ProfaneJunkoHitbox_0_A6EAE1",
+   "spritemap": "ProfaneJunkoSpritemap_0_A6EC5B",
+   "hitbox": [
+    {
+     "left": -12,
+     "top": -26,
+     "right": 11,
+     "bottom": 13,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    },
+    {
+     "left": -24,
+     "top": 3,
+     "right": -13,
+     "bottom": 21,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoHitbox_1_A6EAFB",
+   "spritemap": "ProfaneJunkoSpritemap_1_A6EC99",
+   "hitbox": [
+    {
+     "left": -41,
+     "top": -19,
+     "right": -21,
+     "bottom": -9,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    },
+    {
+     "left": -20,
+     "top": -29,
+     "right": 11,
+     "bottom": 5,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoHitbox_2_A6EB15",
+   "spritemap": "ProfaneJunkoSpritemap_2_A6ECDC",
+   "hitbox": [
+    {
+     "left": -37,
+     "top": -40,
+     "right": -14,
+     "bottom": -31,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    },
+    {
+     "left": -25,
+     "top": -31,
+     "right": 9,
+     "bottom": 6,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoHitbox_3_A6EB2F",
+   "spritemap": "ProfaneJunkoSpritemap_3_A6ED29",
+   "hitbox": [
+    {
+     "left": -15,
+     "top": -10,
+     "right": 7,
+     "bottom": 2,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoHitbox_4_A6EB3D",
+   "spritemap": "ProfaneJunkoSpritemap_4_A6ED4E",
+   "hitbox": [
+    {
+     "left": -17,
+     "top": -9,
+     "right": 6,
+     "bottom": 15,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoHitbox_5_A6EB4B",
+   "spritemap": "ProfaneJunkoSpritemap_5_A6ED6E",
+   "hitbox": [
+    {
+     "left": -14,
+     "top": -1,
+     "right": 10,
+     "bottom": 23,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoHitbox_6_A6EB59",
+   "spritemap": "ProfaneJunkoSpritemap_6_A6ED8E",
+   "hitbox": [
+    {
+     "left": -15,
+     "top": -2,
+     "right": -1,
+     "bottom": 8,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoHitbox_7_A6EB67",
+   "spritemap": "ProfaneJunkoSpritemap_7_A6ED95",
+   "hitbox": [
+    {
+     "left": -16,
+     "top": -20,
+     "right": 12,
+     "bottom": 21,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoHitbox_10_A6EB91",
+   "spritemap": "ProfaneJunkoSpritemap_8_A6EDB5",
+   "hitbox": [
+    {
+     "left": -16,
+     "top": -32,
+     "right": 16,
+     "bottom": 34,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    },
+    {
+     "left": -8,
+     "top": -45,
+     "right": 8,
+     "bottom": -33,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoHitbox_11_A6EBAB",
+   "spritemap": "ProfaneJunkoSpritemap_9_A6EE57",
+   "hitbox": [
+    {
+     "left": -12,
+     "top": -25,
+     "right": 11,
+     "bottom": 13,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    },
+    {
+     "left": 12,
+     "top": 5,
+     "right": 24,
+     "bottom": 20,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoHitbox_12_A6EBC5",
+   "spritemap": "ProfaneJunkoSpritemap_10_A6EE95",
+   "hitbox": [
+    {
+     "left": -13,
+     "top": -29,
+     "right": 20,
+     "bottom": 5,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    },
+    {
+     "left": 21,
+     "top": -18,
+     "right": 39,
+     "bottom": -8,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoHitbox_13_A6EBDF",
+   "spritemap": "ProfaneJunkoSpritemap_11_A6EED8",
+   "hitbox": [
+    {
+     "left": -10,
+     "top": -31,
+     "right": 25,
+     "bottom": 8,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    },
+    {
+     "left": 13,
+     "top": -42,
+     "right": 35,
+     "bottom": -32,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoHitbox_14_A6EBF9",
+   "spritemap": "ProfaneJunkoSpritemap_12_A6EF25",
+   "hitbox": [
+    {
+     "left": -10,
+     "top": -10,
+     "right": 17,
+     "bottom": 2,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoHitbox_15_A6EC07",
+   "spritemap": "ProfaneJunkoSpritemap_13_A6EF4A",
+   "hitbox": [
+    {
+     "left": -9,
+     "top": -8,
+     "right": 17,
+     "bottom": 15,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoHitbox_16_A6EC15",
+   "spritemap": "ProfaneJunkoSpritemap_14_A6EF6A",
+   "hitbox": [
+    {
+     "left": -11,
+     "top": -8,
+     "right": 14,
+     "bottom": 23,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoHitbox_17_A6EC23",
+   "spritemap": "ProfaneJunkoSpritemap_15_A6EF8A",
+   "hitbox": [
+    {
+     "left": 1,
+     "top": -2,
+     "right": 14,
+     "bottom": 9,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoHitbox_18_A6EC31",
+   "spritemap": "ProfaneJunkoSpritemap_16_A6EF91",
+   "hitbox": [
+    {
+     "left": -13,
+     "top": -22,
+     "right": 14,
+     "bottom": 21,
+     "touch": "$DF59",
+     "shot": "$DF8A"
+    }
+   ]
+  }
+ ],
+ "ext_spritemaps": [
+  {
+   "name": "ProfaneJunkoExtSpritemap_0_A6E983",
+   "ext_spritemap": [
+    {
+     "x": 15,
+     "y": 22,
+     "spritemap": "ProfaneJunkoSpritemap_3_A6ED29",
+     "hitbox": "ProfaneJunkoHitbox_3_A6EB2F"
+    },
+    {
+     "x": -8,
+     "y": 7,
+     "spritemap": "ProfaneJunkoSpritemap_6_A6ED8E",
+     "hitbox": "ProfaneJunkoHitbox_6_A6EB59"
+    },
+    {
+     "x": 16,
+     "y": 0,
+     "spritemap": "ProfaneJunkoSpritemap_7_A6ED95",
+     "hitbox": "ProfaneJunkoHitbox_7_A6EB67"
+    },
+    {
+     "x": -3,
+     "y": -24,
+     "spritemap": "ProfaneJunkoSpritemap_0_A6EC5B",
+     "hitbox": "ProfaneJunkoHitbox_0_A6EAE1"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoExtSpritemap_1_A6E9A5",
+   "ext_spritemap": [
+    {
+     "x": -15,
+     "y": 22,
+     "spritemap": "ProfaneJunkoSpritemap_12_A6EF25",
+     "hitbox": "ProfaneJunkoHitbox_14_A6EBF9"
+    },
+    {
+     "x": 8,
+     "y": 7,
+     "spritemap": "ProfaneJunkoSpritemap_15_A6EF8A",
+     "hitbox": "ProfaneJunkoHitbox_17_A6EC23"
+    },
+    {
+     "x": -16,
+     "y": 0,
+     "spritemap": "ProfaneJunkoSpritemap_16_A6EF91",
+     "hitbox": "ProfaneJunkoHitbox_18_A6EC31"
+    },
+    {
+     "x": 3,
+     "y": -24,
+     "spritemap": "ProfaneJunkoSpritemap_9_A6EE57",
+     "hitbox": "ProfaneJunkoHitbox_11_A6EBAB"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoExtSpritemap_2_A6E9C7",
+   "ext_spritemap": [
+    {
+     "x": 15,
+     "y": 22,
+     "spritemap": "ProfaneJunkoSpritemap_3_A6ED29",
+     "hitbox": "ProfaneJunkoHitbox_3_A6EB2F"
+    },
+    {
+     "x": -8,
+     "y": 7,
+     "spritemap": "ProfaneJunkoSpritemap_6_A6ED8E",
+     "hitbox": "ProfaneJunkoHitbox_6_A6EB59"
+    },
+    {
+     "x": 16,
+     "y": 0,
+     "spritemap": "ProfaneJunkoSpritemap_7_A6ED95",
+     "hitbox": "ProfaneJunkoHitbox_7_A6EB67"
+    },
+    {
+     "x": -3,
+     "y": -24,
+     "spritemap": "ProfaneJunkoSpritemap_1_A6EC99",
+     "hitbox": "ProfaneJunkoHitbox_1_A6EAFB"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoExtSpritemap_3_A6E9E9",
+   "ext_spritemap": [
+    {
+     "x": 15,
+     "y": 22,
+     "spritemap": "ProfaneJunkoSpritemap_3_A6ED29",
+     "hitbox": "ProfaneJunkoHitbox_3_A6EB2F"
+    },
+    {
+     "x": -8,
+     "y": 7,
+     "spritemap": "ProfaneJunkoSpritemap_6_A6ED8E",
+     "hitbox": "ProfaneJunkoHitbox_6_A6EB59"
+    },
+    {
+     "x": 16,
+     "y": 0,
+     "spritemap": "ProfaneJunkoSpritemap_7_A6ED95",
+     "hitbox": "ProfaneJunkoHitbox_7_A6EB67"
+    },
+    {
+     "x": -3,
+     "y": -24,
+     "spritemap": "ProfaneJunkoSpritemap_2_A6ECDC",
+     "hitbox": "ProfaneJunkoHitbox_2_A6EB15"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoExtSpritemap_4_A6EA0B",
+   "ext_spritemap": [
+    {
+     "x": -15,
+     "y": 22,
+     "spritemap": "ProfaneJunkoSpritemap_12_A6EF25",
+     "hitbox": "ProfaneJunkoHitbox_14_A6EBF9"
+    },
+    {
+     "x": 8,
+     "y": 7,
+     "spritemap": "ProfaneJunkoSpritemap_15_A6EF8A",
+     "hitbox": "ProfaneJunkoHitbox_17_A6EC23"
+    },
+    {
+     "x": -16,
+     "y": 0,
+     "spritemap": "ProfaneJunkoSpritemap_16_A6EF91",
+     "hitbox": "ProfaneJunkoHitbox_18_A6EC31"
+    },
+    {
+     "x": 3,
+     "y": -24,
+     "spritemap": "ProfaneJunkoSpritemap_10_A6EE95",
+     "hitbox": "ProfaneJunkoHitbox_12_A6EBC5"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoExtSpritemap_5_A6EA2D",
+   "ext_spritemap": [
+    {
+     "x": -15,
+     "y": 22,
+     "spritemap": "ProfaneJunkoSpritemap_12_A6EF25",
+     "hitbox": "ProfaneJunkoHitbox_14_A6EBF9"
+    },
+    {
+     "x": 8,
+     "y": 7,
+     "spritemap": "ProfaneJunkoSpritemap_15_A6EF8A",
+     "hitbox": "ProfaneJunkoHitbox_17_A6EC23"
+    },
+    {
+     "x": -16,
+     "y": 0,
+     "spritemap": "ProfaneJunkoSpritemap_16_A6EF91",
+     "hitbox": "ProfaneJunkoHitbox_18_A6EC31"
+    },
+    {
+     "x": 3,
+     "y": -24,
+     "spritemap": "ProfaneJunkoSpritemap_11_A6EED8",
+     "hitbox": "ProfaneJunkoHitbox_13_A6EBDF"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoExtSpritemap_6_A6EA4F",
+   "ext_spritemap": [
+    {
+     "x": 15,
+     "y": 22,
+     "spritemap": "ProfaneJunkoSpritemap_4_A6ED4E",
+     "hitbox": "ProfaneJunkoHitbox_4_A6EB3D"
+    },
+    {
+     "x": -8,
+     "y": 7,
+     "spritemap": "ProfaneJunkoSpritemap_6_A6ED8E",
+     "hitbox": "ProfaneJunkoHitbox_6_A6EB59"
+    },
+    {
+     "x": 16,
+     "y": 0,
+     "spritemap": "ProfaneJunkoSpritemap_7_A6ED95",
+     "hitbox": "ProfaneJunkoHitbox_7_A6EB67"
+    },
+    {
+     "x": -3,
+     "y": -24,
+     "spritemap": "ProfaneJunkoSpritemap_0_A6EC5B",
+     "hitbox": "ProfaneJunkoHitbox_0_A6EAE1"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoExtSpritemap_7_A6EA71",
+   "ext_spritemap": [
+    {
+     "x": 15,
+     "y": 22,
+     "spritemap": "ProfaneJunkoSpritemap_5_A6ED6E",
+     "hitbox": "ProfaneJunkoHitbox_5_A6EB4B"
+    },
+    {
+     "x": -8,
+     "y": 7,
+     "spritemap": "ProfaneJunkoSpritemap_6_A6ED8E",
+     "hitbox": "ProfaneJunkoHitbox_6_A6EB59"
+    },
+    {
+     "x": 16,
+     "y": 0,
+     "spritemap": "ProfaneJunkoSpritemap_7_A6ED95",
+     "hitbox": "ProfaneJunkoHitbox_7_A6EB67"
+    },
+    {
+     "x": -3,
+     "y": -24,
+     "spritemap": "ProfaneJunkoSpritemap_0_A6EC5B",
+     "hitbox": "ProfaneJunkoHitbox_0_A6EAE1"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoExtSpritemap_8_A6EA93",
+   "ext_spritemap": [
+    {
+     "x": -15,
+     "y": 22,
+     "spritemap": "ProfaneJunkoSpritemap_13_A6EF4A",
+     "hitbox": "ProfaneJunkoHitbox_15_A6EC07"
+    },
+    {
+     "x": 8,
+     "y": 7,
+     "spritemap": "ProfaneJunkoSpritemap_15_A6EF8A",
+     "hitbox": "ProfaneJunkoHitbox_17_A6EC23"
+    },
+    {
+     "x": -16,
+     "y": 0,
+     "spritemap": "ProfaneJunkoSpritemap_16_A6EF91",
+     "hitbox": "ProfaneJunkoHitbox_18_A6EC31"
+    },
+    {
+     "x": 3,
+     "y": -24,
+     "spritemap": "ProfaneJunkoSpritemap_9_A6EE57",
+     "hitbox": "ProfaneJunkoHitbox_11_A6EBAB"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoExtSpritemap_9_A6EAB5",
+   "ext_spritemap": [
+    {
+     "x": -15,
+     "y": 22,
+     "spritemap": "ProfaneJunkoSpritemap_14_A6EF6A",
+     "hitbox": "ProfaneJunkoHitbox_16_A6EC15"
+    },
+    {
+     "x": 8,
+     "y": 7,
+     "spritemap": "ProfaneJunkoSpritemap_15_A6EF8A",
+     "hitbox": "ProfaneJunkoHitbox_17_A6EC23"
+    },
+    {
+     "x": -16,
+     "y": 0,
+     "spritemap": "ProfaneJunkoSpritemap_16_A6EF91",
+     "hitbox": "ProfaneJunkoHitbox_18_A6EC31"
+    },
+    {
+     "x": 3,
+     "y": -24,
+     "spritemap": "ProfaneJunkoSpritemap_9_A6EE57",
+     "hitbox": "ProfaneJunkoHitbox_11_A6EBAB"
+    }
+   ]
+  },
+  {
+   "name": "ProfaneJunkoExtSpritemap_10_A6EAD7",
+   "ext_spritemap": [
+    {
+     "x": 0,
+     "y": -6,
+     "spritemap": "ProfaneJunkoSpritemap_8_A6EDB5",
+     "hitbox": "ProfaneJunkoHitbox_10_A6EB91"
+    }
+   ]
+  }
+ ]
+}
