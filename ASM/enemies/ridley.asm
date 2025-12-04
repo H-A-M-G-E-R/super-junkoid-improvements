@@ -350,6 +350,10 @@ dw 20,RibAndClawGfx+$4*$20,RibAndClawGfx+$4*$20+$E*$20
 dw 20,RibAndClawGfx+$2*$20,RibAndClawGfx+$2*$20+$E*$20
 dw RibAnim ; Terminator / pointer to start of table
 
+; dest
+org $A6DA43 : LDA #$7220
+org $A6DA49 : LDA #$7320
+
 ; claw anim
 org $A6DAD0
 ClawAnim:
@@ -358,6 +362,10 @@ ClawAnim:
 ;  |                     |
 dw RibAndClawGfx+$6*$20,RibAndClawGfx+$6*$20+$E*$20 ; Unclenched
 dw RibAndClawGfx+$A*$20,RibAndClawGfx+$A*$20+$E*$20 ; Clenched
+
+; dest
+org $A6DAAB : LDA #$74C0
+org $A6DAB1 : LDA #$75C0
 
 ; explosion
 org $A6CA59
