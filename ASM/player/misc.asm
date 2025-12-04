@@ -57,3 +57,13 @@ RTS
 org $82DFC7 : RTS ; why does this even exist (draws samus twice in door transitions)
 
 org $9085F6 : BRA $03 ; samus flickers when getting hit while shine is stored
+
+; shinespark doesn't reset hurt flash since it doesn't damage samus anymore
+org $90D0B1 : BRA $04
+org $90D0DD : BRA $04
+org $90D10C : BRA $04
+org $90D333 : BRA $01
+
+; no hurt sound after shinespark, and iframes after shinespark
+org $90D336
+LDA.w #96 : STA $18A8 : NOP
