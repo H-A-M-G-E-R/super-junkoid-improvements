@@ -1,0 +1,404 @@
+{
+ "game": "sm",
+ "name": "ImmodestJunko",
+ "gfx": "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",
+ "palette": [
+  4278190192,
+  4278253680,
+  4278741056,
+  4278202408,
+  4287676664,
+  4285036680,
+  4283461760,
+  4282933392,
+  4282929264,
+  4281876560,
+  4279248952,
+  4279242800,
+  4278190104,
+  4290822336,
+  4294506744,
+  4278190080
+ ],
+ "gfx_offset": 256,
+ "palette_offset": 0,
+ "spritemaps": [
+  {
+   "name": "ImmodestJunkoLintSpritemap",
+   "spritemap": [
+    {
+     "x": -12,
+     "y": -8,
+     "big": true,
+     "tile": 322,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -28,
+     "y": -8,
+     "big": true,
+     "tile": 320,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": 4,
+     "y": -8,
+     "big": true,
+     "tile": 324,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ImmodestJunkoRockSpritemap_Big",
+   "spritemap": [
+    {
+     "x": -8,
+     "y": -8,
+     "big": true,
+     "tile": 326,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ImmodestJunkoRockSpritemap_Small",
+   "spritemap": [
+    {
+     "x": -4,
+     "y": -4,
+     "big": false,
+     "tile": 328,
+     "palette": 0,
+     "bg_priority": 3,
+     "h_flip": false,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ImmodestJunkoLaserOam_Forward0",
+   "spritemap": [
+    {
+     "x": -31,
+     "y": -4,
+     "big": true,
+     "tile": 356,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -15,
+     "y": -4,
+     "big": true,
+     "tile": 358,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -1,
+     "y": -4,
+     "big": true,
+     "tile": 358,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 15,
+     "y": -4,
+     "big": true,
+     "tile": 356,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ImmodestJunkoLaserOam_Forward1",
+   "spritemap": [
+    {
+     "x": -31,
+     "y": -4,
+     "big": true,
+     "tile": 352,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -15,
+     "y": -4,
+     "big": true,
+     "tile": 354,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -1,
+     "y": -4,
+     "big": true,
+     "tile": 354,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": false
+    },
+    {
+     "x": 15,
+     "y": -4,
+     "big": true,
+     "tile": 352,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": false
+    }
+   ]
+  },
+  {
+   "name": "ImmodestJunkoLaserOam_SlightlyDown0",
+   "spritemap": [
+    {
+     "x": -21,
+     "y": -1,
+     "big": true,
+     "tile": 332,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -29,
+     "y": 7,
+     "big": false,
+     "tile": 347,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -5,
+     "y": -1,
+     "big": false,
+     "tile": 334,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": 3,
+     "y": -15,
+     "big": true,
+     "tile": 332,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": 19,
+     "y": -15,
+     "big": false,
+     "tile": 347,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -5,
+     "y": -7,
+     "big": false,
+     "tile": 334,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ImmodestJunkoLaserOam_SlightlyDown1",
+   "spritemap": [
+    {
+     "x": -23,
+     "y": 0,
+     "big": true,
+     "tile": 329,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -31,
+     "y": 8,
+     "big": false,
+     "tile": 344,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -7,
+     "y": 0,
+     "big": false,
+     "tile": 331,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": 3,
+     "y": -15,
+     "big": true,
+     "tile": 329,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": 19,
+     "y": -15,
+     "big": false,
+     "tile": 344,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -5,
+     "y": -7,
+     "big": false,
+     "tile": 331,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ImmodestJunkoLaserOam_Down0",
+   "spritemap": [
+    {
+     "x": -24,
+     "y": 8,
+     "big": true,
+     "tile": 364,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -14,
+     "y": -2,
+     "big": true,
+     "tile": 366,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": 8,
+     "y": -24,
+     "big": true,
+     "tile": 364,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -2,
+     "y": -14,
+     "big": true,
+     "tile": 366,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  },
+  {
+   "name": "ImmodestJunkoLaserOam_Down1",
+   "spritemap": [
+    {
+     "x": -24,
+     "y": 8,
+     "big": true,
+     "tile": 360,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": -14,
+     "y": -2,
+     "big": true,
+     "tile": 362,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": false,
+     "v_flip": false
+    },
+    {
+     "x": 8,
+     "y": -24,
+     "big": true,
+     "tile": 360,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    },
+    {
+     "x": -2,
+     "y": -14,
+     "big": true,
+     "tile": 362,
+     "palette": 0,
+     "bg_priority": 2,
+     "h_flip": true,
+     "v_flip": true
+    }
+   ]
+  }
+ ],
+ "ext_hitboxes": [],
+ "ext_spritemaps": []
+}

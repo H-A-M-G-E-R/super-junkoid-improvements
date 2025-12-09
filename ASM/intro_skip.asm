@@ -1,4 +1,4 @@
-org $8BF777
+org $8BF777 ; freespace
 IntroSkipCheck:
 REP #$30 ; required to not crash due to 8-bit accumulator
 LDA $0998 : CMP #$001E : BNE + ; return if not in intro

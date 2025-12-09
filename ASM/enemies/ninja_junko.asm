@@ -139,3 +139,21 @@ CMP $7E7810,x : BMI +
   JMP $FB11 ; footstep
 +
 RTS
+
+; new sprite object
+%BEGIN_FREESPACE(B4)
+WaterFootstepSpriteObject:
+dw $0003,.S1,
+   $0003,.S2,
+   $0003,.S3,
+   $0003,.S4,
+   $BD07
+.S1
+dw $0001, $01FC : db $FC : dw $2A2C
+.S2
+dw $0001, $01FC : db $FC : dw $2A2D
+.S3
+dw $0001, $01FC : db $FC : dw $2A2E
+.S4
+dw $0001, $01FC : db $FC : dw $2A2F
+%END_FREESPACE(B4)

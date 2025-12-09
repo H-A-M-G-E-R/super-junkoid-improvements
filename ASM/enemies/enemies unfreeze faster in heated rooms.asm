@@ -9,7 +9,7 @@ JSL CalculateFreezeTimerLong : BRA + : org $A0A7F3 : +
 org $A3F027 ; for metroids
 JSR CalculateFreezeTimer
 
-org $A3F380 ; freespace in bank $A3
+%BEGIN_FREESPACE(A3)
 CalculateFreezeTimer:
 ; scan through palette fx objects for a heated room fx
 LDA #$F761 ; heated room palette fx id
@@ -26,4 +26,4 @@ LDA.w #400 : RTS ; unheated
 LDA.w #300 : RTS ; heated
 CalculateFreezeTimerLong:
 JSR CalculateFreezeTimer : RTL
-A3Freespace:
+%END_FREESPACE(A3)

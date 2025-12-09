@@ -1,8 +1,5 @@
 lorom
 
-!Freespace = $B492C6 ; overwrite debug handler
-!SpriteObjectPointer = $B4F4B8
-
 org $A0A808
 PLX : JSL CreateExplosion : BRA $00
 
@@ -26,7 +23,7 @@ BRA + : org $A09CBD : +
 org $A0A1D8 ; for regular spritemaps
 BRA + : org $A0A1EF : +
 
-org !Freespace
+%BEGIN_FREESPACE(B4)
 CreateExplosion:
 {
 LDA $18A6 : ASL : TAY
@@ -123,32 +120,6 @@ dw $0003,$CBC0,
    $0003,$CC09,
    $0003,$CC1F,
    $BD07
-
-WaterFootstepSpriteObject:
-dw $0003,.S1,
-   $0003,.S2,
-   $0003,.S3,
-   $0003,.S4,
-   $BD07
-.S1
-dw $0001, $01FC : db $FC : dw $2A2C
-.S2
-dw $0001, $01FC : db $FC : dw $2A2D
-.S3
-dw $0001, $01FC : db $FC : dw $2A2E
-.S4
-dw $0001, $01FC : db $FC : dw $2A2F
+%END_FREESPACE(B4)
 
 org $828B4B : BRA + : org $828B54 : + ; skip debug handler
-
-; Allows using an instruction list pointer as sprite object ID
-
-org $B4BC40
-TDC : STA $7EF078,x : STA $7EF178,x : STA $7EF278,x : STA $7EF2F8,x
-LDA $12 : STA $7EF0F8,x
-LDA $14 : STA $7EF1F8,x
-LDA $18 : STA $7EF078,x
-LDA $16 : BMI +
-ASL : TAY : LDA.w !SpriteObjectPointer,y
-+
-STA $7EEF78,x

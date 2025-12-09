@@ -2,6 +2,8 @@ asar 1.91
 
 lorom
 
+incsrc "freespace.asm"
+
 incsrc "ASM/bird door fix.asm"
 incsrc "ASM/controller options scroll fix 1.1.asm"
 incsrc "ASM/faster nintendo logo + spc echo improvements.asm"
@@ -12,6 +14,7 @@ incsrc "ASM/item fanfare skip without sound.asm"
 ;incsrc "ASM/misc.asm"
 incsrc "ASM/RNG.asm"
 ;incsrc "ASM/room header edits.asm"
+incsrc "sprite_object_optimization.asm"
 incsrc "ASM/transfer samus tiles optimization + animated tiles fix.asm"
 incsrc "ASM/upload to apu space optimization.asm"
 incsrc "ASM/water fix.asm"
@@ -21,7 +24,7 @@ incsrc "ASM/player/acid_immunity.asm"
 incsrc "ASM/player/always draw atmospheric effects.asm"
 incsrc "ASM/player/draw speedboost echo fix.asm"
 ;incsrc "ASM/player/fix y offsets.asm"
-;incsrc "ASM/player/footsteps.asm"
+incsrc "player/footstep_type_ram_flag.asm"
 ;incsrc "ASM/player/ITEMWavedash.asm"
 incsrc "ASM/player/no more morph bounce.asm" ; for real
 ;incsrc "ASM/player/remove appearance fanfare.asm"
@@ -41,8 +44,6 @@ incsrc "ASM/enemies/enemy spritemaps.asm"
 incsrc "ASM/enemies/enemy tile loading rewrite 1.03.asm"
 incsrc "ASM/enemies/enemy touch ai rewrite.asm"
 incsrc "ASM/enemies/oam_drawing.asm"
-
-incsrc "ASM/enemies/enemy_projectile_spritemaps.asm"
 
 ; Normal enemies
 incsrc "ASM/enemies/ghosts face towards you.asm"
@@ -92,15 +93,24 @@ endif
 ; temp
 ; Another Medium and CORE (from undertale) by Toby Fox, arranged by MetroidNerd#9001
 ; Gargoyle and Twin Vulcan from Thunder Force III/Thunder Spirits, ported by me
+!p_songTable = read3($808F73)
 check bankcross off
-org $E4F058 : incbin "music/Another_Medium.nspc"
-org $DAE2DE : incbin "music/CORE.nspc"
-org read3($BAA171+$2A) : incbin "music/gargoyle_vanilla.nspc"
-org read3($BAA171+$6C) : incbin "music/twin_vulcan_vanilla.nspc"
-org read3($BAA171+$72) : incbin "music/be_menaced_by_orn_vanilla.nspc"
-org read3($BAA171+$75) : incbin "music/hbiuwd_vanilla.nspc"
+org read3(!p_songTable+$4B) : incbin "music/Another_Medium.nspc"
+org read3(!p_songTable+$54) : incbin "music/CORE.nspc"
+org read3(!p_songTable+$2A) : incbin "music/gargoyle_vanilla.nspc"
+org read3(!p_songTable+$6C) : incbin "music/twin_vulcan_vanilla.nspc"
+org read3(!p_songTable+$72) : incbin "music/be_menaced_by_orn_vanilla.nspc"
+org read3(!p_songTable+$75) : incbin "music/hbiuwd_vanilla.nspc"
 ; $78 is credits song
+
+; Profane Junko's "roar" is Gawr Gura's "a"
+; overwrite empty crateria music
+org read3(!p_songTable+$06) : incbin "music/gura.nspc"
+
+org read3(!p_songTable+$0F) : incbin "music/g_lobster_vanilla_fireinthehole.nspc"
 check bankcross full
+
+org $8FDE2F+4 : db $0F,$04 ; room header edit (immodest junko)
 
 org $8BDE33 : BRA + : org $8BDE41 : + ; for some reason loading this song crashes possibly because i replaced other music
 

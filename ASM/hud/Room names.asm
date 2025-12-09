@@ -83,6 +83,8 @@ draw:
   ADC #$0007
   STA $0330
   PLB : RTL
+
+org $82FD50 ; 2.2 only
 ASCIIMap:
 ;  0   1   2   3   4   5   6   7   8   9   A   B   C   D   E   F
 db $0F,$0F,$0F,$0F,$0F,$0F,$0F,$0F,$0F,$0F,$0F,$0F,$0F,$0F,$0F,$0F,

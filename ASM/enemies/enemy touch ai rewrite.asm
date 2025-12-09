@@ -26,8 +26,8 @@ PHX ; push [enemy index] to stack
 ASL : TAX
 LDA.l ContactDamageTable-2,x : STA $26 ; $26 = contact damage
 TXA : LSR : CMP #$0004 : BNE + ; end charge when hitting an enemy with pseudo screw
-JSL $90F084
-LDA #$0005
+  JSL $90F084
+  LDA #$0005
 +
 CLC : ADC #$000F : STA $14 ; vulnerability index = Fh + [contact damage index] if not pseudo-screwing, 14h if pseudo screwing
 PLX ; pull [enemy index] from stack
@@ -35,25 +35,31 @@ LDA $0F78,x : TAX : LDA $A0003C,x
 CLC : ADC $14 : TAX : LDA $B40000,x : AND #$007F
 STA $28 ; $28 = contact vulnerability
 JSL $A0B6FF ; $2A = contact damage * contact vulnerability
+; super junkoid dx 2.2 buffed bosses
+LDA $99 : BEQ +
+  STZ $99
+  LSR $2A
++
 LSR $2A : BEQ NoDamage ; half calculated damage
 LDY $0E54 ; Y = [enemy index]
 LDX $0F78,y : LDA $A0000D,x : AND #$00FF : BNE +
-LDA #$0004 ; default is 4
+  LDA #$0004 ; default is 4
 +
 STA $0F9C,y ; set flash timer
 LDA $0F8A,y : ORA #$0002 : STA $0F8A,y ; set hurt ai
 LDA $0F8C,y : SEC : SBC $2A : BCS + ; deal damage to enemy
-TDC
+  TDC
 +
 STA $0F8C,y
 LDA #$000B : JSL $8090C1 ; queue contact damage sound
 LDA $0F9E,y : BNE + ; queue enemy cry if not frozen
-LDX $0F78,y : LDA $A0000E,x : BEQ +
+  LDX $0F78,y : LDA $A0000E,x : BEQ +
 JSL $8090B7
 +
 NoDamage:
 RTS
 
+; 2.0 nerfed shinespark damage to 100
 ContactDamageTable:
 dw 500,300,2000,200 ; speed boosting, shinesparking, screw attacking, pseudo screwing respectively
 
@@ -61,6 +67,8 @@ FrozenCheck: ; Scyzer's Frozen Enemy Speed Boost Vulnerability (https://metroidc
 	LDA $0A6E : DEC : BEQ + : DEC : BEQ +
 	LDA $0F9E,X
 +	RTS
+
+assert pc() <= $A0A597
 
 org $A0A119
 	JSR FrozenCheck

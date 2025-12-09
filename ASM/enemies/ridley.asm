@@ -12,6 +12,7 @@ org $A6C571
 ;org $A6E2AA : incbin "ridley palettes new.pal" ; ridley now has storms wand
 
 org $A6D4B5 ; Ceres Ridley health-based palette handling
+JSR $E088 ; Ridley tail / projectile collision handling
 LDA $7E7802 : BEQ .rts ; If [Ridley fight mode] = fight intro / retreat: return
 LDY $0F8C ; health (max 9000)
 CPY.w #9000*0.5 : BCS .rts
@@ -408,3 +409,10 @@ dw $812F ; Sleep
 ProfaneJunkoExplosionIList_HandRight:
 dw 1,ProfaneJunkoSpritemap_15_A6EF8A
 dw $812F ; Sleep
+
+; gawr gura
+org $A6A122
+LDA #$FF06 : JSL $808FC1
+BRA + : org $A6A12C : +
+
+org $A6E4BE : LDA #$0059

@@ -292,8 +292,8 @@ org $A0FA53
 EnemyHeader_FA53:
 {
   dw $0400 ; Tile data size
-  dw $F539 ; Palette
-  dw 450 ; Health
+  skip 2 ; Palette
+  dw 966 ; Health
   dw 10 ; Damage
   dw 8 ; Width
   dw 8 ; Height
@@ -319,15 +319,15 @@ EnemyHeader_FA53:
   dw $8023 ; Enemy touch
   dw $802D ; Enemy shot
   dw $0000 ; Unknown 7
-  dl $ACDE00 ; Tile data
+  skip 3 ; Tile data
   db $0005 ; Layer
   dw $0000 ; Drop chances
-  dw $E533 ; Vulnerabilities
-  dw $8208 ; Name
+  skip 2 ; Vulnerabilities
+  skip 2 ; Name
 }
 
 
-org $86A197 ; overwrite gunship liftoff dust clouds / Ceres elevator
+%BEGIN_FREESPACE(86)
 SlasherSisterCeilingBullet:
 {
   dw SlasherSisterCeilingBulletInit ; Initialisation AI
@@ -335,7 +335,7 @@ SlasherSisterCeilingBullet:
   dw SlasherSisterCeilingBulletIList ; Initial instruction list
   db 2 ; X radius
   db 2 ; Y radius
-  db 10 ; Properties
+  dw 10 ; Properties
   db 0 ; Hit instruction list
   db 0 ; Shot instruction list
 }
@@ -372,5 +372,15 @@ SlasherSisterCeilingBulletIList:
   dw 3,SlasherSisterCeilingBulletSpritemap_1
   dw $81AB,SlasherSisterCeilingBulletIList
 }
+%END_FREESPACE(86)
 
-assert pc() <= $A2998D
+%BEGIN_FREESPACE(8D)
+SlasherSisterCeilingBulletSpritemap_0:
+dw $0001 : db $FD,$01,$FD,$0E,$31
+
+SlasherSisterCeilingBulletSpritemap_1:
+dw $0001 : db $FC,$01,$FC,$0F,$31
+
+SlasherSisterCeilingBulletSpritemap_2:
+dw $0001 : db $FC,$01,$FC,$1B,$31
+%END_FREESPACE(8D)
