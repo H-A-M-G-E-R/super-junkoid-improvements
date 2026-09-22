@@ -1,4 +1,4 @@
-org $8BF777 ; freespace
+%BEGIN_FREESPACE(8B)
 IntroSkipCheck:
 REP #$30 ; required to not crash due to 8-bit accumulator
 LDA $0998 : CMP #$001E : BNE + ; return if not in intro
@@ -7,6 +7,7 @@ LDA $8F : BIT #$1000 : BEQ + ; return if not newly pressing start
 JSR $B240 ; finish intro
 +
 PLB : PLP : RTL ; restore from hijack
+%END_FREESPACE(8B)
 
 EndingSkipCheck:
 REP #$30
