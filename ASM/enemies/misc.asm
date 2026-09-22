@@ -35,7 +35,7 @@ org $A8AF11 : ADC #$FFFC
 ; Sync snowman's flashing and stun
 org $A8B42A : JSR SyncSnowmanFlashingAndStun
 
-org $A8FA7E ; freespace
+%BEGIN_FREESPACE(A8)
 SyncSnowmanFlashingAndStun:
 LDA $0F9C,x : STA $0FDC,x : STA $101C,x ; sync flashing
 LDA $0F8A,x : STA $0FCA,x : STA $100A,x ; sync stunned AI handler
@@ -56,6 +56,8 @@ LDA $12 : AND #$000F : CMP #$0007 : BEQ .hyper ; projectile type
 LDA #$00FF : JML $A0A716
 .hyper
 LDA #$0002 : JML $A0A716
+
+%END_FREESPACE(A8)
 
 ;;; Metroid ;;;
 org $A3EF8C : LDA.w #30 ; metroids get stunned by bombs for longer, making them less annoying

@@ -1,5 +1,6 @@
 ; enemy projectile-projectile collision fix, by H A M
 ; fixes the enemy projectile-projectile collision detection to rely on hitboxes and also make the collision routine happen after the pre-instruction but before setting the instruction.
+; also makes enemy projectiles interact with bombs.
 
 org $A0996C ; i'm gonna overwrite an existing vanilla routine
 EnemyProjectile_ProjectileCollision:

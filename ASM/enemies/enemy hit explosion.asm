@@ -3,17 +3,18 @@ lorom
 org $A0A808
 PLX : JSL CreateExplosion : BRA $00
 
+; comment this out if you use my enemy projectile-projectile collision fix
 org $A09A3D
-LDA $0B64,y : STA $12
-LDA $0B78,y : STA $14
-LDA #$0006 : STA $16
-STZ $18
+;LDA $0B64,y : STA $12
+;LDA $0B78,y : STA $14
+;LDA #$0006 : STA $16
+;STZ $18
+;JSL FixDudShot
+
+org $A0A7C7 ; in Normal enemy shot AI - no death check, no enemy shot graphic
 JSL FixDudShot
 
-org $A0A7C7
-JSL FixDudShot
-
-org $A0A8D4
+org $A0A8D4 ; in Create a dud shot
 JSL FixDudShot
 
 ; disable vanilla super missile earthquake on enemy

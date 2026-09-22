@@ -18,7 +18,7 @@ TDC : TAY : JML $848482
 
 org $82E915 : JSL SpawnPLMAtLastSlot
 
-org $84F623 ; Freespace
+%BEGIN_FREESPACE(84)
 HandlePLMAtLastSlot:
 PHB : PHK : PLB
 STZ $1C25 ; PLM draw tilemap index = 0
@@ -27,6 +27,7 @@ LDA $1C37,x : BEQ + ; If [PLM ID] != 0: (check if there's a closing door)
 STX $1C27 ; PLM index = [X]
 JSR $85DA ; Process PLM
 + PLB : RTL
+%END_FREESPACE(84)
 
 org $82E53C ; Fixes the bug noted in https://patrickjohnston.org/bank/82#fE4A9
 JSL $808338 ; Wait for NMI (do the scrolling updates)

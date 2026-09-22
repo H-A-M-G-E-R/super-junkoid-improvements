@@ -109,6 +109,8 @@ LDA !EnemySetEnemyProperties-1,x : TYX : LDY !EnemyIndex : AND #$0700 : ASL : ST
 LDA !EnemyTilesOffsetData,x : STA $0F98,y : RTS
 }
 
+S_FS_A0:
+
 org $A092DB
 LoadEnemyGFXIndicesWhenSpawningEnemy:
 {
