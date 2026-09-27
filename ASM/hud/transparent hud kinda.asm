@@ -27,3 +27,8 @@ while !a < $8099CF
 	dw read2(!a)|$2000 ; set priority bit for bg3
 	!a #= !a+2
 endwhile
+
+; make minimap transparent
+org $90AAAE : LDA #$000F
+org $90AAD5 : LDA #$000F
+org $90AB12 : LDA #$000F
