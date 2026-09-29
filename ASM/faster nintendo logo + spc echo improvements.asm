@@ -22,8 +22,8 @@ JSL $808338 : BRA - ; Wait for NMI and loop
 +
 JSL $808338 ; Wait for NMI
 LDA $80845D : STA $00 : LDA $80845E : STA $01 : JSL $808024 ; Upload SPC engine to APU (gets repointed by SMART)
-TDC : - : DEC : BNE - ; wait for SPC to be available for upload
-JSL $80800A : dl Patch ; upload patch
+;TDC : - : DEC : BNE - ; wait for SPC to be available for upload
+;JSL $80800A : dl Patch ; upload patch
 -
 JSR $90B8 ; Advance fast screen fade out
 BCS + ; If not reached zero brightness:
@@ -32,28 +32,29 @@ JSL $808338 : BRA - ; Wait for NMI and loop
 JSL $808338 ; Wait for NMI
 PLB : PLP : RTL
 
-Patch:
-arch spc700
-spcblock $1A4B nspc ; echo enable command
-	mov $4F,a ; store to unused ram (fake echo)
-endspcblock
-spcblock $1651 nspc
-	call ResumeEchoOnNewNote
-endspcblock
-spcblock !SPCFreespace nspc
-ResumeEchoOnNewNote:
-	mov a,$4F ; If [$4F] & [current music voice bitset] != 0:
-	and a,$47
-	beq .disable
-	tset $004A,a ; Echo enable flags |= [current music voice bitset] (enable echo)
-	bra +
-.disable
-	mov a,$47 ; Else: Echo enable flags &= ~[current music voice bitset] (disable echo)
-	tclr $004A,a
-+
-	mov a,$0381+x ; restore from hijack
-	ret
-endspcblock execute $1500
+; not needed for optimized SPC engine
+;Patch:
+;arch spc700
+;spcblock $1A4B nspc ; echo enable command
+;	mov $4F,a ; store to unused ram (fake echo)
+;endspcblock
+;spcblock $1651 nspc
+;	call ResumeEchoOnNewNote
+;endspcblock
+;spcblock !SPCFreespace nspc
+;ResumeEchoOnNewNote:
+;	mov a,$4F ; If [$4F] & [current music voice bitset] != 0:
+;	and a,$47
+;	beq .disable
+;	tset $004A,a ; Echo enable flags |= [current music voice bitset] (enable echo)
+;	bra +
+;.disable
+;	mov a,$47 ; Else: Echo enable flags &= ~[current music voice bitset] (disable echo)
+;	tclr $004A,a
+;+
+;	mov a,$0381+x ; restore from hijack
+;	ret
+;endspcblock execute $1500
 
 arch 65816
 org $808459

@@ -409,10 +409,3 @@ dw $812F ; Sleep
 ProfaneJunkoExplosionIList_HandRight:
 dw 1,ProfaneJunkoSpritemap_15_A6EF8A
 dw $812F ; Sleep
-
-; gawr gura
-org $A6A122
-LDA #$FF06 : JSL $808FC1
-BRA + : org $A6A12C : +
-
-org $A6E4BE : LDA #$0059

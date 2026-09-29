@@ -2,6 +2,11 @@ asar 1.91
 
 lorom
 
+macro padSafe(addr)
+  assert pc() <= <addr>
+  padbyte $FF : pad <addr>
+endmacro
+
 incsrc "freespace.asm"
 
 incsrc "ASM/bird door fix.asm"
@@ -33,6 +38,8 @@ incsrc "ASM/player/remove springball lock.asm"
 ;incsrc "ASM/player/sparksuit.asm"
 incsrc "ASM/player/speed_booster_vertical_momentum_fix.asm" ; already did for normal jumps but not for walljumps
 ;incsrc "ASM/player/spinjump.asm"
+incsrc "ASM/player/transition_table.asm"
+incsrc "ASM/player/Downsparking.asm"
 
 incsrc "ASM/player/misc.asm"
 
@@ -91,33 +98,15 @@ else
     incsrc "ASM/player/Advanced Arm Cannon Palette - BASIC.asm"
 endif
 
-; temp
-; Another Medium and CORE (from undertale) by Toby Fox, arranged by MetroidNerd#9001
-; Gargoyle and Twin Vulcan from Thunder Force III/Thunder Spirits, ported by me
-!p_songTable = read3($808F73)
-check bankcross off
-org read3(!p_songTable+$4B) : incbin "music/Another_Medium.nspc"
-org read3(!p_songTable+$54) : incbin "music/CORE.nspc"
-org read3(!p_songTable+$2A) : incbin "music/gargoyle_vanilla.nspc"
-org read3(!p_songTable+$6C) : incbin "music/twin_vulcan_vanilla.nspc"
-org read3(!p_songTable+$72) : incbin "music/be_menaced_by_orn_vanilla.nspc"
-org read3(!p_songTable+$75) : incbin "music/hbiuwd_vanilla.nspc"
 ; $78 is credits song
-
-; Profane Junko's "roar" is Gawr Gura's "a"
-; overwrite empty crateria music
-org read3(!p_songTable+$06) : incbin "music/gura.nspc"
-
-org read3(!p_songTable+$0F) : incbin "music/g_lobster_vanilla_fireinthehole.nspc"
-check bankcross full
-
-org $8FDE2F+4 : db $0F,$04 ; room header edit (immodest junko)
 
 org $8BDE33 : BRA + : org $8BDE41 : + ; for some reason loading this song crashes possibly because i replaced other music
 
 org $A9F29A : LDA #$0000 ; no crashy when shitroid stops draining you
 
 ; wip
-;if defined("music")
-;    incsrc "ASM/music/music.asm"
-;endif
+if defined("music")
+    incsrc "ASM/music2/music.asm"
+endif
+
+org $978DF4 : incbin "sans_game_options_tilemap.bin.comp" ; sans
