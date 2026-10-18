@@ -1,0 +1,16 @@
+
+____________________________________________________________________________
+
+SUPER JUNKOID DX (Version 2.3 - 2026), with "improvements" by H A M (2026)
+by PYOSHI
+____________________________________________________________________________
+
+
+>>INSTALLATION
+Use an IPS Patcher (such as Lunar IPS), and...
+Apply "Super Junkoid DX 2.3.ips" to your legal copy of "Super Metroid (JU) [!].smc" (3,072KB)
+
+Optional: Use SpriteSomething to inject a custom sprite into Super Junkoid DX 2.3
+
+Assemble with asar 1.91: "asar --fix-checksum=off --no-title-check -Dmusic ASM/main.asm sj.sfc"
+If a custom sprite is injected, add the "-Dspritesomething" flag.
