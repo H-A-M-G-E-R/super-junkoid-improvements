@@ -8,7 +8,7 @@ lorom
 
 ;freespace  pointers
 !UniversalbankFreespace = $82FC60 ; place this in any bank, if you have many rooms in your hack, make sure there's a lot of space
-!Bank80Freespace = $80E030 ; freespace in $80, doesn't need much
+!Bank80Freespace = $80E180 ; freespace in $80, doesn't need much
 !Bank82Freespace = $82FC30 ; freespace in $82, doesn't need much
 
 

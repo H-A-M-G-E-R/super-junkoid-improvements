@@ -9,7 +9,7 @@ org $80B029 : CPX #$001C
 org $82E34C : LDA #$E36E
 org $82E3B0 : BRA $00
 
-org $80E000
+org $80E110 ; who put room data above there
 InterruptCommand4:
 SEP #$20
 LDA #$5A : STA $2109
