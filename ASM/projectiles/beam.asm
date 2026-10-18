@@ -120,19 +120,20 @@ dw $0015 ; Bh: Plasma + ice + wave
 ;	JMP $B9C7   ;CHARGE BEAM YES
 
 org $93F62C
+LDA $0000,y
 MultiplyDamageFromMeteorShards:
 {
+STA $26
 ; check projectile type (beam or bomb)
 LDA $0C18,x : AND #$0F00 : BEQ +
 CMP #$0500 : BNE .no
 +
-LDA $0000,y : STA $26 ; projectile damage
 LDA $09D8 : AND #$000F : CLC : ADC #$0004 : STA $28 ; number of meteor shards + 4
 JSL $A0B6FF ; 16-bit multiplication
 LDA $2A : LSR : LSR : RTS ; / 4
 
 .no
-LDA $0000,y : RTS
+LDA $26 : RTS
 }
 
 ; Bomb damage scales depending on beams equipped, including hyper beam. It's set to half the charged beam damage. Vulnerabilities remain unchanged.
@@ -140,10 +141,16 @@ SetBombDamage:
 {
 LDA $0C18,x : AND #$0F00 : CMP #$0500 : BNE .NotBomb ; If bomb:
 LDA $09A6 : AND #$000F : ASL : TAY ; equipped beams
-LDA $83D9,y : TAY : JSR MultiplyDamageFromMeteorShards : LSR ; charged beam damage / 2
+LDA $83D9,y : TAY : LDA $0000,y : LSR ; charged beam damage / 2
 LDY $0A76 : BEQ .NoHyper : LDA $83BF : LSR : .NoHyper ; If hyper: bomb damage = half of hyper beam damage
-STA $0C2C,x ; Else: bomb damage = half of charged beam damage
+JSR MultiplyDamageFromMeteorShards : STA $0C2C,x ; Else: bomb damage = half of charged beam damage
 .NotBomb : PLB : PLP : RTL
+}
+
+SetHyperBeamDamage:
+{
+  LDA $9383BF : JSR MultiplyDamageFromMeteorShards
+  RTL
 }
 
 SetHyperBeamTrailTimer:
@@ -151,9 +158,11 @@ SetHyperBeamTrailTimer:
 LDA #$0004 : STA $0C90,x ; trail timer
 JML $938000 ; restore from hijack
 }
+assert pc() <= $93F710
 
 org $9380CC : JMP SetBombDamage
 
+org $90BD22 : JSL SetHyperBeamDamage
 org $90BCF9 : LDA #$9017 ; hyper beam type
 org $90BD35 : LDA #$0007 ; hyper beam fire rate
 org $90BD29 : LDA #$B0F1 ; hyper beam pre-instruction (spawn trail, don't delete if flagged for deletion)
@@ -166,3 +175,16 @@ dw $0A00,round($0A00*2/3, 0)
 if defined("spritesomething")
   org $91E5F0 : LDA #$1007 ; let me freeze enemies with the hyper beam
 endif
+
+org $84CF41
+JMP HyperBeamBlockCheck
+
+%BEGIN_FREESPACE(84)
+HyperBeamBlockCheck:
+{
+  LDA $0C68,x : CMP #$B0F1 : BEQ + ; check pre-instruction
+  TDC : STA $1C37,y : RTS
++
+  LDA #$CBB7 : STA $1D27,y : RTS ; Instruction list - PLM $D074 (shot/bombed/grappled reaction, shootable, BTS 4. 1x1 shot block)
+}
+%END_FREESPACE(84)
