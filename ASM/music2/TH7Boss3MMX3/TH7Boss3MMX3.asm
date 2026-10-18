@@ -77,12 +77,13 @@ Tracker2B06:
 
 .pattern0_0
   !setNoteLengthTable : dw NoteLengthTable
-  !musicVolume,215;160
+  !musicVolume,160
   !tempo,78
   !setDPMiscCommand,!noteEndInTicks,1
-  !echo,%00000001,-60,60
+  !echo,%00000001,-80,80
   !echoParameters,2,60,3
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2EA1 : db -1,0
+  !remoteCode : dw .remoteCode2EA5 : db 3,0
   !instr,!instr1E
   !volume,164
   db 12,$7F
@@ -195,6 +196,7 @@ Tracker2B06:
   !as4
   !rest
   !loop : dw .sub2EC1 : db 1
+.pattern1_0:
   !volume,144
   !pan,5
   !loop : dw .sub2ED0 : db 1
@@ -210,7 +212,8 @@ Tracker2B06:
   !end
 
 .pattern0_1
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2EA9 : db -1,0
+  !remoteCode : dw .remoteCode2EAD : db 3,0
   !volume,144
   !loop : dw .sub2FDA : db 1
   db 12,$7F
@@ -319,6 +322,7 @@ Tracker2B06:
   !rest
   !as6
   !rest
+.pattern1_1:
   !pan,15
   !instr,!instr1E
   !volume,144
@@ -377,10 +381,12 @@ Tracker2B06:
   !end
 
 .pattern0_2
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2EB1 : db -1,0
+  !remoteCode : dw .remoteCode2EB5 : db 3,0
   !instr,!instr1F
   !volume,162
   !loop : dw .sub3001 : db 1
+.pattern1_2:
   !loop : dw .sub3075 : db 3
   !loop : dw .sub30E2 : db 1
   !loop : dw .sub311F : db 2
@@ -397,10 +403,12 @@ Tracker2B06:
   !end
 
 .pattern0_3
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2EB9 : db -1,0
+  !remoteCode : dw .remoteCode2EBD : db 3,0
   !instr,!instr1F
   !volume,162
   !loop : dw .sub3157 : db 1
+.pattern1_3:
   !loop : dw .sub31B6 : db 3
   !loop : dw .sub3207 : db 1
   !loop : dw .sub3244 : db 1
@@ -449,6 +457,7 @@ Tracker2B06:
   !instr,!instr20
   !volume,214
   !loop : dw .sub326A : db 1
+.pattern1_4:
   !loop : dw .sub3291 : db 3
   !loop : dw .sub32D3 : db 1
   !subloop,0
@@ -491,6 +500,7 @@ Tracker2B06:
   !volume,255
   !loop : dw .sub32E9 : db 3
   !loop : dw .sub3312 : db 1
+.pattern1_5:
   !loop : dw .sub333C : db 1
   !instr,!instr21
   db 48,$7F
@@ -547,241 +557,7 @@ Tracker2B06:
   db 48,$7F
   !c4
   !subloop,31
-  !instr,!instr26
-  !volume,124
-  !loop : dw .sub33A8 : db 5
-  !instr,!instr22
-  !volume,144
-  !subloop,0
-  db 48,$7F
-  !c4
-  !subloop,31
-  !end
-
-.pattern1_0
-  !volume,144
-  !pan,5
-  !loop : dw .sub2ED0 : db 1
-  !pan,10
-  !instr,!instr1F
-  !volume,194
-  !loop : dw .sub2F05 : db 2
-  !volume,164
-  !loop : dw .sub2F31 : db 1
-  !volume,164
-  !loop : dw .sub2F96 : db 1
-  !loop : dw .sub2FCF : db 2
-  !end
-
-.pattern1_1
-  !pan,15
-  !instr,!instr1E
-  !volume,144
-  !subloop,0
-  db 24,$7F
-  !fs4
-  !cs4
-  !ds4
-  !as3
-  !subloop,3
-  !subloop,0
-  db 24,$7F
-  !as4
-  !f4
-  !g4
-  !d4
-  !subloop,3
-  !loop : dw .sub2FEF : db 2
-  !loop : dw .sub2FFA : db 1
-  db 24,$7F
-  !cs4
-  !f4
-  !ds4
-  !f4
-  !loop : dw .sub2FFA : db 1
-  db 24,$7F
-  !d4
-  !f4
-  !ds4
-  !f4
-  !pan,10
-  !volume,128
-  !loop : dw .sub2ED0 : db 2
-  !subtranspose,37
-  db 24,$7F
-  !rest
-  !volume,85
-  !loop : dw .sub2F31 : db 1
-  !volume,114
-  !loop : dw .sub2F96 : db 1
-  db 12,$7F
-  !d5
-  !rest
-  !gs4
-  !rest
-  !as4
-  !rest
-  !d4
-  !rest
-  !d5
-  !rest
-  !gs4
-  !rest
-  !as4
-  !rest
-  !end
-
-.pattern1_2
-  !loop : dw .sub3075 : db 3
-  !loop : dw .sub30E2 : db 1
-  !loop : dw .sub311F : db 2
-  !loop : dw .sub30E2 : db 1
-  !loop : dw .sub3144 : db 1
-  !transpose,2
-  !loop : dw .sub3144 : db 1
-  !transpose,3
-  !loop : dw .sub3144 : db 1
-  !transpose,5
-  !loop : dw .sub3144 : db 1
-  !transpose,0
-  !loop : dw .sub3001 : db 1
-  !end
-
-.pattern1_3
-  !loop : dw .sub31B6 : db 3
-  !loop : dw .sub3207 : db 1
-  !loop : dw .sub3244 : db 1
-  !subloop,0
-  db 24,$7D
-  !cs6
-  db 12
-  !cs6
-  !rest
-  !cs6
-  !rest
-  !subloop,1
-  db 24,$7D
-  !cs6
-  db 12
-  !cs6
-  !rest
-  !loop : dw .sub3244 : db 1
-  !subloop,0
-  db 24,$7D
-  !d6
-  db 12
-  !d6
-  !rest
-  !d6
-  !rest
-  !subloop,1
-  db 24,$7D
-  !d6
-  db 12
-  !d6
-  !rest
-  !loop : dw .sub3207 : db 1
-  !loop : dw .sub3257 : db 1
-  !transpose,2
-  !loop : dw .sub3257 : db 1
-  !transpose,3
-  !loop : dw .sub3257 : db 1
-  !transpose,5
-  !loop : dw .sub3257 : db 1
-  !transpose,0
-  !loop : dw .sub3157 : db 1
-  !end
-
-.pattern1_4
-  !loop : dw .sub3291 : db 3
-  !loop : dw .sub32D3 : db 1
-  !subloop,0
-  db 24,$7F
-  !b4
-  !subloop,7
-  !subloop,0
-  db 24,$7F
-  !cs5
-  !subloop,7
-  !subloop,0
-  db 24,$7F
-  !b4
-  !subloop,7
-  !subloop,0
-  db 24,$7F
-  !d5
-  !subloop,7
-  !loop : dw .sub32D3 : db 1
-  !subloop,0
-  db 24,$7F
-  !gs4
-  !subloop,7
-  !subloop,0
-  db 24,$7F
-  !as4
-  !subloop,7
-  !subloop,0
-  db 24,$7F
-  !b4
-  !subloop,7
-  !subloop,0
-  db 24,$7F
-  !cs5
-  !subloop,7
-  !loop : dw .sub326A : db 1
-  !end
-
-.pattern1_5
-  !loop : dw .sub333C : db 1
-  !instr,!instr21
-  db 48,$7F
-  !a4
-  !instr,!instr23
-  !a4
-  !loop : dw .sub333C : db 1
-  !instr,!instr21
-  db 24,$7F
-  !a4
-  !instr,!instr23
-  !a4
-  !a4
-  !a4
-  !subloop,0
-  !loop : dw .sub333C : db 1
-  !instr,!instr21
-  db 48,$7F
-  !a4
-  !instr,!instr23
-  !a4
-  !loop : dw .sub333C : db 1
-  !instr,!instr21
-  db 24,$7F
-  !a4
-  !instr,!instr23
-  !a4
-  !a4
-  !a4
-  !subloop,1
-  !loop : dw .sub333C : db 1
-  !instr,!instr21
-  db 48,$7F
-  !a4
-  !instr,!instr23
-  !a4
-  !loop : dw .sub3377 : db 2
-  !loop : dw .sub333C : db 1
-  !instr,!instr21
-  db 48,$7F
-  !a4
-  !instr,!instr23
-  !a4
-  !loop : dw .sub3377 : db 2
-  !loop : dw .sub3398 : db 2
-  !loop : dw .sub32E9 : db 1
-  !loop : dw .sub3312 : db 1
-  !end
-
-.pattern1_6
+.pattern1_6:
   !instr,!instr26
   !volume,124
   !loop : dw .sub33A8 : db 5
@@ -1894,6 +1670,40 @@ Tracker2B06:
   !c5
   !subloop,63
   !end
+
+.remoteCode2EA1
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$05,$FF
+  !end
+
+.remoteCode2EA5
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$05,$00
+  !end
+
+.remoteCode2EA9
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$15,$FF
+  !end
+
+.remoteCode2EAD
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$15,$00
+  !end
+
+.remoteCode2EB1
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$25,$FF
+  !end
+
+.remoteCode2EB5
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$25,$00
+  !end
+
+.remoteCode2EB9
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$35,$FF
+  !end
+
+.remoteCode2EBD
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$35,$00
+  !end
+
+assert pc() <= $10000-(2*$800)
 endspcblock
 
 spcblock !p_extra nspc

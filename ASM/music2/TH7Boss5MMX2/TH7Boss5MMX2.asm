@@ -63,13 +63,14 @@ Tracker2B60:
 
 .pattern0_0
   !setNoteLengthTable : dw NoteLengthTable
-  !musicVolume,230;170
+  !musicVolume,170
   !tempo,69
   !setDPMiscCommand,!noteEndInTicks,1
-  !echo,%00001111,-60,60
+  !echo,%00001111,-80,80
   !echoParameters,2,60,3
   !pan,15
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2D92 : db -1,0
+  !remoteCode : dw .remoteCode2D96 : db 3,0
   !vibrato,32,12,64
   !instr,!instr1E
   !volume,134
@@ -105,6 +106,7 @@ Tracker2B60:
   !tie
   db 72
   !rest
+.pattern1_0:
   !transpose,0
   !loop : dw .sub2DB2 : db 16
   !transpose,3
@@ -117,7 +119,8 @@ Tracker2B60:
 
 .pattern0_1
   !pan,5
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2D9A : db -1,0
+  !remoteCode : dw .remoteCode2D9E : db 3,0
   !vibrato,32,12,64
   !instr,!instr1E
   !volume,134
@@ -153,6 +156,7 @@ Tracker2B60:
   !tie
   db 72
   !rest
+.pattern1_1:
   !transpose,0
   !loop : dw .sub2E45 : db 16
   !transpose,3
@@ -164,7 +168,8 @@ Tracker2B60:
   !end
 
 .pattern0_2
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2DA2 : db -1,0
+  !remoteCode : dw .remoteCode2DA6 : db 3,0
   !instr,!instr1F
   !volume,192
   db 24,$7F
@@ -189,6 +194,7 @@ Tracker2B60:
   !tie
   !rest
   !instr,!instr1F
+.pattern1_2:
   !transpose,0
   !volume,154
   !loop : dw .sub2ED8 : db 4
@@ -204,11 +210,13 @@ Tracker2B60:
   !end
 
 .pattern0_3
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2DAA : db -1,0
+  !remoteCode : dw .remoteCode2DAE : db 3,0
   !subloop,0
   db 96,$7F
   !rest
   !subloop,6
+.pattern1_3:
   !transpose,0
   !instr,!instr22
   !volume,154
@@ -237,6 +245,7 @@ Tracker2B60:
   !volume,224
   db 36
   !c5
+.pattern1_4:
   !transpose,0
   !instr,!instr23
   !volume,240
@@ -265,103 +274,7 @@ Tracker2B60:
   !c5
   !instr,!instr20
   !c5
-  !loop : dw .sub3038 : db 4
-  !loop : dw .sub3041 : db 6
-  db 24,$7F
-  !c5
-  !c5
-  !loop : dw .sub3038 : db 2
-  !instr,!instr20
-  db 12,$7F
-  !c5
-  !c5
-  db 24
-  !c5
-  !subloop,0
-  !loop : dw .sub3038 : db 4
-  !loop : dw .sub3041 : db 6
-  db 24,$7F
-  !c5
-  !c5
-  !loop : dw .sub3038 : db 2
-  !instr,!instr20
-  db 12,$7F
-  !c5
-  !c5
-  db 24
-  !c5
-  !subloop,4
-  !end
-
-.pattern1_0
-  !transpose,0
-  !loop : dw .sub2DB2 : db 16
-  !transpose,3
-  !loop : dw .sub2DC3 : db 2
-  !transpose,0
-  !loop : dw .sub2DC3 : db 1
-  !transpose,1
-  !loop : dw .sub2DC3 : db 1
-  !end
-
-.pattern1_1
-  !transpose,0
-  !loop : dw .sub2E45 : db 16
-  !transpose,3
-  !loop : dw .sub2E56 : db 2
-  !transpose,0
-  !loop : dw .sub2E56 : db 1
-  !transpose,1
-  !loop : dw .sub2E56 : db 1
-  !end
-
-.pattern1_2
-  !transpose,0
-  !volume,154
-  !loop : dw .sub2ED8 : db 4
-  !loop : dw .sub2EE7 : db 4
-  !loop : dw .sub2ED8 : db 4
-  !loop : dw .sub2EE7 : db 4
-  !transpose,3
-  !loop : dw .sub2EF6 : db 2
-  !transpose,0
-  !loop : dw .sub2EF6 : db 1
-  !transpose,1
-  !loop : dw .sub2EF6 : db 1
-  !end
-
-.pattern1_3
-  !transpose,0
-  !instr,!instr22
-  !volume,154
-  !loop : dw .sub2F79 : db 3
-  !loop : dw .sub2F90 : db 1
-  !loop : dw .sub2FA7 : db 4
-  !loop : dw .sub2F79 : db 3
-  !loop : dw .sub2F90 : db 1
-  !loop : dw .sub2FA7 : db 4
-  !transpose,3
-  !loop : dw .sub2FBE : db 2
-  !transpose,0
-  !loop : dw .sub2FBE : db 1
-  !transpose,1
-  !loop : dw .sub2FBE : db 1
-  !end
-
-.pattern1_4
-  !transpose,0
-  !instr,!instr23
-  !volume,240
-  !loop : dw .sub2FD8 : db 2
-  !transpose,3
-  !loop : dw .sub2FF5 : db 2
-  !transpose,0
-  !loop : dw .sub2FF5 : db 1
-  !transpose,1
-  !loop : dw .sub2FF5 : db 1
-  !end
-
-.pattern1_5
+.pattern1_5:
   !loop : dw .sub3038 : db 4
   !loop : dw .sub3041 : db 6
   db 24,$7F
@@ -985,6 +898,40 @@ Tracker2B60:
   !instr,!instr21
   !c5
   !end
+
+.remoteCode2D92
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$05,$FF
+  !end
+
+.remoteCode2D96
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$05,$00
+  !end
+
+.remoteCode2D9A
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$15,$FF
+  !end
+
+.remoteCode2D9E
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$15,$00
+  !end
+
+.remoteCode2DA2
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$25,$FF
+  !end
+
+.remoteCode2DA6
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$25,$00
+  !end
+
+.remoteCode2DAA
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$25,$FF
+  !end
+
+.remoteCode2DAE
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$25,$00
+  !end
+
+assert pc() <= $10000-(2*$800)
 endspcblock
 
 spcblock !p_extra nspc

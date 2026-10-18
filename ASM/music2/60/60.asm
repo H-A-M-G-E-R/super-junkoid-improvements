@@ -281,7 +281,7 @@ Tracker5830:
   !end
 
 .pattern1_7
-  !echo,%00111111,48,-32
+  !echo,%00111111,36,-24
   db 126
   !tie
   !tie
@@ -4216,6 +4216,8 @@ Tracker5830:
   db 6
   !tie
   !end
+
+assert pc() <= $10000-(2*$800)
 endspcblock
 
 spcblock !p_extra nspc

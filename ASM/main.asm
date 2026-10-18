@@ -18,7 +18,7 @@ incsrc "ASM/intro_skip.asm"
 incsrc "ASM/item fanfare skip without sound.asm"
 incsrc "ASM/misc.asm"
 incsrc "ASM/RNG.asm"
-;incsrc "ASM/room header edits.asm"
+incsrc "ASM/room header edits.asm"
 incsrc "sprite_object_optimization.asm"
 incsrc "ASM/transfer samus tiles optimization + animated tiles fix.asm"
 incsrc "ASM/upload to apu space optimization.asm"
@@ -62,6 +62,7 @@ incsrc "ASM/enemies/slasher_sisters.asm"
 
 ; Bosses
 incsrc "ASM/enemies/draygon.asm"
+;incsrc "ASM/enemies/draygon_funny_dance.asm"
 incsrc "ASM/enemies/kraid.asm"
 incsrc "ASM/enemies/mb.asm"
 incsrc "ASM/enemies/penguinmire.asm"
@@ -107,6 +108,8 @@ org $A9F29A : LDA #$0000 ; no crashy when shitroid stops draining you
 ; wip
 if defined("music")
     incsrc "ASM/music2/music.asm"
+    incsrc "ASM/music_preview.asm"
+    incsrc "ASM/music_upload.asm"
 endif
 
 org $978DF4 : incbin "sans_game_options_tilemap.bin.comp" ; sans

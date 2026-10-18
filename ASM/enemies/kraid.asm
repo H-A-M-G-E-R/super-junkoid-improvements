@@ -58,9 +58,6 @@ JSR $AEC4 : BRA $01
 org $A7BC23 ; in Kraid function - Kraid main loop - attacking with mouth open
 JSR $AEC4
 
-; fire in the hole
-org $A7AF95 : LDA #$0059
-
 ; new gfx
 org read3($A0E2BF+$36)
 incbin "ImmodestJunko.gfx"

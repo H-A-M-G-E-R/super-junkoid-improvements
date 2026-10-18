@@ -97,11 +97,11 @@ Tracker2A50:
 .pattern0_0
   !setNoteLengthTable : dw NoteLengthTable
   !tempo,49
-  !musicVolume,255;248
+  !musicVolume,248
   !echoParameters,6,70,0
   !echo,%00000000,0,0
   !instr,!instr1E
-  !volume,149
+  !volume,124
   !loop : dw .sub30A7 : db 1
   !loop : dw .sub30A7 : db 1
   !loop : dw .sub30BC : db 1
@@ -110,7 +110,7 @@ Tracker2A50:
   !loop : dw .sub30D1 : db 1
   !loop : dw .sub30E6 : db 1
   !loop : dw .sub30BC : db 1
-  !echo,%00000010,38,-60
+  !echo,%00000010,50,-79
   !loop : dw .sub30A7 : db 1
   !loop : dw .sub30D1 : db 1
   !loop : dw .sub30E6 : db 1
@@ -134,14 +134,14 @@ Tracker2A50:
   !tie
   db 12
   !tie
-  !echo,%01000010,38,-60
+  !echo,%01000010,50,-79
   !loop : dw .sub30A7 : db 1
   !loop : dw .sub30D1 : db 1
   !loop : dw .sub30E6 : db 1
   !loop : dw .sub30BC : db 1
   !instr,!instr1F
-  !volume,137
-  !echo,%00000011,38,-60
+  !volume,114
+  !echo,%00000011,50,-79
   !loop : dw .sub3121 : db 1
   db 18,$7F
   !f5
@@ -198,7 +198,7 @@ Tracker2A50:
   !d5
   !instr,!instr20
   !pan,15
-  !volume,122
+  !volume,102
   !loop : dw .sub3121 : db 1
   db 18,$7F
   !f5
@@ -256,7 +256,7 @@ Tracker2A50:
   !tie
   !pitchSlide,10,54 : !f3
   !pan,10
-  !echo,%10010010,38,-60
+  !echo,%10010010,50,-79
   db 96
   !rest
   !tie
@@ -275,7 +275,7 @@ Tracker2A50:
   !tie
   !tie
   !instr,!instr1E
-  !volume,149
+  !volume,124
   !loop : dw .sub30BC : db 1
   !loop : dw .sub30D1 : db 1
   !loop : dw .sub30E6 : db 2
@@ -294,7 +294,7 @@ Tracker2A50:
 
 .pattern0_1
   !instr,!instr1E
-  !volume,110
+  !volume,92
   db 96,$7F
   !rest
   !tie
@@ -315,7 +315,7 @@ Tracker2A50:
   !loop : dw .sub30E6 : db 1
   !loop : dw .sub3110 : db 1
   !instr,!instr22
-  !volume,82
+  !volume,68
   db 48,$7F
   !d6
   !pitchSlide,18,5 : !f6
@@ -390,14 +390,14 @@ Tracker2A50:
   db 108
   !e6
   !instr,!instr24
-  !volume,158
+  !volume,132
   db 24
   !as2
   !d3
   !f3
   !d3
   !instr,!instr1F
-  !volume,137
+  !volume,114
   db 12
   !c5
   !a4
@@ -490,7 +490,7 @@ Tracker2A50:
   !pitchSlide,36,21 : !a4
   !a4
   !instr,!instr23
-  !volume,113
+  !volume,94
   !loop : dw .sub3121 : db 1
   db 48,$7F
   !f5
@@ -510,7 +510,7 @@ Tracker2A50:
   !tie
   !tie
   !tie
-  !volume,137
+  !volume,114
   !instr,!instr25
   !loop : dw .sub31E0 : db 1
   !loop : dw .sub31E0 : db 1
@@ -521,7 +521,7 @@ Tracker2A50:
   !end
 
 .pattern0_2
-  !volume,206
+  !volume,172
   db 96,$7F
   !rest
   !tie
@@ -588,7 +588,7 @@ Tracker2A50:
   !end
 
 .pattern0_3
-  !volume,206
+  !volume,172
   !pan,9
   db 96,$7F
   !rest
@@ -642,7 +642,7 @@ Tracker2A50:
   !end
 
 .pattern0_4
-  !volume,131
+  !volume,109
   db 96,$7F
   !rest
   !tie
@@ -689,7 +689,7 @@ Tracker2A50:
   !loop : dw .sub3396 : db 1
   !loop : dw .sub33EB : db 1
   !loop : dw .sub33EB : db 1
-  !volume,178
+  !volume,148
   db 96,$7F
   !rest
   !tie
@@ -746,7 +746,7 @@ Tracker2A50:
   !g4
   !a4
   !c5
-  !volume,131
+  !volume,109
   !instr,!instr26
   !loop : dw .sub3449 : db 1
   !loop : dw .sub33EB : db 1
@@ -760,7 +760,7 @@ Tracker2A50:
   !end
 
 .pattern0_5
-  !volume,101
+  !volume,84
   !instr,!instr1E
   db 96,$7F
   !rest
@@ -781,7 +781,7 @@ Tracker2A50:
   !c5
   !loop : dw .sub34A7 : db 1
   !instr,!instr08
-  !volume,250
+  !volume,208
   !loop : dw .sub34C1 : db 4
   db 96,$7F
   !rest
@@ -848,7 +848,7 @@ Tracker2A50:
   !end
 
 .pattern0_6
-  !volume,101
+  !volume,84
   !instr,!instr1E
   db 96,$7F
   !rest
@@ -878,7 +878,7 @@ Tracker2A50:
   !tie
   !tie
   !instr,!instr22
-  !volume,82
+  !volume,68
   db 18
   !a6
   db 6
@@ -975,7 +975,7 @@ Tracker2A50:
   !rest
   db 108
   !c7
-  !volume,101
+  !volume,84
   db 96
   !rest
   !tie
@@ -1019,7 +1019,7 @@ Tracker2A50:
   !end
 
 .pattern0_7
-  !volume,110
+  !volume,92
   !instr,!instr24
   db 96,$7F
   !rest
@@ -1052,9 +1052,9 @@ Tracker2A50:
   !loop : dw .sub3621 : db 1
   db 96,$7F
   !rest
-  !volume,110
+  !volume,92
   !instr,!instr24
-  !volume,108
+  !volume,90
   !pan,15
   db 24
   !f3
@@ -1161,7 +1161,7 @@ Tracker2A50:
   !tie
   !tie
   !tie
-  !volume,110
+  !volume,92
   !pan,8
   !instr,!instr21
   !loop : dw .sub30BC : db 1
@@ -2518,6 +2518,8 @@ Tracker2A50:
   !a4
   !c5
   !end
+
+assert pc() <= $10000-(6*$800)
 endspcblock
 
 spcblock !p_extra nspc

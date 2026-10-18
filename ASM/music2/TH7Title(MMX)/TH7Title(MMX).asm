@@ -81,10 +81,10 @@ Tracker2B34:
   !musicVolume,137
   !tempo,73
   !setDPMiscCommand,!noteEndInTicks,1
-  !echo,%11101111,-75,75
+  !echo,%11101111,-99,99
   !echoParameters,3,68,3
   !instr,!instr1E
-  !volume,216;162
+  !volume,162
   db 3,$7F
   !d5
   !pitchSlide,24,64 : !c3
@@ -92,7 +92,7 @@ Tracker2B34:
   !tie
   !instr,!instr27
   !volume,144
-  !echo,%10101111,-75,75
+  !echo,%10101111,-99,99
   !loop : dw .sub2EF5 : db 2
   db 96,$7F
   !d5
@@ -120,6 +120,7 @@ Tracker2B34:
   !d6
   !a5
   !g5
+  !subloop,0
   db 96,$7F
   !f5
   db 48
@@ -130,16 +131,7 @@ Tracker2B34:
   db 48
   !tie
   !g5
-  db 96,$7F
-  !f5
-  db 48
-  !g5
-  !f5
-  db 96
-  !a5
-  db 48
-  !tie
-  !g5
+  !subloop,1
   !volume,151
   db 96,$7F
   !f5
@@ -164,6 +156,7 @@ Tracker2B34:
   db 96
   !rest
   !tie
+.pattern1_0:
   !end
 
 .pattern0_1
@@ -206,6 +199,7 @@ Tracker2B34:
   !a5
   !e5
   !d5
+  !subloop,0
   db 96,$7F
   !d5
   db 48
@@ -216,16 +210,7 @@ Tracker2B34:
   db 48
   !tie
   !e5
-  db 96,$7F
-  !d5
-  db 48
-  !e5
-  !d5
-  db 96
-  !f5
-  db 48
-  !tie
-  !e5
+  !subloop,1
   !volume,151
   db 96,$7F
   !d5
@@ -253,62 +238,27 @@ Tracker2B34:
   !end
 
 .pattern0_2
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2EDD : db -1,0
+  !remoteCode : dw .remoteCode2EE1 : db 3,0
   db 96,$7F
   !rest
   !instr,!instr22
   !volume,131
   db 24
   !c3
+  !subloop,0
   db 24,$7F
   !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
+  !subloop,10
   db 48,$7F
   !c3
   !d3
   db 24
   !c3
+  !subloop,0
   db 24,$7F
   !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
-  db 24,$7F
-  !a2
+  !subloop,10
   db 48,$7F
   !a2
   !g2
@@ -388,62 +338,27 @@ Tracker2B34:
   !end
 
 .pattern0_3
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2EE5 : db -1,0
+  !remoteCode : dw .remoteCode2EE9 : db 3,0
   db 96,$7F
   !rest
   !instr,!instr22
   !volume,131
   db 24
   !f3
+  !subloop,0
   db 24,$7F
   !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
+  !subloop,10
   db 48,$7F
   !f3
   !g3
   db 24
   !f3
+  !subloop,0
   db 24,$7F
   !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
+  !subloop,10
   db 48,$7F
   !d3
   !c3
@@ -527,126 +442,50 @@ Tracker2B34:
   !volume,240
   db 96,$7F
   !rest
+  !subloop,0
   db 24,$7F
   !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
+  !subloop,11
   db 48,$7F
   !f3
   !g3
+  !subloop,0
   db 24,$7F
   !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
+  !subloop,11
   db 48,$7F
   !d3
   !c3
   !loop : dw .sub2F3C : db 2
   !loop : dw .sub2F48 : db 2
+  !subloop,0
   db 24,$7F
   !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
+  !subloop,3
+  !subloop,0
   db 24,$7F
   !c3
-  db 24,$7F
-  !c3
-  db 24,$7F
-  !c3
-  db 24,$7F
-  !c3
+  !subloop,3
+  !subloop,0
   db 24,$7F
   !b2
-  db 24,$7F
-  !b2
-  db 24,$7F
-  !b2
-  db 24,$7F
-  !b2
-  db 24,$7F
-  !b2
-  db 24,$7F
-  !b2
-  db 24,$7F
-  !b2
-  db 24,$7F
-  !b2
+  !subloop,7
+  !subloop,0
   db 24,$7F
   !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
+  !subloop,3
+  !subloop,0
   db 24,$7F
   !c3
-  db 24,$7F
-  !c3
-  db 24,$7F
-  !c3
-  db 24,$7F
-  !c3
+  !subloop,3
+  !subloop,0
   db 24,$7F
   !cs3
-  db 24,$7F
-  !cs3
-  db 24,$7F
-  !cs3
-  db 24,$7F
-  !cs3
+  !subloop,3
+  !subloop,0
   db 24,$7F
   !ds3
-  db 24,$7F
-  !ds3
-  db 24,$7F
-  !ds3
-  db 24,$7F
-  !ds3
+  !subloop,3
   db 120,$7F
   !f3
   db 24
@@ -672,22 +511,10 @@ Tracker2B34:
   !instr,!instr20
   !volume,118
   !dynamicVolume,96,192
+  !subloop,0
   db 12,$7F
   !c5
-  db 12,$7F
-  !c5
-  db 12,$7F
-  !c5
-  db 12,$7F
-  !c5
-  db 12,$7F
-  !c5
-  db 12,$7F
-  !c5
-  db 12,$7F
-  !c5
-  db 12,$7F
-  !c5
+  !subloop,7
   db 24,$7F
   !c5
   !volume,224
@@ -706,16 +533,17 @@ Tracker2B34:
   !rest
   !instr,!instr20
   !volume,162
+  !subloop,0
   db 12,$7F
   !c5
-  db 12,$7F
-  !c5
+  !subloop,1
   !instr,!instr21
   !volume,224
   db 48,$7F
   !c4
   !instr,!instr25
   !volume,224
+  !subloop,0
   db 96,$7F
   !c4
   db 24
@@ -725,69 +553,7 @@ Tracker2B34:
   db 96
   !c4
   !c4
-  db 96,$7F
-  !c4
-  db 24
-  !c4
-  db 72
-  !c4
-  db 96
-  !c4
-  !c4
-  db 96,$7F
-  !c4
-  db 24
-  !c4
-  db 72
-  !c4
-  db 96
-  !c4
-  !c4
-  db 96,$7F
-  !c4
-  db 24
-  !c4
-  db 72
-  !c4
-  db 96
-  !c4
-  !c4
-  db 96,$7F
-  !c4
-  db 24
-  !c4
-  db 72
-  !c4
-  db 96
-  !c4
-  !c4
-  db 96,$7F
-  !c4
-  db 24
-  !c4
-  db 72
-  !c4
-  db 96
-  !c4
-  !c4
-  db 96,$7F
-  !c4
-  db 24
-  !c4
-  db 72
-  !c4
-  db 96
-  !c4
-  !c4
-  db 96,$7F
-  !c4
-  db 24
-  !c4
-  db 72
-  !c4
-  db 96
-  !c4
-  !c4
+  !subloop,7
   !instr,!instr24
   !volume,144
   db 96,$7F
@@ -808,10 +574,12 @@ Tracker2B34:
   !end
 
 .pattern0_7
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2EED : db -1,0
+  !remoteCode : dw .remoteCode2EF1 : db 3,0
   db 96,$7F
   !rest
   !instr,!instr26
+  !subloop,0
   !volume,220
   db 24,$7F
   !d4
@@ -826,20 +594,8 @@ Tracker2B34:
   !d4
   !tie
   !tie
-  !volume,220
-  db 24,$7F
-  !d4
-  !volume,190
-  !d4
-  !volume,160
-  !d4
-  !volume,130
-  !d4
-  !volume,100
-  db 96
-  !d4
-  !tie
-  !tie
+  !subloop,1
+  !subloop,0
   !volume,220
   db 24,$7F
   !as3
@@ -854,20 +610,7 @@ Tracker2B34:
   !as3
   !tie
   !tie
-  !volume,220
-  db 24,$7F
-  !as3
-  !volume,190
-  !as3
-  !volume,160
-  !as3
-  !volume,130
-  !as3
-  !volume,100
-  db 96
-  !as3
-  !tie
-  !tie
+  !subloop,1
   !subtranspose,21
   !instr,!instr22
   db 3,$7F
@@ -950,23 +693,12 @@ Tracker2B34:
   !f4
   !volume,185
   !dynamicVolume,192,16
+  !subloop,0
   db 24,$7F
   !f4
-  db 24,$7F
-  !f4
-  db 24,$7F
-  !f4
-  db 24,$7F
-  !f4
-  db 24,$7F
-  !f4
-  db 24,$7F
-  !f4
+  !subloop,5
   db 48,$7F
   !f4
-  !end
-
-.pattern1_0
   !end
 
 .pattern1_1
@@ -978,11 +710,15 @@ Tracker2B34:
   !end
 
 .pattern1_2
+  !remoteCode : dw .remoteCode2EDD : db -1,0
+  !remoteCode : dw .remoteCode2EE1 : db 3,0
   db 96,$7F
   !rest
   !end
 
 .pattern1_3
+  !remoteCode : dw .remoteCode2EE5 : db -1,0
+  !remoteCode : dw .remoteCode2EE9 : db 3,0
   db 96,$7F
   !rest
   !end
@@ -1008,6 +744,8 @@ Tracker2B34:
   !end
 
 .pattern1_7
+  !remoteCode : dw .remoteCode2EED : db -1,0
+  !remoteCode : dw .remoteCode2EF1 : db 3,0
   db 96,$7F
   !rest
   !end
@@ -1074,96 +812,42 @@ Tracker2B34:
 .sub2F2D
   db 24,$7F
   !d3
+  !subloop,0
   db 24,$7F
   !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
+  !subloop,10
   db 48,$7F
   !as2
   !c3
   !end
 
 .sub2F3C
+  !subloop,0
   db 24,$7F
   !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
+  !subloop,11
   db 48,$7F
   !as2
   !c3
   !end
 
 .sub2F48
+  !subloop,0
   db 24,$7F
   !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
-  db 24,$7F
-  !as2
+  !subloop,3
+  !subloop,0
   db 24,$7F
   !c3
+  !subloop,3
+  !subloop,0
+  db 24,$7F
+  !d3
+  !subloop,5
+  !subloop,0
   db 24,$7F
   !c3
-  db 24,$7F
-  !c3
-  db 24,$7F
-  !c3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !d3
-  db 24,$7F
-  !c3
-  db 24,$7F
-  !c3
+  !subloop,1
   !end
 
 .sub2F65
@@ -1184,6 +868,30 @@ Tracker2B34:
   !instr,!instr21
   !volume,224
   !c4
+  !end
+
+.remoteCode2EDD
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$25,$FF
+  !end
+
+.remoteCode2EE1
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$25,$00
+  !end
+
+.remoteCode2EE5
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$35,$FF
+  !end
+
+.remoteCode2EE9
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$35,$00
+  !end
+
+.remoteCode2EED
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$75,$FF
+  !end
+
+.remoteCode2EF1
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$75,$00
   !end
 endspcblock
 

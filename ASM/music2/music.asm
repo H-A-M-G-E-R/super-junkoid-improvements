@@ -47,8 +47,8 @@ lorom
 ;$00: $F2AB6C..F48A00
 
 org $B9806B
-dl Song00, ; SPC engine
-   Song03, ; (used in game over screen but uses song 4)
+SongPointers:
+dl Song03, ; (used in game over screen but uses song 4)
    Song06,
    Song09, ; statue room
    Song0C,
@@ -83,10 +83,10 @@ dl Song00, ; SPC engine
    Song63, ; (upper Sheol)
    Song66, ; (title screen)
    Song69, ; (touhou area)
-   Song6C,
+   Song6C, ; (greater junko)
    Song6F, ; (pre-snake)
    Song72, ; (the new mother brain music)
-   Song75,
+   Song75, ; (escape)
    Song78, ; (credits 2)
    Song7B  ; that song from alttp (used in one true junko room)
 
@@ -119,21 +119,40 @@ RTS
 org $8B9F5A : JMP FightSansInFileSelect
 
 ; room header edits
-;org $8FE76A+4 ; clay homonculus, want rumia theme
+org $8FE736+4 : db $06,$04 ; clay homonculus
+org $8FE76A+4 : db $06,$04 ; clay homonculus (black dress)
 
 org $8FD846+4 : db $0F,$05 ; mini penguin
 org $8FBFD6+4 : db $0F,$05 ; penguinmire
-org $8FDA19+4 : db $0F,$05 ; snowmen
-;org $8FDE2F+4 : db $12,$04 ; immodest junko (outdated)
+org $8FD9FF+4 : db $0F,$05 ; snowmen
+org $8FDA19+4 : db $0F,$05
+org $8FDA64+4 : db $12,$04 ; immodest junko
+org $8FDA7E+4 : db $12,$04
 
-org $8FE274+4 : db $18,$05 ; ninja junko
-org $8FE4C6+4 : db $03,$05 ; slasher sisters
-;org $8FE332+4 ; long spine
-;org $8FCF0F+4 ; obscene junko (outdated)
+org $8FE25A+4 : db $18,$05 ; ninja junko
+org $8FE274+4 : db $18,$05
+org $8FE4AC+4 : db $03,$05 ; slasher sisters
+org $8FE4C6+4 : db $03,$05
+org $8FE318+4 : db $21,$05 ; long spine
+org $8FE332+4 : db $21,$05
+org $8FE3E2+4 : db $1B,$05 ; obscene junko
+org $8FE3FC+4 : db $1B,$05
+org $8FE416+4 : db $00,$04
 
-org $8FD8C5+4 : db $0C,$05 ; gargoyles
-;org $8FDBF1+4 : db $15,$04 ; profane junko 1 (outdated)
+org $8FED8D+4 : db $27,$04 ; defiled junko
+org $8FEDA7+4 : db $27,$04
+
+org $8FD8AB+4 : db $0C,$05 ; gargoyles
+org $8FD8C5+4 : db $0C,$05
+org $8F9214+4 : db $24,$04 ; gold homonculus
+org $8F922E+4 : db $24,$04
+org $8FEC3C+4 : db $15,$04 ; profane junko 1
+org $8FEC56+4 : db $15,$04
+org $8FEC70+4 : db $15,$04
 ;org $8FC888+4 : db $09,$04 ; statue room (outdated)
+
+org $8FCAFE+4 : db $15,$04 ; profane junko 2
+org $8FCB18+4 : db $00,$04
 
 ; penguinmire music
 org $A490AA : LDA #$0004
@@ -141,23 +160,27 @@ org $A497DD : LDA #$0005
 org $A49B86 : LDA #$0004
 org $A49B9E : LDA #$0004
 
+org $A49508 : BRA + : org $A4950F : + ; crocomire doesn't play kraid's roar to not play a mess
+
+; fire in the hole
+org $A7AF95 : LDA #$002D
+
+; profane junko roar sfx
+org $A6E4BE : LDA #$0059
+
+org $A9CC65 : LDA #$FF30 ; mother brain samus theme
+
 org $D892B7
 check bankcross off
 Song00: incbin "main.nspc"
 Song03: incbin "TH7Boss5MMX2/TH7Boss5MMX2.nspc"
-Song06:
-Song09: db $00,$00
-Song2A: incbin "TH7Boss3MMX3/TH7Boss3MMX3.nspc"
-Song0F: incbin "TH7Boss1(MMX)/TH7Boss1(MMX).nspc"
-Song4B: incbin "ut_another_medium_1_0/ut_another_medium_1_0.nspc"
-Song54: incbin "Core/Core - Optimized.nspc"
-Song5A: incbin "TH7Stage1(MMX)/TH7Stage1(MMX).nspc"
+Song06: incbin "hooded_edge/Osana-Reimu/Soul Engulfed by Darkness [1 = Original - Listening-Only].nspc"
 Song0C: incbin "TH7BossEX(MMX)/TH7BossEX(MMX).nspc"
-Song1E:
-Song21:
-Song24:
-Song27:
-Song30:
+Song0F: incbin "TH7Boss1(MMX)/TH7Boss1(MMX).nspc"
+Song12: incbin "TH6Boss2(MMX)/TH6Boss2(MMX).nspc"
+Song15: incbin "hooded_edge/WAWEE-IS-NEET/Fight Back Against The Moon! [1 = Original] [2 = SMW-Compatible].nspc"
+Song18: incbin "hooded_edge/KNUCKLES-BUT-CHINESE/Battle Spirit Of The Devil's Guardian [1 = Remix - Listening-Only] [2 = Voice Disabled].nspc"
+Song09:
 Song33:
 Song36:
 Song3C:
@@ -166,29 +189,81 @@ Song42:
 Song45:
 Song48:
 Song4E:
-Song51:
 Song57:
 Song5D:
-Song63:
 Song6C:
 Song6F:
-Song72:
-Song75:
 Song78:
-Song7B: incbin "hcq_megalo/hcq_megalo.nspc" ; always use it for final boss music, even if it doesn't fit
+Song7B: incbin "hcq_megalo/hcq_megalo.nspc"
 %padSafe($DFD500)
 check bankcross full
 
 org $E0C5E6
 check bankcross off
-Song12: incbin "TH6Boss2(MMX)/TH6Boss2(MMX).nspc"
-Song15: incbin "TH8_Boss6_MMX/TH8_Boss6_MMX.nspc"
-Song18: incbin "TH6Stage3_X1/TH6Stage3_X1.nspc"
 Song1B: incbin "Undertale - Battle Against A True Hero (Remix)/Battle Against A True Hero.nspc"
+Song1E: incbin "tourian/1E.nspc"
+Song21: incbin "hooded_edge/UNO-Reverse-Card/Impossible Youkai Girl, The.nspc"
+Song24: incbin "TH7Boss2MMX2/TH7Boss2MMX2.nspc"
+Song27: incbin "hooded_edge/PRISMPUNK-SISTERS/Sliver of Punk in the Ghost Harmony, A [1 = Remix] [2 = Voice Disabled].nspc"
+Song2A: incbin "TH7Boss3MMX3/TH7Boss3MMX3.nspc"
 Song2D: incbin "Fight Sans/song that might play when you fight sans.nspc"
+Song30: incbin "hooded_edge/YARE-YARE-DA-ZE/[LCMS] Move And I'll Shoot!! [1 = Original].nspc"
 Song39: incbin "45 Kirby Lose/45 Kirby Lose.nspc"
+Song4B: incbin "anothertale/anothertale.nspc"
+Song51: incbin "hooded_edge/NGL-HISTORY-SUX/Nightmares Of The Past [1 = Remix - Listening-Only] [2 = Voice Disabled].nspc"
+Song54: incbin "Core/Core - Optimized.nspc"
+Song5A: incbin "TH7Stage1(MMX)/TH7Stage1(MMX).nspc"
 Song60: incbin "60/60.nspc"
-Song69: incbin "TH10Boss5_X1/TH10Boss5_X1.nspc"
+Song63: incbin "hooded_edge/MUKYU/Danza de la Mente [2 = LOWER Volume] [1 = Remix].nspc"
 Song66: incbin "TH7Title(MMX)/TH7Title(MMX).nspc"
+Song69: incbin "hooded_edge/AYAYAYAYAYAYAYAYA/Cheating Tengu, The [1 = Original].nspc"
+Song72: incbin "megalovania/badtime.nspc" ; always use it for final boss music, even if it doesn't fit
+Song75: incbin "hooded_edge/YOU-MUST-BE-NUE-HERE/Search, Kill, & Destroy!!! [1 = Remix] [2 = Voice Disabled].nspc"
+
 %padSafe($F48A00)
 check bankcross full
+
+%BEGIN_FREESPACE(81)
+SampleTransferDefPointers: ; can't cross banks
+dl 0, ; 03 (used in game over screen but uses song 4)
+   0, ; 06
+   0, ; 09 statue room
+   0, ; 0C
+   0, ; 0F
+   0, ; 12
+   0, ; 15
+   0, ; 18
+   0, ; 1B
+   0, ; 1E tourian (alive idol)
+   0, ; 21
+   0, ; 24
+   0, ; 27 (penguinmire)
+   0, ; 2A (miniboss)
+   0, ; 2D
+   0, ; 30
+   0, ; 33 zebes boom (used)
+   0, ; 36
+   0, ; 39 death
+   0, ; 3C credits (edited to only use the intro)
+   0, ; 3F
+   0, ; 42
+   0, ; 45
+   0, ; 48
+   0, ; 4B (upper outskirts)
+   0, ; 4E (lower outskirts)
+   0, ; 51 (blood bethel)
+   0, ; 54 (upper deep purple)
+   0, ; 57 (lower Sheol)
+   0, ; 5A (ice castle)
+   0, ; 5D (dead idol)
+   0, ; 60 (lower deep purple)
+   0, ; 63 (upper Sheol)
+   0, ; 66 (title screen)
+   0, ; 69 (touhou area)
+   0, ; 6C
+   0, ; 6F (pre-snake)
+   0, ; 72 (the new mother brain music)
+   0, ; 75 (escape)
+   0, ; 78 (credits 2)
+   0  ; 7B that song from alttp (used in one true junko room)
+%END_FREESPACE(81)

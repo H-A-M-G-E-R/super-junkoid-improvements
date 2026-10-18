@@ -46,7 +46,7 @@ Tracker4739:
 
 .pattern0_0
   !setNoteLengthTable : dw NoteLengthTable
-  !echo,%00011111,26,26
+  !echo,%00011111,26*$7F/$60,26*$7F/$60
   !echoParameters,4,50,2
   !musicVolume,255
   !tempo,47

@@ -1,13 +1,22 @@
 ; Change these below if you repoint the SPC engine.
-!p_spcEngine = $308
-!p_instrumentTable = $21E0
-!p_sampleTable = $2300
-!p_sampleData = $2400
-!p_songSpecificData = $5AD8
+!p_spcEngine = $0000
+!p_instrumentTable = $1F80
+!p_sampleTable = $2100
+!p_sampleData = $2200
+!p_songSpecificData = $441A
 !p_extra = $E0
 
 !noteEndInTicks = $E5
 !disablePsychoacousticAdjustment = $E6
+
+!sound1InstructionLists_low = $1250
+!sound1InstructionLists_high = $1292
+
+!sound2InstructionLists_low = $15E7
+!sound2InstructionLists_high = $1666
+
+!sound3InstructionLists_low = $1C35
+!sound3InstructionLists_high = $1C64
 
 !c2 = "db $80"
 !cs2 = "db $81"
@@ -123,5 +132,11 @@ endmacro
 !setDPMiscCommand = "db $FB, $02"
 !toggleEcho = "db $FB, $03"
 !toggleKeyOffGain = "db $FB, $04"
+!amplify = "db $FB, $05"
+!restoreInstrument = "db $FB, $06"
+!toggleLegato = "db $FB, $07"
+!setInstrumentByte = "db $FB, $08"
 
 !subloop = "db $FC"
+!adsrGain = "db $FD"
+!remoteCode = "db $FE"

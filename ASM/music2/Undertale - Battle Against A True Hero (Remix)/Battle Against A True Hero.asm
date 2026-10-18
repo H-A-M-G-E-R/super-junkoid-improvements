@@ -1,5 +1,4 @@
 ; Originally by Toby Fox, arranged by Segment1Zone2 (https://www.smwcentral.net/?p=section&a=details&id=30853)
-; I have to reduce the echo from 7 to 3.
 asar 1.91
 norom : org 0
 incsrc "../defines.asm"
@@ -80,7 +79,6 @@ spcblock 4*$16+!p_sampleTable nspc ; sample table
   dw Sample22,Sample22+0
 endspcblock
 
-;spcblock !p_sampleData nspc ; sample data
 spcblock !p_songSpecificData nspc ; sample data
   Sample06: incbin "06 SMW @22.brr":2..0
   Sample14: incbin "Piano.brr":2..0
@@ -117,19 +115,18 @@ Tracker2B0A:
   dw $00FF,-
 
 .pattern0: dw .pattern0_0, .pattern0_1, .pattern0_2, .pattern0_3, .pattern0_4, .pattern0_5, .pattern0_6, .pattern0_7
-.pattern1: dw .pattern1_0, .pattern1_1, .pattern0_2, .pattern0_3, .pattern0_4, .pattern0_5, .pattern0_6, .pattern0_7
+.pattern1: dw .pattern1_0, .pattern0_1, .pattern0_2, .pattern0_3, .pattern0_4, .pattern0_5, .pattern0_6, .pattern0_7
 
 .pattern0_0
   !setNoteLengthTable : dw NoteLengthTable
-  !echo,%11111111,-48,-48
+  !echo,%11111111,-64,-64
   !setEchoFirFilters : dw FirFilters
-  ;!echoParameters,7,63,0
-  !echoParameters,3,80,0
+  !echoParameters,7,63,0
   !musicVolume,255
   !tempo,60
   !setDPMiscCommand,!noteEndInTicks,1
-.pattern1_0
-  !volume,187
+.pattern1_0:
+  !volume,140
   !instr,!instr1E
   !endVibrato
   !subloop,0
@@ -246,7 +243,7 @@ Tracker2B0A:
   db 108,$76
   !c7
   !subloop,1
-  !volume,160
+  !volume,120
   !instr,!instr1F
   !pan,9
   !vibrato,24,12,24
@@ -296,15 +293,13 @@ Tracker2B0A:
   !subloop,1
   !end
 
-.pattern1_1
-  !toggleKeyOffGain
-
 .pattern0_1
-  !volume,213
+  !volume,160
   !instr,!instr20
   !pan,10
   !loop : dw .sub3257 : db 8
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode3153 : db -1,0
+  !remoteCode : dw .remoteCode3156 : db 3,0
   !loop : dw .sub325B : db 1
   db 96,$7F
   !f5
@@ -365,7 +360,7 @@ Tracker2B0A:
   !ds5
   !subloop,23
   !loop : dw .sub3257 : db 12
-  !volume,107
+  !volume,80
   !instr,!instr21
   !pan,11
   db 96,$7F
@@ -400,7 +395,7 @@ Tracker2B0A:
   !as5
   db 48
   !tie
-  !volume,213
+  !volume,160
   !instr,!instr20
   !pan,10
   !subloop,0
@@ -433,14 +428,15 @@ Tracker2B0A:
   !end
 
 .pattern0_2
-  !volume,120
+  !volume,90
   !instr,!instr21
   !pan,11
   !loop : dw .sub3257 : db 8
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode3153 : db -1,0
+  !remoteCode : dw .remoteCode3156 : db 3,0
   !endVibrato
   !loop : dw .sub3268 : db 1
-  !volume,160
+  !volume,120
   !instr,!instr22
   !subloop,0
   !loop : dw .sub327C : db 1
@@ -461,14 +457,14 @@ Tracker2B0A:
   db 12,$7B
   !g6
   !subloop,3
-  !volume,133
+  !volume,100
   !subloop,0
   !loop : dw .sub32A9 : db 1
   !loop : dw .sub32C3 : db 1
   !loop : dw .sub32A9 : db 1
   !loop : dw .sub32D2 : db 1
   !subloop,1
-  !volume,133
+  !volume,100
   !instr,!instr24
   !pan,10
   !subloop,0
@@ -489,7 +485,7 @@ Tracker2B0A:
   db 48
   !tie
   !subloop,1
-  !volume,107
+  !volume,80
   !instr,!instr21
   !pan,9
   db 96,$7F
@@ -524,8 +520,8 @@ Tracker2B0A:
   !f6
   db 48
   !tie
-  !toggleKeyOffGain
-  !volume,160
+  !remoteCode : dw .remoteCode3152 : db 0,0
+  !volume,120
   !instr,!instr1F
   !pan,11
   !vibrato,24,12,24
@@ -572,11 +568,12 @@ Tracker2B0A:
   !end
 
 .pattern0_3
-  !volume,120
+  !volume,90
   !instr,!instr21
   !pan,9
   !loop : dw .sub3257 : db 8
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode3153 : db -1,0
+  !remoteCode : dw .remoteCode3156 : db 3,0
   !loop : dw .sub32EF : db 1
   db 96,$7F
   !cs5
@@ -587,8 +584,8 @@ Tracker2B0A:
   db 96,$7F
   !c5
   !rest
-  !toggleKeyOffGain
-  !volume,147
+  !remoteCode : dw .remoteCode3152 : db 0,0
+  !volume,110
   !instr,!instr23
   !pan,10
   !subloop,0
@@ -631,7 +628,7 @@ Tracker2B0A:
   !tie
   !tie
   !subloop,1
-  !volume,173
+  !volume,130
   !instr,!instr24
   !pan,10
   !subloop,0
@@ -667,7 +664,7 @@ Tracker2B0A:
   !g5
   !ds5
   !subloop,1
-  !volume,93
+  !volume,70
   !instr,!instr25
   !pan,11
   !subloop,0
@@ -707,19 +704,19 @@ Tracker2B0A:
   !end
 
 .pattern0_4
-  !volume,133
+  !volume,100
   !instr,!instr21
   !pan,10
   !loop : dw .sub3257 : db 8
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode3153 : db -1,0
+  !remoteCode : dw .remoteCode3156 : db 3,0
   !transpose,244
   !loop : dw .sub3268 : db 1
   !transpose,0
-  !volume,93
+  !volume,70
   !instr,!instr26
   !loop : dw .sub332F : db 4
-  !volume,133
-  !toggleKeyOffGain ; have to do it because it uses gain
+  !volume,100
   !instr,!instr27
   !subloop,0
   db 96,$7F
@@ -733,8 +730,7 @@ Tracker2B0A:
   !tie
   !tie
   !subloop,1
-  !toggleKeyOffGain
-  !volume,147
+  !volume,110
   !instr,!instr22
   !pan,9
   !transpose,244
@@ -745,7 +741,7 @@ Tracker2B0A:
   !loop : dw .sub32D2 : db 1
   !subloop,1
   !transpose,0
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode3152 : db 0,0
   !instr,!instr24
   !pan,10
   !subloop,0
@@ -766,7 +762,7 @@ Tracker2B0A:
   db 48
   !tie
   !subloop,3
-  !volume,93
+  !volume,70
   !instr,!instr25
   !pan,9
   !subloop,0
@@ -790,7 +786,7 @@ Tracker2B0A:
   !end
 
 .pattern0_5
-  !volume,93
+  !volume,70
   !instr,!instr26
   !pan,10
   !loop : dw .sub3257 : db 8
@@ -805,16 +801,16 @@ Tracker2B0A:
   !f6
   db 48
   !tie
-  !volume,53
+  !volume,40
   !instr,!instr28
-  !dynamicVolume,144,173
+  !dynamicVolume,144,130
   db 96
   !c5
   db 48
   !tie
   db 96
   !rest
-  !volume,240
+  !volume,180
   !subloop,0
   !instr,!instr2A
   db 24,$7F
@@ -858,10 +854,10 @@ Tracker2B0A:
   !c5
   db 12
   !c5
-  !volume,160
+  !volume,120
   !instr,!instr2C
   !loop : dw .sub3343 : db 16
-  !volume,240
+  !volume,180
   !subloop,0
   !instr,!instr2A
   db 24,$7F
@@ -875,45 +871,45 @@ Tracker2B0A:
   !pan,10
   !loop : dw .sub3257 : db 24
   !subloop,0
-  !volume,187
+  !volume,140
   !instr,!instr29
   db 48,$7F
   !c5
-  !volume,147
+  !volume,110
   !loop : dw .sub3349 : db 31
   !subloop,4
-  !volume,187
+  !volume,140
   !instr,!instr29
   db 48,$7F
   !c5
-  !volume,147
+  !volume,110
   !loop : dw .sub3349 : db 29
-  !volume,80
+  !volume,60
   !instr,!instr28
-  !dynamicVolume,96,187
+  !dynamicVolume,96,140
   db 96,$7F
   !c5
-  !volume,187
+  !volume,140
   !instr,!instr29
   db 96
   !c5
   db 48
   !tie
-  !volume,160
+  !volume,120
   !instr,!instr2F
   !loop : dw .sub3343 : db 15
   !subloop,0
-  !volume,187
+  !volume,140
   !instr,!instr29
   db 48,$7F
   !c5
-  !volume,147
+  !volume,110
   !loop : dw .sub3349 : db 47
   !subloop,1
   !end
 
 .pattern0_7
-  !volume,120
+  !volume,90
   !instr,!instr21
   !pan,10
   !loop : dw .sub3257 : db 24
@@ -926,7 +922,7 @@ Tracker2B0A:
   db 120
   !ds5
   !subloop,3
-  !volume,93
+  !volume,70
   !instr,!instr26
   !loop : dw .sub332F : db 3
   db 96,$7F
@@ -937,18 +933,18 @@ Tracker2B0A:
   !f6
   db 48,$7F
   !cs6
-  !volume,53
+  !volume,40
   !instr,!instr28
-  !dynamicVolume,144,173
+  !dynamicVolume,144,130
   db 96
   !c5
   db 48
   !tie
   !subloop,0
-  !volume,120
+  !volume,90
   !instr,!instr21
   !loop : dw .sub3355 : db 6
-  !volume,147
+  !volume,110
   !instr,!instr23
   !loop : dw .sub32FC : db 1
   !loop : dw .sub330F : db 1
@@ -957,13 +953,13 @@ Tracker2B0A:
   !loop : dw .sub3325 : db 1
   !loop : dw .sub3319 : db 1
   !subloop,1
-  !volume,160
+  !volume,120
   !instr,!instr2F
   db 96,$7F
   !c5
   db 48
   !tie
-  !volume,93
+  !volume,70
   !instr,!instr26
   !subloop,0
   db 96,$7F
@@ -1428,6 +1424,19 @@ Tracker2B0A:
   !tie
   !tie
   !end
+
+.remoteCode3153
+  !restoreInstrument
+  !end
+
+.remoteCode3156
+  !adsrGain,$80,$B8
+  !end
+
+.remoteCode3152
+  !end
+
+assert pc() <= $10000-(7*$800)
 endspcblock
 
 spcblock !p_extra nspc

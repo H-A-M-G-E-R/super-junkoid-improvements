@@ -72,14 +72,16 @@ Tracker2B60:
 
 .pattern0_0
   !setNoteLengthTable : dw NoteLengthTable
-  !musicVolume,200;150
+  !musicVolume,150
   !tempo,58
   !setDPMiscCommand,!noteEndInTicks,1
-  !echo,%11010111,-75,75
+  !echo,%11010111,-99,99
   !echoParameters,3,68,3
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2D90 : db -1,0
+  !remoteCode : dw .remoteCode2D94 : db 3,0
   db 96,$7F
   !rest
+.pattern1_0:
   !instr,!instr20
   !volume,224
   !loop : dw .sub2DA8 : db 1
@@ -103,9 +105,11 @@ Tracker2B60:
   !end
 
 .pattern0_1
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2D98 : db -1,0
+  !remoteCode : dw .remoteCode2D9C : db 3,0
   db 96,$7F
   !rest
+.pattern1_1:
   !instr,!instr24
   !volume,162
   !loop : dw .sub2E4E : db 4
@@ -152,6 +156,7 @@ Tracker2B60:
 .pattern0_2
   db 96,$7F
   !rest
+.pattern1_2:
   !instr,!instr21
   !volume,162
   !loop : dw .sub2E95 : db 4
@@ -187,6 +192,7 @@ Tracker2B60:
   !volume,204
   db 96,$7F
   !rest
+.pattern1_3:
   !loop : dw .sub2EF4 : db 4
   !loop : dw .sub2F00 : db 2
   !loop : dw .sub2F42 : db 1
@@ -225,6 +231,7 @@ Tracker2B60:
   db 12
   !c4
   !c4
+.pattern1_4:
   !loop : dw .sub2F5E : db 7
   !end
 
@@ -239,6 +246,7 @@ Tracker2B60:
   db 24,$79
   !c4
   !subloop,1
+.pattern1_5:
   !subloop,0
   db 12,$7F
   !c4
@@ -260,6 +268,7 @@ Tracker2B60:
 .pattern0_6
   db 96,$7F
   !rest
+.pattern1_6:
   !instr,!instr23
   !volume,132
   !subloop,0
@@ -298,224 +307,12 @@ Tracker2B60:
   !end
 
 .pattern0_7
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2DA0 : db -1,0
+  !remoteCode : dw .remoteCode2DA4 : db 3,0
   !subtranspose,48
   db 96,$7F
   !rest
-  !instr,!instr20
-  !volume,112
-  db 24
-  !rest
-  !loop : dw .sub2DA8 : db 1
-  !volume,96
-  !loop : dw .sub2DE9 : db 2
-  !loop : dw .sub2E2D : db 1
-  !loop : dw .sub2E41 : db 1
-  !loop : dw .sub2E2D : db 1
-  db 96,$7F
-  !e5
-  db 72
-  !tie
-  db 24
-  !rest
-  !instr,!instr25
-  !vibrato,44,12,120
-  !endVibrato
-  db 48
-  !e5
-  !e5
-  !fs5
-  db 24
-  !fs5
-  !end
-
-.pattern1_0
-  !instr,!instr20
-  !volume,224
-  !loop : dw .sub2DA8 : db 1
-  !volume,162
-  !loop : dw .sub2DE9 : db 2
-  !loop : dw .sub2E2D : db 1
-  !loop : dw .sub2E41 : db 1
-  !loop : dw .sub2E2D : db 1
-  db 96,$7F
-  !e5
-  db 72
-  !tie
-  db 24
-  !rest
-  !endVibrato
-  db 48
-  !e4
-  !e4
-  !fs4
-  !fs4
-  !end
-
-.pattern1_1
-  !instr,!instr24
-  !volume,162
-  !loop : dw .sub2E4E : db 4
-  !loop : dw .sub2E59 : db 2
-  !loop : dw .sub2E82 : db 1
-  db 24,$7F
-  !rest
-  db 36
-  !c4
-  !c4
-  !e4
-  !g4
-  !e4
-  !c4
-  !e4
-  !g4
-  db 24
-  !fs4
-  !e4
-  !b3
-  !loop : dw .sub2E82 : db 1
-  db 24,$7F
-  !rest
-  db 36
-  !cs4
-  !cs4
-  !e4
-  !g4
-  !e4
-  !c4
-  db 24
-  !e4
-  db 36
-  !g4
-  !d4
-  db 24
-  !fs4
-  db 23
-  !a4
-  db 1,$7F
-  !tie
-  !end
-
-.pattern1_2
-  !instr,!instr21
-  !volume,162
-  !loop : dw .sub2E95 : db 4
-  !loop : dw .sub2EA8 : db 1
-  !subloop,0
-  !loop : dw .sub2E95 : db 1
-  !loop : dw .sub2EA8 : db 1
-  !subloop,2
-  !loop : dw .sub2EBB : db 1
-  !subloop,0
-  !loop : dw .sub2EA8 : db 1
-  !loop : dw .sub2E95 : db 1
-  !subloop,2
-  !loop : dw .sub2EA8 : db 1
-  !loop : dw .sub2EBB : db 1
-  !loop : dw .sub2E95 : db 1
-  !loop : dw .sub2ECE : db 1
-  !loop : dw .sub2EE1 : db 2
-  !loop : dw .sub2E95 : db 1
-  !loop : dw .sub2ECE : db 1
-  !subloop,0
-  db 12,$7F
-  !e5
-  !cs5
-  !g4
-  !cs5
-  !subloop,3
-  !loop : dw .sub2EA8 : db 1
-  !end
-
-.pattern1_3
-  !loop : dw .sub2EF4 : db 4
-  !loop : dw .sub2F00 : db 2
-  !loop : dw .sub2F42 : db 1
-  !loop : dw .sub2F54 : db 2
-  !loop : dw .sub2F42 : db 1
-  db 36,$7F
-  !cs4
-  !cs4
-  !cs5
-  !cs4
-  db 24
-  !cs5
-  !g4
-  db 36
-  !c4
-  !c5
-  !c4
-  !d4
-  db 24
-  !a4
-  db 23
-  !d4
-  db 1,$7F
-  !tie
-  !end
-
-.pattern1_4
-  !loop : dw .sub2F5E : db 7
-  !end
-
-.pattern1_5
-  !subloop,0
-  db 12,$7F
-  !c4
-  db 12,$7C
-  !c4
-  db 24,$79
-  !c4
-  !subloop,110
-  db 12,$7F
-  !c4
-  db 12,$7C
-  !c4
-  db 23,$79
-  !c4
-  db 1,$7F
-  !tie
-  !end
-
-.pattern1_6
-  !instr,!instr23
-  !volume,132
-  !subloop,0
-  db 96,$7F
-  !g4
-  !tie
-  !tie
-  !tie
-  !subloop,1
-  !loop : dw .sub2F7A : db 2
-  !loop : dw .sub2F82 : db 1
-  !loop : dw .sub2F7A : db 2
-  !loop : dw .sub2F82 : db 1
-  db 96,$7F
-  !g4
-  !tie
-  db 96
-  !fs4
-  !tie
-  db 96
-  !e4
-  !tie
-  !tie
-  !tie
-  db 96
-  !g4
-  !tie
-  db 96
-  !fs4
-  !tie
-  db 96
-  !e4
-  !tie
-  !e4
-  !fs4
-  !end
-
-.pattern1_7
+.pattern1_7:
   !instr,!instr20
   !volume,112
   db 24
@@ -1032,6 +829,32 @@ Tracker2B60:
   !e4
   !g4
   !end
+
+.remoteCode2D90
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$05,$FF
+  !end
+
+.remoteCode2D94
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$05,$00
+  !end
+
+.remoteCode2D98
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$15,$FF
+  !end
+
+.remoteCode2D9C
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$15,$00
+  !end
+
+.remoteCode2DA0
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$75,$FF
+  !end
+
+.remoteCode2DA4
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$75,$00
+  !end
+
+assert pc() <= $10000-(3*$800)
 endspcblock
 
 spcblock !p_extra nspc

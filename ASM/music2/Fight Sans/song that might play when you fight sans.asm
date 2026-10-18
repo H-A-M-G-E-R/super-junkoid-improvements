@@ -115,7 +115,7 @@ Tracker2A54:
   !endEcho
   !setDPMiscCommand,!noteEndInTicks,1
 .pattern1_0:
-  !musicVolume,145*4/3
+  !musicVolume,145
   !tempo,48
   !instr,!instr1E
   db 96,$7F

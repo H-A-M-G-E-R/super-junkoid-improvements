@@ -158,13 +158,11 @@ Tracker2B25:
 
 .pattern0: dw .pattern0_0, .pattern0_1, .pattern0_2, .pattern0_3, .pattern0_4, .pattern0_5, .pattern0_6, .pattern0_7
 
-.pattern0_0 ; $2BE3
+.pattern0_0
   !setNoteLengthTable : dw NoteLengthTable
-  ;!addmusicFA,4,2
-  ;!addmusicFA,6,1
-  !echo,%11111111,30,30
+  !echo,%11111111,40,40
   !echoParameters,2,90,0
-  !musicVolume,255;220
+  !musicVolume,220
   !tempo,58
   !instr,!instr1E
   !volume,160
@@ -227,12 +225,12 @@ Tracker2B25:
   !fs6
   !d6
   !e6
-  ;!legato
+  !toggleLegato
   db 6
   !cs6
-  !tie : !pitchSlide,0,1 : !d6
-  !tie : !pitchSlide,0,1 : !cs6
-  ;!legato
+  !d6
+  !cs6
+  !toggleLegato
   db 78
   !tie
   db 96
@@ -303,31 +301,31 @@ Tracker2B25:
   !vibrato,24,16,42
   !volume,196
   !loop : dw .sub38DD : db 1
-  ;!legato
+  !toggleLegato
   db 96,$7F
   !cs7
   db 72
   !tie
   db 12
-  !tie : !pitchSlide,0,1 : !d7
+  !d7
   db 6
-  !tie : !pitchSlide,0,1 : !cs7
-  ;!legato
+  !cs7
+  !toggleLegato
   !tie
   db 96
   !b6
   !cs7
   !loop : dw .sub38DD : db 1
-  ;!legato
+  !toggleLegato
   db 96,$7F
   !fs7
   db 72
   !tie
   db 12
-  !tie ;: !pitchSlide,0,1 : !fs7
+  !fs7
   db 6
-  !tie : !pitchSlide,0,1 : !g7
-  ;!legato
+  !g7
+  !toggleLegato
   !tie
   db 96
   !fs7
@@ -360,12 +358,12 @@ Tracker2B25:
   !cs4
   !cs4
   !instr,!instr1E
-  ;!legato
+  !toggleLegato
   db 12,$6F
   !b4
-  !tie : !pitchSlide,0,1 : !cs5
-  !tie : !pitchSlide,0,1 : !b4
-  ;!legato
+  !cs5
+  !b4
+  !toggleLegato
   !rest
   !gs4
   !rest
@@ -470,12 +468,12 @@ Tracker2B25:
   !fs6
   !d6
   !e6
-  ;!legato
+  !toggleLegato
   db 6
   !cs6
-  !tie : !pitchSlide,0,1 : !d6
-  !tie : !pitchSlide,0,1 : !cs6
-  ;!legato
+  !d6
+  !cs6
+  !toggleLegato
   db 78
   !tie
   db 96
@@ -547,31 +545,31 @@ Tracker2B25:
   !vibrato,24,16,42
   !volume,196
   !loop : dw .sub3902 : db 1
-  ;!legato
+  !toggleLegato
   db 96,$7F
   !ds7
   db 72
   !tie
   db 12
-  !tie : !pitchSlide,0,1 : !e7
+  !e7
   db 6
-  !tie : !pitchSlide,0,1 : !ds7
-  ;!legato
+  !ds7
+  !toggleLegato
   !tie
   db 96
   !cs7
   !ds7
   !loop : dw .sub3902 : db 1
-  ;!legato
+  !toggleLegato
   db 96,$7F
   !gs7
   db 72
   !tie
   db 12
-  !tie ;: !pitchSlide,0,1 : !gs7
+  !gs7
   db 6
-  !tie : !pitchSlide,0,1 : !a7
-  ;!legato
+  !a7
+  !toggleLegato
   !tie
   db 96
   !gs7
@@ -581,7 +579,7 @@ Tracker2B25:
   !loop : dw .sub3916 : db 4
   !end
 
-.pattern0_1 ; $2E3A
+.pattern0_1
   !instr,!instr1E
   !volume,90
   !pan,12
@@ -649,12 +647,12 @@ Tracker2B25:
   !fs6
   !d6
   !e6
-  ;!legato
+  !toggleLegato
   db 6
   !cs6
-  !tie : !pitchSlide,0,1 : !d6
-  !tie : !pitchSlide,0,1 : !cs6
-  ;!legato
+  !d6
+  !cs6
+  !toggleLegato
   db 78
   !tie
   db 96
@@ -796,12 +794,12 @@ Tracker2B25:
   !fs6
   !d6
   !e6
-  ;!legato
+  !toggleLegato
   db 6
   !cs6
-  !tie : !pitchSlide,0,1 : !d6
-  !tie : !pitchSlide,0,1 : !cs6
-  ;!legato
+  !d6
+  !cs6
+  !toggleLegato
   db 78
   !tie
   db 96
@@ -908,7 +906,7 @@ Tracker2B25:
   !loop : dw .sub3987 : db 4
   !end
 
-.pattern0_2 ; $2FF1
+.pattern0_2
   !instr,!instr1E
   !volume,80
   !pan,8
@@ -1237,14 +1235,14 @@ Tracker2B25:
   !gs3
   !cs3
   !cs3
-  ;!legato
+  !toggleLegato
   !instr,!instr25
   db 12,$6F
   !ds4
-  !tie : !pitchSlide,0,1 : !e4
+  !e4
   db 6
-  !tie : !pitchSlide,0,1 : !ds4
-  ;!legato
+  !ds4
+  !toggleLegato
   !tie
   db 12
   !rest
@@ -1487,7 +1485,7 @@ Tracker2B25:
   !loop : dw .sub3A10 : db 4
   !end
 
-.pattern0_3 ; $32B5
+.pattern0_3
   !instr,!instr1F
   !volume,160
   !pan,10
@@ -1726,12 +1724,12 @@ Tracker2B25:
   !gs4
   !cs4
   !cs4
-  ;!legato
+  !toggleLegato
   db 12,$6F
   !e5
-  !tie : !pitchSlide,0,1 : !fs5
-  !tie : !pitchSlide,0,1 : !e5
-  ;!legato
+  !fs5
+  !e5
+  !toggleLegato
   !rest
   !ds5
   !rest
@@ -1878,7 +1876,7 @@ Tracker2B25:
   !loop : dw .sub3AC0 : db 6
   !end
 
-.pattern0_4 ; $348F
+.pattern0_4
   !volume,205
   !pan,10
   !loop : dw .sub3AC5 : db 5
@@ -2093,14 +2091,14 @@ Tracker2B25:
   !gs3
   !cs3
   !cs3
-  ;!legato
+  !toggleLegato
   !instr,!instr25
   db 12,$6F
   !ds4
-  !tie : !pitchSlide,0,1 : !e4
+  !e4
   db 6
-  !tie : !pitchSlide,0,1 : !ds4
-  ;!legato
+  !ds4
+  !toggleLegato
   !tie
   db 12
   !rest
@@ -2398,7 +2396,7 @@ Tracker2B25:
   !loop : dw .sub3AC5 : db 2
   !end
 
-.pattern0_5 ; $3732
+.pattern0_5
   !volume,90
   !pan,139
   db 36,$7F
@@ -2484,7 +2482,7 @@ Tracker2B25:
   !loop : dw .sub3C7F : db 2
   !end
 
-.pattern0_6 ; $37C2
+.pattern0_6
   !volume,80
   !pan,73
   db 60,$7F
@@ -2518,7 +2516,7 @@ Tracker2B25:
   !loop : dw .sub3E5B : db 2
   !end
 
-.pattern0_7 ; $3806
+.pattern0_7
   !loop : dw .sub3E7D : db 4
   !loop : dw .sub3E82 : db 8
   !volume,185
@@ -2621,13 +2619,13 @@ Tracker2B25:
   !loop : dw .sub3EE3 : db 4
   !end
 
-.sub38AC ; $38AC
+.sub38AC
   db 96,$2F
   !rest
   !tie
   !end
 
-.sub38B1 ; $38B1
+.sub38B1
   db 24,$2F
   !cs5
   !gs5
@@ -2655,7 +2653,7 @@ Tracker2B25:
   !b5
   !end
 
-.sub38CC ; $38CC
+.sub38CC
   db 24,$7F
   !e6
   !cs6
@@ -2673,7 +2671,7 @@ Tracker2B25:
   !rest
   !end
 
-.sub38DD ; $38DD
+.sub38DD
   db 96,$7F
   !b6
   !tie
@@ -2694,7 +2692,7 @@ Tracker2B25:
   !e7
   !end
 
-.sub38F1 ; $38F1
+.sub38F1
   db 24,$7F
   !e6
   !cs6
@@ -2712,7 +2710,7 @@ Tracker2B25:
   !rest
   !end
 
-.sub3902 ; $3902
+.sub3902
   db 96,$7F
   !cs7
   !tie
@@ -2733,19 +2731,19 @@ Tracker2B25:
   !fs7
   !end
 
-.sub3916 ; $3916
+.sub3916
   db 96,$7F
   !rest
   !tie
   !end
 
-.sub391B ; $391B
+.sub391B
   db 96,$1F
   !rest
   !tie
   !end
 
-.sub3920 ; $3920
+.sub3920
   db 24,$1F
   !cs5
   !gs5
@@ -2773,13 +2771,13 @@ Tracker2B25:
   !b5
   !end
 
-.sub393B ; $393B
+.sub393B
   db 96,$1F
   !rest
   !tie
   !end
 
-.sub3940 ; $3940
+.sub3940
   db 24,$7F
   !e6
   !cs6
@@ -2797,7 +2795,7 @@ Tracker2B25:
   !rest
   !end
 
-.sub3951 ; $3951
+.sub3951
   db 48,$7F
   !cs4
   !d4
@@ -2814,13 +2812,13 @@ Tracker2B25:
   !e4
   !end
 
-.sub3961 ; $3961
+.sub3961
   db 96,$7F
   !rest
   !tie
   !end
 
-.sub3966 ; $3966
+.sub3966
   db 24,$7F
   !e6
   !cs6
@@ -2838,7 +2836,7 @@ Tracker2B25:
   !rest
   !end
 
-.sub3977 ; $3977
+.sub3977
   db 48,$7F
   !ds4
   !e4
@@ -2855,19 +2853,19 @@ Tracker2B25:
   !fs4
   !end
 
-.sub3987 ; $3987
+.sub3987
   db 96,$7F
   !rest
   !tie
   !end
 
-.sub398C ; $398C
+.sub398C
   db 96,$1F
   !rest
   !tie
   !end
 
-.sub3991 ; $3991
+.sub3991
   db 24,$1F
   !cs5
   !gs5
@@ -2895,7 +2893,7 @@ Tracker2B25:
   !b5
   !end
 
-.sub39AC ; $39AC
+.sub39AC
   db 24,$2F
   !cs4
   !gs4
@@ -2949,7 +2947,7 @@ Tracker2B25:
   !b4
   !end
 
-.sub39E1 ; $39E1
+.sub39E1
   db 96,$7F
   !d4
   !tie
@@ -2970,7 +2968,7 @@ Tracker2B25:
   !b3
   !end
 
-.sub39F5 ; $39F5
+.sub39F5
   db 48,$7F
   !cs6
   !gs5
@@ -2978,7 +2976,7 @@ Tracker2B25:
   !e6
   !end
 
-.sub39FC ; $39FC
+.sub39FC
   db 96,$7F
   !e4
   !tie
@@ -2999,19 +2997,19 @@ Tracker2B25:
   !cs4
   !end
 
-.sub3A10 ; $3A10
+.sub3A10
   db 96,$7F
   !rest
   !tie
   !end
 
-.sub3A15 ; $3A15
+.sub3A15
   db 96,$1F
   !rest
   !tie
   !end
 
-.sub3A1A ; $3A1A
+.sub3A1A
   db 24,$1F
   !cs5
   !gs5
@@ -3039,7 +3037,7 @@ Tracker2B25:
   !b5
   !end
 
-.sub3A35 ; $3A35
+.sub3A35
   db 24,$5F
   !b3
   !rest
@@ -3064,7 +3062,7 @@ Tracker2B25:
   !rest
   !end
 
-.sub3A4D ; $3A4D
+.sub3A4D
   !pan,11
   !volume,200
   db 24,$2F
@@ -3092,13 +3090,13 @@ Tracker2B25:
   !b5
   !end
 
-.sub3A78 ; $3A78
+.sub3A78
   db 96,$2F
   !rest
   !tie
   !end
 
-.sub3A7D ; $3A7D
+.sub3A7D
   db 24,$5F
   !cs4
   !rest
@@ -3123,7 +3121,7 @@ Tracker2B25:
   !rest
   !end
 
-.sub3A95 ; $3A95
+.sub3A95
   !pan,11
   !volume,200
   db 24,$2F
@@ -3151,13 +3149,13 @@ Tracker2B25:
   !cs6
   !end
 
-.sub3AC0 ; $3AC0
+.sub3AC0
   db 96,$2F
   !rest
   !tie
   !end
 
-.sub3AC5 ; $3AC5
+.sub3AC5
   !instr,!instr20
   db 48,$7F
   !b3
@@ -3184,7 +3182,7 @@ Tracker2B25:
   !b3
   !end
 
-.sub3AE7 ; $3AE7
+.sub3AE7
   db 24,$2F
   !cs4
   !gs4
@@ -3286,140 +3284,140 @@ Tracker2B25:
   !a4
   !end
 
-.sub3B4C ; $3B4C
+.sub3B4C
   db 24,$6F
   !g3
   !pitchSlide,21,8 : !g4
   !tie
   !end
 
-.sub3B55 ; $3B55
+.sub3B55
   db 24,$6F
   !fs3
   !pitchSlide,21,8 : !fs4
   !tie
   !end
 
-.sub3B5E ; $3B5E
+.sub3B5E
   db 24,$6F
   !a3
   !pitchSlide,21,8 : !a4
   !tie
   !end
 
-.sub3B67 ; $3B67
+.sub3B67
   db 24,$6F
   !gs3
   !pitchSlide,21,8 : !gs4
   !tie
   !end
 
-.sub3B70 ; $3B70
+.sub3B70
   db 24,$6F
   !g3
   !pitchSlide,21,8 : !g4
   !tie
   !end
 
-.sub3B79 ; $3B79
+.sub3B79
   db 24,$6F
   !fs3
   !pitchSlide,21,8 : !fs4
   !tie
   !end
 
-.sub3B82 ; $3B82
+.sub3B82
   db 24,$6F
   !a3
   !pitchSlide,21,8 : !a4
   !tie
   !end
 
-.sub3B8B ; $3B8B
+.sub3B8B
   db 24,$6F
   !gs3
   !pitchSlide,21,8 : !gs4
   !tie
   !end
 
-.sub3B94 ; $3B94
+.sub3B94
   db 24,$6F
   !fs3
   !pitchSlide,21,8 : !fs4
   !tie
   !end
 
-.sub3B9D ; $3B9D
+.sub3B9D
   db 24,$6F
   !a3
   !pitchSlide,21,8 : !a4
   !tie
   !end
 
-.sub3BA6 ; $3BA6
+.sub3BA6
   db 24,$6F
   !gs3
   !pitchSlide,21,8 : !gs4
   !tie
   !end
 
-.sub3BAF ; $3BAF
+.sub3BAF
   db 24,$6F
   !b3
   !pitchSlide,21,8 : !b4
   !tie
   !end
 
-.sub3BB8 ; $3BB8
+.sub3BB8
   db 24,$6F
   !as3
   !pitchSlide,21,8 : !as4
   !tie
   !end
 
-.sub3BC1 ; $3BC1
+.sub3BC1
   db 24,$6F
   !a3
   !pitchSlide,21,8 : !a4
   !tie
   !end
 
-.sub3BCA ; $3BCA
+.sub3BCA
   db 24,$6F
   !gs3
   !pitchSlide,21,8 : !gs4
   !tie
   !end
 
-.sub3BD3 ; $3BD3
+.sub3BD3
   db 24,$6F
   !b3
   !pitchSlide,21,8 : !b4
   !tie
   !end
 
-.sub3BDC ; $3BDC
+.sub3BDC
   db 24,$6F
   !as3
   !pitchSlide,21,8 : !as4
   !tie
   !end
 
-.sub3BE5 ; $3BE5
+.sub3BE5
   db 24,$6F
   !gs3
   !pitchSlide,21,8 : !gs4
   !tie
   !end
 
-.sub3BEE ; $3BEE
+.sub3BEE
   db 24,$6F
   !c4
   !pitchSlide,21,8 : !c5
   !tie
   !end
 
-.sub3BF7 ; $3BF7
+.sub3BF7
   !instr,!instr20
   db 48,$7F
   !b3
@@ -3446,7 +3444,7 @@ Tracker2B25:
   !b3
   !end
 
-.sub3C19 ; $3C19
+.sub3C19
   !volume,210
   !pan,10
   !instr,!instr2E
@@ -3458,7 +3456,7 @@ Tracker2B25:
   !ds4
   !end
 
-.sub3C2A ; $3C2A
+.sub3C2A
   !volume,210
   !pan,10
   !instr,!instr2E
@@ -3470,7 +3468,7 @@ Tracker2B25:
   !ds4
   !end
 
-.sub3C3B ; $3C3B
+.sub3C3B
   !volume,220
   !pan,10
   !instr,!instr2E
@@ -3482,7 +3480,7 @@ Tracker2B25:
   !ds4
   !end
 
-.sub3C4C ; $3C4C
+.sub3C4C
   !volume,210
   !pan,10
   !instr,!instr2E
@@ -3494,7 +3492,7 @@ Tracker2B25:
   !ds4
   !end
 
-.sub3C5D ; $3C5D
+.sub3C5D
   !volume,210
   !pan,10
   !instr,!instr2E
@@ -3506,7 +3504,7 @@ Tracker2B25:
   !ds4
   !end
 
-.sub3C6E ; $3C6E
+.sub3C6E
   !volume,220
   !pan,10
   !instr,!instr2E
@@ -3518,7 +3516,7 @@ Tracker2B25:
   !ds4
   !end
 
-.sub3C7F ; $3C7F
+.sub3C7F
   !instr,!instr20
   db 48,$7F
   !b3
@@ -3545,7 +3543,7 @@ Tracker2B25:
   !b3
   !end
 
-.sub3CA1 ; $3CA1
+.sub3CA1
   !instr,!instr20
   db 48,$7F
   !b3
@@ -3572,7 +3570,7 @@ Tracker2B25:
   !b3
   !end
 
-.sub3CC3 ; $3CC3
+.sub3CC3
   !instr,!instr32
   !volume,110
   !pan,12
@@ -3614,7 +3612,7 @@ Tracker2B25:
   !c5
   !end
 
-.sub3D07 ; $3D07
+.sub3D07
   !instr,!instr32
   !volume,110
   !pan,12
@@ -3656,7 +3654,7 @@ Tracker2B25:
   !c5
   !end
 
-.sub3D4B ; $3D4B
+.sub3D4B
   !instr,!instr32
   !volume,110
   !pan,12
@@ -3698,7 +3696,7 @@ Tracker2B25:
   !c5
   !end
 
-.sub3D8F ; $3D8F
+.sub3D8F
   !instr,!instr32
   !volume,110
   !pan,12
@@ -3740,7 +3738,7 @@ Tracker2B25:
   !c5
   !end
 
-.sub3DD3 ; $3DD3
+.sub3DD3
   !instr,!instr32
   !volume,110
   !pan,12
@@ -3782,7 +3780,7 @@ Tracker2B25:
   !c5
   !end
 
-.sub3E17 ; $3E17
+.sub3E17
   !instr,!instr32
   !volume,110
   !pan,12
@@ -3824,7 +3822,7 @@ Tracker2B25:
   !c5
   !end
 
-.sub3E5B ; $3E5B
+.sub3E5B
   !instr,!instr20
   db 48,$7F
   !b3
@@ -3851,19 +3849,19 @@ Tracker2B25:
   !b3
   !end
 
-.sub3E7D ; $3E7D
+.sub3E7D
   db 96,$7F
   !rest
   !tie
   !end
 
-.sub3E82 ; $3E82
+.sub3E82
   db 96,$7F
   !rest
   !tie
   !end
 
-.sub3E87 ; $3E87
+.sub3E87
   !instr,!instr20
   db 48,$7F
   !a3
@@ -3890,7 +3888,7 @@ Tracker2B25:
   !a3
   !end
 
-.sub3EA9 ; $3EA9
+.sub3EA9
   db 24,$7F
   !b5
   !b6
@@ -3920,7 +3918,7 @@ Tracker2B25:
   !e6
   !end
 
-.sub3EC6 ; $3EC6
+.sub3EC6
   db 24,$7F
   !cs6
   !cs7
@@ -3950,11 +3948,13 @@ Tracker2B25:
   !fs6
   !end
 
-.sub3EE3 ; $3EE3
+.sub3EE3
   db 96,$7F
   !rest
   !tie
   !end
+
+assert pc() <= $10000-(2*$800)
 endspcblock
 
 spcblock !p_extra nspc

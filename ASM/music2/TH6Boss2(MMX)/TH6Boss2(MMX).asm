@@ -12,6 +12,7 @@ incsrc "../defines.asm"
 !instr24 = $1C
 !instr25 = $1D
 !instr26 = $1E
+!instrFireInTheHole = $1F
 
 !sample14 = $16
 !sample15 = $17
@@ -22,6 +23,15 @@ incsrc "../defines.asm"
 !sample1A = $1C
 !sample1B = $1D
 !sample1C = $1E
+!sampleFireInTheHole = $1F
+
+spcblock !sound2InstructionLists_low+$2D-1 nspc
+  db Sound2D, Sound2E
+endspcblock
+
+spcblock !sound2InstructionLists_high+$2D-1 nspc
+  db Sound2D>>8, Sound2E>>8
+endspcblock
 
 spcblock 6*$16+!p_instrumentTable nspc ; instruments
   db !sample1A,$FF,$E0,$BA,$04,$00
@@ -33,6 +43,7 @@ spcblock 6*$16+!p_instrumentTable nspc ; instruments
   db !sample14,$FF,$F1,$B8,$09,$64
   db !sample17,$FF,$E0,$B6,$07,$F5
   db !sample18,$FF,$E0,$B8,$07,$7F
+  db !sampleFireInTheHole,$FF,$E0,$80,$01,$EA
 endspcblock
 
 spcblock 4*$16+!p_sampleTable nspc ; sample table
@@ -45,6 +56,7 @@ spcblock 4*$16+!p_sampleTable nspc ; sample table
   dw Sample1A,Sample1A+1035
   dw Sample1B,Sample1B+702
   dw Sample1C,Sample1C+27
+  dw FireInTheHole,FireInTheHole+0
 endspcblock
 
 spcblock !p_songSpecificData nspc ; sample data
@@ -57,10 +69,22 @@ spcblock !p_songSpecificData nspc ; sample data
   Sample1A: incbin "11 23.brr":2..0
   Sample1B: incbin "15 bass.brr":2..0
   Sample1C: incbin "17 synth strings.brr":2..0
+  FireInTheHole: incbin "00_fireinthehole_mono.brr":2..0
 
 NoteLengthTable: ; note length table
   db $33,$66,$80,$99,$B3,$CC,$E6,$FF
   db $19,$33,$4C,$66,$72,$7F,$8C,$99,$A5,$B2,$BF,$CC,$D8,$E5,$F2,$FC
+
+; Sound 2Dh: Kraid's roar / Crocomire dying cry
+Sound2D:
+db $11 : dw .voice0
+.voice0 : db !instrFireInTheHole : !c5,$FF,$6B, $FF ; length = ceil(1.7*1000/16)
+
+; Sound 2Eh: Kraid's dying cry
+Sound2E:
+db $12 : dw .voice0, .voice1
+.voice0 : db !instrFireInTheHole, $9F+$F,$FF,$60, $9A+$F,$FF,$30, $98+$F,$FF,$30, $FF
+.voice1 : db !instrFireInTheHole, $9A+$F,$00,$45, $9C+$F,$FF,$60, $97+$F,$FF,$50, $FF
 
 dw 0,0,0,0 ; padding for shared trackers
 Trackers:
@@ -77,15 +101,17 @@ Tracker2B60:
 
 .pattern0_0
   !setNoteLengthTable : dw NoteLengthTable
-  !musicVolume,159;119
+  !musicVolume,119
   !tempo,57
   !setDPMiscCommand,!noteEndInTicks,1
-  !echo,%01111111,-75,75
+  !echo,%01111111,-99,99
   !echoParameters,3,68,3
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2EA7 : db -1,0
+  !remoteCode : dw .remoteCode2EAB : db 3,0
   !instr,!instr1E
   !volume,160
   !loop : dw .sub2ECF : db 2
+.pattern1_0:
   !instr,!instr22
   !volume,208
   !loop : dw .sub2EE2 : db 2
@@ -134,7 +160,8 @@ Tracker2B60:
   !end
 
 .pattern0_1
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2EAF : db -1,0
+  !remoteCode : dw .remoteCode2EB3 : db 3,0
   db 96,$7F
   !rest
   !tie
@@ -144,6 +171,7 @@ Tracker2B60:
   !instr,!instr1F
   !volume,204
   !g4
+.pattern1_1:
   !instr,!instr1F
   !volume,204
   !loop : dw .sub2F58 : db 4
@@ -165,6 +193,7 @@ Tracker2B60:
   !f5
   !fs5
   !gs5
+  !subloop,0
   !loop : dw .sub2F7D : db 1
   db 72,$7F
   !f6
@@ -174,24 +203,7 @@ Tracker2B60:
   !ds5
   !f5
   !fs5
-  !loop : dw .sub2F7D : db 1
-  db 72,$7F
-  !f6
-  db 24
-  !ds6
-  !ds6
-  !ds5
-  !f5
-  !fs5
-  !loop : dw .sub2F7D : db 1
-  db 72,$7F
-  !f6
-  db 24
-  !ds6
-  !ds6
-  !ds5
-  !f5
-  !fs5
+  !subloop,2
   !loop : dw .sub2F7D : db 1
   db 48,$7F
   !f6
@@ -216,12 +228,14 @@ Tracker2B60:
   !end
 
 .pattern0_2
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2EB7 : db -1,0
+  !remoteCode : dw .remoteCode2EBB : db 3,0
   db 96,$7F
   !rest
   !tie
   !tie
   !tie
+.pattern1_2:
   !loop : dw .sub2FC5 : db 2
   !vibrato,24,12,64
   !instr,!instr25
@@ -256,6 +270,7 @@ Tracker2B60:
   !ds5
   !rest
   !ds5
+  !subloop,0
   !loop : dw .sub3011 : db 1
   db 12,$7F
   !ds5
@@ -272,38 +287,7 @@ Tracker2B60:
   !ds5
   !rest
   !ds5
-  !loop : dw .sub3011 : db 1
-  db 12,$7F
-  !ds5
-  db 60
-  !rest
-  db 12
-  !ds5
-  db 36
-  !rest
-  db 12
-  !ds5
-  !rest
-  !ds5
-  !ds5
-  !rest
-  !ds5
-  !loop : dw .sub3011 : db 1
-  db 12,$7F
-  !ds5
-  db 60
-  !rest
-  db 12
-  !ds5
-  db 36
-  !rest
-  db 12
-  !ds5
-  !rest
-  !ds5
-  !ds5
-  !rest
-  !ds5
+  !subloop,2
   !loop : dw .sub3011 : db 1
   !endVibrato
   !instr,!instr22
@@ -320,7 +304,8 @@ Tracker2B60:
   !end
 
 .pattern0_3
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2EBF : db -1,0
+  !remoteCode : dw .remoteCode2EC3 : db 3,0
   !pan,9
   !vibrato,32,12,64
   db 96,$7F
@@ -328,6 +313,7 @@ Tracker2B60:
   !tie
   !tie
   !tie
+.pattern1_3:
   !instr,!instr25
   !volume,198
   !loop : dw .sub3076 : db 4
@@ -360,6 +346,7 @@ Tracker2B60:
   !fs5
   !rest
   !fs5
+  !subloop,0
   !loop : dw .sub3087 : db 1
   db 12,$7F
   !fs5
@@ -376,38 +363,7 @@ Tracker2B60:
   !fs5
   !rest
   !fs5
-  !loop : dw .sub3087 : db 1
-  db 12,$7F
-  !fs5
-  db 60
-  !rest
-  db 12
-  !fs5
-  db 36
-  !rest
-  db 12
-  !fs5
-  !rest
-  !fs5
-  !fs5
-  !rest
-  !fs5
-  !loop : dw .sub3087 : db 1
-  db 12,$7F
-  !fs5
-  db 60
-  !rest
-  db 12
-  !fs5
-  db 36
-  !rest
-  db 12
-  !fs5
-  !rest
-  !fs5
-  !fs5
-  !rest
-  !fs5
+  !subloop,2
   !loop : dw .sub3087 : db 1
   db 96,$7F
   !fs5
@@ -422,12 +378,14 @@ Tracker2B60:
   !end
 
 .pattern0_4
-  !toggleKeyOffGain
+  !remoteCode : dw .remoteCode2EC7 : db -1,0
+  !remoteCode : dw .remoteCode2ECB : db 3,0
   db 96,$7F
   !rest
   !tie
   !tie
   !tie
+.pattern1_4:
   !instr,!instr23
   !volume,192
   !loop : dw .sub30EC : db 2
@@ -448,6 +406,7 @@ Tracker2B60:
   !fs4
   !as4
   !ds4
+  !subloop,0
   !loop : dw .sub313D : db 1
   !loop : dw .sub3161 : db 1
   !loop : dw .sub313D : db 1
@@ -463,36 +422,7 @@ Tracker2B60:
   !as4
   !ds4
   !cs4
-  !loop : dw .sub313D : db 1
-  !loop : dw .sub3161 : db 1
-  !loop : dw .sub313D : db 1
-  db 24,$7F
-  !ds4
-  !fs4
-  !ds5
-  db 36
-  !ds4
-  db 12
-  !rest
-  db 24
-  !as4
-  !ds4
-  !cs4
-  !loop : dw .sub313D : db 1
-  !loop : dw .sub3161 : db 1
-  !loop : dw .sub313D : db 1
-  db 24,$7F
-  !ds4
-  !fs4
-  !ds5
-  db 36
-  !ds4
-  db 12
-  !rest
-  db 24
-  !as4
-  !ds4
-  !cs4
+  !subloop,2
   !loop : dw .sub313D : db 1
   !loop : dw .sub3161 : db 1
   !loop : dw .sub313D : db 1
@@ -532,8 +462,10 @@ Tracker2B60:
   db 12
   !e4
   !e4
+.pattern1_5:
   !instr,!instr21
   !volume,192
+  !subloop,0
   !loop : dw .sub3182 : db 1
   !instr,!instr21
   !volume,192
@@ -550,22 +482,7 @@ Tracker2B60:
   db 12
   !e4
   !e4
-  !loop : dw .sub3182 : db 1
-  !instr,!instr21
-  !volume,192
-  db 12,$7F
-  !e4
-  !e4
-  db 24
-  !e4
-  !loop : dw .sub3182 : db 1
-  !instr,!instr21
-  !volume,192
-  db 24,$7F
-  !e4
-  db 12
-  !e4
-  !e4
+  !subloop,1
   !instr,!instr20
   !volume,224
   db 48,$7F
@@ -673,560 +590,7 @@ Tracker2B60:
   !tie
   !tie
   !tie
-  !loop : dw .sub3200 : db 4
-  db 72,$7F
-  !rest
-  !loop : dw .sub320B : db 16
-  db 96,$7F
-  !f4
-  !tie
-  !tie
-  db 24
-  !tie
-  db 96
-  !b4
-  !tie
-  !tie
-  !tie
-  !tie
-  !tie
-  !end
-
-.pattern1_0
-  !instr,!instr22
-  !volume,208
-  !loop : dw .sub2EE2 : db 2
-  db 72,$7F
-  !b4
-  db 120
-  !cs5
-  db 72
-  !ds5
-  db 120
-  !ds5
-  !loop : dw .sub2EF9 : db 2
-  !loop : dw .sub2F1B : db 1
-  db 72,$7F
-  !gs5
-  db 24
-  !as5
-  db 48
-  !fs5
-  db 24
-  !gs5
-  !as5
-  !loop : dw .sub2F1B : db 1
-  !instr,!instr1E
-  !volume,160
-  !transpose,3
-  !loop : dw .sub2ECF : db 3
-  !transpose,0
-  db 12,$7F
-  !ds6
-  !ds7
-  !gs6
-  !as6
-  !cs7
-  !gs6
-  !ds6
-  !as6
-  !gs6
-  !cs7
-  !ds7
-  !ds6
-  !g6
-  !gs6
-  !as6
-  !b6
-  !end
-
-.pattern1_1
-  !instr,!instr1F
-  !volume,204
-  !loop : dw .sub2F58 : db 4
-  db 24,$7F
-  !ds5
-  !cs5
-  !ds5
-  !fs5
-  !rest
-  db 12
-  !f5
-  !cs5
-  db 48
-  !gs4
-  !ds5
-  !rest
-  db 24
-  !ds5
-  !f5
-  !fs5
-  !gs5
-  !loop : dw .sub2F7D : db 1
-  db 72,$7F
-  !f6
-  db 24
-  !ds6
-  !ds6
-  !ds5
-  !f5
-  !fs5
-  !loop : dw .sub2F7D : db 1
-  db 72,$7F
-  !f6
-  db 24
-  !ds6
-  !ds6
-  !ds5
-  !f5
-  !fs5
-  !loop : dw .sub2F7D : db 1
-  db 72,$7F
-  !f6
-  db 24
-  !ds6
-  !ds6
-  !ds5
-  !f5
-  !fs5
-  !loop : dw .sub2F7D : db 1
-  db 48,$7F
-  !f6
-  db 24
-  !rest
-  db 18
-  !ds6
-  db 6
-  !rest
-  db 96
-  !ds6
-  !tie
-  db 48
-  !tie
-  db 96
-  !rest
-  !tie
-  !tie
-  !tie
-  db 48
-  !g4
-  !end
-
-.pattern1_2
-  !loop : dw .sub2FC5 : db 2
-  !vibrato,24,12,64
-  !instr,!instr25
-  !volume,198
-  !pan,9
-  db 12,$7F
-  !b4
-  db 60
-  !rest
-  db 12
-  !cs5
-  db 36
-  !rest
-  db 12
-  !cs5
-  !rest
-  !cs5
-  !cs5
-  !rest
-  !cs5
-  !ds5
-  db 60
-  !rest
-  db 12
-  !ds5
-  db 36
-  !rest
-  db 12
-  !ds5
-  !rest
-  !ds5
-  !ds5
-  !rest
-  !ds5
-  !loop : dw .sub3011 : db 1
-  db 12,$7F
-  !ds5
-  db 60
-  !rest
-  db 12
-  !ds5
-  db 36
-  !rest
-  db 12
-  !ds5
-  !rest
-  !ds5
-  !ds5
-  !rest
-  !ds5
-  !loop : dw .sub3011 : db 1
-  db 12,$7F
-  !ds5
-  db 60
-  !rest
-  db 12
-  !ds5
-  db 36
-  !rest
-  db 12
-  !ds5
-  !rest
-  !ds5
-  !ds5
-  !rest
-  !ds5
-  !loop : dw .sub3011 : db 1
-  db 12,$7F
-  !ds5
-  db 60
-  !rest
-  db 12
-  !ds5
-  db 36
-  !rest
-  db 12
-  !ds5
-  !rest
-  !ds5
-  !ds5
-  !rest
-  !ds5
-  !loop : dw .sub3011 : db 1
-  !endVibrato
-  !instr,!instr22
-  !volume,208
-  db 96,$7F
-  !ds4
-  !tie
-  !tie
-  !tie
-  !tie
-  !tie
-  !tie
-  !tie
-  !end
-
-.pattern1_3
-  !instr,!instr25
-  !volume,198
-  !loop : dw .sub3076 : db 4
-  db 12,$7F
-  !ds5
-  db 60
-  !rest
-  db 12
-  !f5
-  db 36
-  !rest
-  db 12
-  !f5
-  !rest
-  !f5
-  !f5
-  !rest
-  !f5
-  !fs5
-  db 60
-  !rest
-  db 12
-  !fs5
-  db 36
-  !rest
-  db 12
-  !fs5
-  !rest
-  !fs5
-  !fs5
-  !rest
-  !fs5
-  !loop : dw .sub3087 : db 1
-  db 12,$7F
-  !fs5
-  db 60
-  !rest
-  db 12
-  !fs5
-  db 36
-  !rest
-  db 12
-  !fs5
-  !rest
-  !fs5
-  !fs5
-  !rest
-  !fs5
-  !loop : dw .sub3087 : db 1
-  db 12,$7F
-  !fs5
-  db 60
-  !rest
-  db 12
-  !fs5
-  db 36
-  !rest
-  db 12
-  !fs5
-  !rest
-  !fs5
-  !fs5
-  !rest
-  !fs5
-  !loop : dw .sub3087 : db 1
-  db 12,$7F
-  !fs5
-  db 60
-  !rest
-  db 12
-  !fs5
-  db 36
-  !rest
-  db 12
-  !fs5
-  !rest
-  !fs5
-  !fs5
-  !rest
-  !fs5
-  !loop : dw .sub3087 : db 1
-  db 96,$7F
-  !fs5
-  !tie
-  db 96
-  !rest
-  !tie
-  !tie
-  !tie
-  !tie
-  !tie
-  !end
-
-.pattern1_4
-  !instr,!instr23
-  !volume,192
-  !loop : dw .sub30EC : db 2
-  db 24,$7F
-  !b3
-  !ds4
-  !fs4
-  !cs5
-  !rest
-  !f4
-  !gs4
-  !cs4
-  !ds4
-  !as4
-  !as3
-  !ds4
-  !rest
-  !fs4
-  !as4
-  !ds4
-  !loop : dw .sub313D : db 1
-  !loop : dw .sub3161 : db 1
-  !loop : dw .sub313D : db 1
-  db 24,$7F
-  !ds4
-  !fs4
-  !ds5
-  db 36
-  !ds4
-  db 12
-  !rest
-  db 24
-  !as4
-  !ds4
-  !cs4
-  !loop : dw .sub313D : db 1
-  !loop : dw .sub3161 : db 1
-  !loop : dw .sub313D : db 1
-  db 24,$7F
-  !ds4
-  !fs4
-  !ds5
-  db 36
-  !ds4
-  db 12
-  !rest
-  db 24
-  !as4
-  !ds4
-  !cs4
-  !loop : dw .sub313D : db 1
-  !loop : dw .sub3161 : db 1
-  !loop : dw .sub313D : db 1
-  db 24,$7F
-  !ds4
-  !fs4
-  !ds5
-  db 36
-  !ds4
-  db 12
-  !rest
-  db 24
-  !as4
-  !ds4
-  !cs4
-  !loop : dw .sub313D : db 1
-  !loop : dw .sub3161 : db 1
-  !loop : dw .sub313D : db 1
-  !loop : dw .sub316F : db 3
-  db 12,$7F
-  !ds3
-  !ds4
-  !gs3
-  !as3
-  !cs4
-  !gs3
-  !ds3
-  !as3
-  !gs3
-  !cs4
-  !ds4
-  !ds3
-  !g3
-  !gs3
-  !as3
-  !b3
-  !end
-
-.pattern1_5
-  !instr,!instr21
-  !volume,192
-  !loop : dw .sub3182 : db 1
-  !instr,!instr21
-  !volume,192
-  db 12,$7F
-  !e4
-  !e4
-  db 24
-  !e4
-  !loop : dw .sub3182 : db 1
-  !instr,!instr21
-  !volume,192
-  db 24,$7F
-  !e4
-  db 12
-  !e4
-  !e4
-  !loop : dw .sub3182 : db 1
-  !instr,!instr21
-  !volume,192
-  db 12,$7F
-  !e4
-  !e4
-  db 24
-  !e4
-  !loop : dw .sub3182 : db 1
-  !instr,!instr21
-  !volume,192
-  db 24,$7F
-  !e4
-  db 12
-  !e4
-  !e4
-  !instr,!instr20
-  !volume,224
-  db 48,$7F
-  !e4
-  db 72
-  !e4
-  db 24
-  !e4
-  !instr,!instr21
-  !volume,192
-  db 36
-  !e4
-  !instr,!instr20
-  !volume,224
-  db 12
-  !e4
-  !e4
-  db 24
-  !e4
-  db 12
-  !e4
-  !instr,!instr21
-  !volume,192
-  db 24
-  !e4
-  !instr,!instr20
-  !volume,224
-  db 36
-  !e4
-  db 12
-  !e4
-  !instr,!instr21
-  !volume,192
-  db 24
-  !e4
-  !e4
-  db 12
-  !e4
-  !e4
-  !loop : dw .sub31CA : db 15
-  !instr,!instr20
-  !volume,224
-  db 12,$7F
-  !e4
-  db 24
-  !e4
-  db 12
-  !e4
-  !instr,!instr21
-  !volume,192
-  db 24
-  !e4
-  !e4
-  !instr,!instr26
-  !volume,212
-  db 12
-  !cs5
-  !a4
-  !f4
-  !cs4
-  !a3
-  !instr,!instr21
-  !volume,192
-  !e4
-  db 96
-  !e4
-  !tie
-  !tie
-  !tie
-  db 24
-  !tie
-  db 96
-  !e4
-  !tie
-  !instr,!instr20
-  !volume,224
-  db 24
-  !e4
-  !e4
-  !instr,!instr21
-  !volume,192
-  db 48
-  !e4
-  !instr,!instr20
-  !volume,224
-  db 12
-  !e4
-  !e4
-  db 24
-  !e4
-  !instr,!instr21
-  !volume,192
-  !e4
-  db 12
-  !e4
-  !e4
-  !end
-
-.pattern1_6
+.pattern1_6:
   !loop : dw .sub3200 : db 4
   db 72,$7F
   !rest
@@ -1777,6 +1141,7 @@ Tracker2B60:
   !end
 
 .sub30EC
+  !subloop,0
   db 24,$7F
   !c4
   db 48
@@ -1802,31 +1167,7 @@ Tracker2B60:
   db 24
   !as3
   !rest
-  db 24,$7F
-  !c4
-  db 48
-  !rest
-  db 24
-  !c4
-  !rest
-  db 12
-  !c4
-  !rest
-  db 24
-  !c4
-  !rest
-  !c4
-  db 48
-  !rest
-  db 24
-  !c4
-  !rest
-  db 12
-  !c4
-  !rest
-  db 24
-  !as3
-  !rest
+  !subloop,1
   db 24,$7F
   !gs3
   db 48
@@ -2067,6 +1408,48 @@ Tracker2B60:
   !tie
   !tie
   !end
+
+.remoteCode2EA7
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$05,$FF
+  !end
+
+.remoteCode2EAB
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$05,$00
+  !end
+
+.remoteCode2EAF
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$15,$FF
+  !end
+
+.remoteCode2EB3
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$15,$00
+  !end
+
+.remoteCode2EB7
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$25,$FF
+  !end
+
+.remoteCode2EBB
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$25,$00
+  !end
+
+.remoteCode2EBF
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$35,$FF
+  !end
+
+.remoteCode2EC3
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$35,$00
+  !end
+
+.remoteCode2EC7
+  !setInstrumentByte,$01,$FF ; !addmusicWriteDsp,$45,$FF
+  !end
+
+.remoteCode2ECB
+  !setInstrumentByte,$01,$00 ; !addmusicWriteDsp,$45,$00
+  !end
+
+assert pc() <= $10000-(3*$800)
 endspcblock
 
 spcblock !p_extra nspc
