@@ -21,12 +21,20 @@ LDA #$0006 : LDY #$001F : LDX #$0078 : RTS ; compatibility with tundain's fx-com
 
 org $80D280+4 : dw InterruptCommand4
 
-org $80988B
-!a = $80988B
-while !a < $8099CF
-	dw read2(!a)|$2000 ; set priority bit for bg3
-	!a #= !a+2
-endwhile
+macro setBG3TilemapPriority(start, end)
+	org <start>
+	!a = <start>
+	while !a < <end>
+		dw read2(!a)|$2000 ; set priority bit for bg3
+		!a #= !a+2
+	endwhile
+endmacro
+
+%setBG3TilemapPriority($80988B, $8099CF)
+%setBG3TilemapPriority($80D1A3, $80D1AF) ; magic soap
+%setBG3TilemapPriority($80FA0F, $80FA1B) ; hyper shot
+%setBG3TilemapPriority($80D1AF, $80D1AF+8) ; zahav
+%setBG3TilemapPriority($80D1B7, $80D1B7+8) ; dreamer's crown
 
 ; make minimap transparent
 org $90AAAE : LDA #$000F
