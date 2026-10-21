@@ -1,0 +1,3 @@
+Replaces the Nintendo logo with a mode 3 image from https://discord.com/channels/127475613073145858/127475613073145858/997217349176406179 in the Metconst Discord server.
+I used paint.net, Aseprite, Superfamiconv https://github.com/Optiroc/SuperFamiconv and AmoebaCompress https://edit-sm.art/download/AmoebaCompress.1.0.0.0.zip to make this.
+There are 2 versions of this patch: the uncompressed version loads faster but uses more space while the compressed version uses less space but loads slower.

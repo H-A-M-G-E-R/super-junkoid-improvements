@@ -9,6 +9,8 @@
 !noteEndInTicks = $E5
 !disablePsychoacousticAdjustment = $E6
 
+!musicTempo = $4F
+
 !sound1InstructionLists_low = $1250
 !sound1InstructionLists_high = $1292
 

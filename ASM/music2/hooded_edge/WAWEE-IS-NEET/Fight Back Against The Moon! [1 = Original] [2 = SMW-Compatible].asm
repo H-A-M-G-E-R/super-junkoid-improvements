@@ -92,21 +92,26 @@ spcblock 4*$16+!p_sampleTable nspc ; sample table
   dw SampleGura,SampleGura
 endspcblock
 
-spcblock !p_songSpecificData nspc ; sample data
-  Sample0C: incbin "0C SMW @13.brr":2..0
-  Sample14: incbin "Wind Glock.brr":2..0
-  Sample15: incbin "XG Sawtooth.brr":2..0
-  Sample16: incbin "DKNI4 Synth Brass.brr":2..0
+pushpc
+org !p_songSpecificData ; sample data
+  Sample0C: skip filesize("0C SMW @13.brr")-2
+  Sample15: skip filesize("XG Sawtooth.brr")-2
+  Sample16: skip filesize("DKNI4 Synth Brass.brr")-2
+  Sample18: skip filesize("SOI Pulse 25% O4 High.brr")-2
+  Sample1B: skip filesize("Wind String Ens.brr")-2
+  Sample1C: skip filesize("S3 Slap Bass II.brr")-2
+  Sample1D: skip filesize("Yasui Snare.brr")-2
+  Sample1E: skip filesize("DR-880 Kick.brr")-2
+  Sample1F: skip filesize("TR-909 Hi-Hat.brr")-2
+  Sample20: skip filesize("R-8 Crash Cym.brr")-2
+  Sample14:
+pullpc
+
+spcblock Sample14 nspc
+  incbin "Wind Glock.brr":2..0
   Sample17: incbin "JV1080 Creamy Guitar Lead.brr":2..0
-  Sample18: incbin "SOI Pulse 25% O4 High.brr":2..0
   Sample19: incbin "Chrono Elec Piano 2.brr":2..0
   Sample1A: incbin "MMPRTM Dist Guitar.brr":2..0
-  Sample1B: incbin "Wind String Ens.brr":2..0
-  Sample1C: incbin "S3 Slap Bass II.brr":2..0
-  Sample1D: incbin "Yasui Snare.brr":2..0
-  Sample1E: incbin "DR-880 Kick.brr":2..0
-  Sample1F: incbin "TR-909 Hi-Hat.brr":2..0
-  Sample20: incbin "R-8 Crash Cym.brr":2..0
   SampleGura: incbin "01_gura_mono.brr":2..0
 
 NoteLengthTable: ; note length table

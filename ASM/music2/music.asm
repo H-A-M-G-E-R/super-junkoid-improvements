@@ -1,4 +1,5 @@
 lorom
+incsrc "defines.asm"
 ; wip
 
 ;$5A: $CDA5CB..CDC53B
@@ -180,8 +181,12 @@ Song0F: incbin "TH7Boss1(MMX)/TH7Boss1(MMX).nspc"
 Song12: incbin "TH6Boss2(MMX)/TH6Boss2(MMX).nspc"
 Song15: incbin "hooded_edge/WAWEE-IS-NEET/Fight Back Against The Moon! [1 = Original] [2 = SMW-Compatible].nspc"
 Song18: incbin "hooded_edge/KNUCKLES-BUT-CHINESE/Battle Spirit Of The Devil's Guardian [1 = Remix - Listening-Only] [2 = Voice Disabled].nspc"
+Song1B: incbin "Undertale - Battle Against A True Hero (Remix)/Battle Against A True Hero.nspc"
+Song1E: incbin "tourian/1E.nspc"
+Song21: incbin "hooded_edge/UNO-Reverse-Card/Impossible Youkai Girl, The.nspc"
+Song24: incbin "TH7Boss2MMX2/TH7Boss2MMX2.nspc"
+Song27: incbin "hooded_edge/PRISMPUNK-SISTERS/Sliver of Punk in the Ghost Harmony, A [1 = Remix] [2 = Voice Disabled].nspc"
 Song09:
-Song33:
 Song36:
 Song3C:
 Song3F:
@@ -200,14 +205,10 @@ check bankcross full
 
 org $E0C5E6
 check bankcross off
-Song1B: incbin "Undertale - Battle Against A True Hero (Remix)/Battle Against A True Hero.nspc"
-Song1E: incbin "tourian/1E.nspc"
-Song21: incbin "hooded_edge/UNO-Reverse-Card/Impossible Youkai Girl, The.nspc"
-Song24: incbin "TH7Boss2MMX2/TH7Boss2MMX2.nspc"
-Song27: incbin "hooded_edge/PRISMPUNK-SISTERS/Sliver of Punk in the Ghost Harmony, A [1 = Remix] [2 = Voice Disabled].nspc"
 Song2A: incbin "TH7Boss3MMX3/TH7Boss3MMX3.nspc"
 Song2D: incbin "Fight Sans/song that might play when you fight sans.nspc"
 Song30: incbin "hooded_edge/YARE-YARE-DA-ZE/[LCMS] Move And I'll Shoot!! [1 = Original].nspc"
+Song33: incbin "H A M/H A M.nspc"
 Song39: incbin "45 Kirby Lose/45 Kirby Lose.nspc"
 Song4B: incbin "anothertale/anothertale.nspc"
 Song51: incbin "hooded_edge/NGL-HISTORY-SUX/Nightmares Of The Past [1 = Remix - Listening-Only] [2 = Voice Disabled].nspc"
@@ -220,27 +221,97 @@ Song69: incbin "hooded_edge/AYAYAYAYAYAYAYAYA/Cheating Tengu, The [1 = Original]
 Song72: incbin "megalovania/badtime.nspc" ; always use it for final boss music, even if it doesn't fit
 Song75: incbin "hooded_edge/YOU-MUST-BE-NUE-HERE/Search, Kill, & Destroy!!! [1 = Remix] [2 = Voice Disabled].nspc"
 
-%padSafe($F48A00)
+macro importHeaderedBrr(path)
+   dw filesize("<path>")-2 : incbin "<path>":2..0
+endmacro
+
+SampleDefaultSMW00: %importHeaderedBrr("default/00 SMW @0.brr")
+SampleDefaultSMW01: %importHeaderedBrr("default/01 SMW @1.brr")
+SampleDefaultSMW06: %importHeaderedBrr("default/06 SMW @22.brr")
+SampleDefaultSMW08: %importHeaderedBrr("default/08 SMW @6.brr")
+SampleDefaultSMW0C: %importHeaderedBrr("default/0C SMW @13.brr")
+
+SampleBDH1SawWave: %importHeaderedBrr("hooded_edge/AYAYAYAYAYAYAYAYA/BDH1 Saw Wave.brr")
+SampleCoolStringEns: %importHeaderedBrr("hooded_edge/AYAYAYAYAYAYAYAYA/Cool String Ens.brr")
+SampleDR880Kick: %importHeaderedBrr("hooded_edge/AYAYAYAYAYAYAYAYA/DR-880 Kick.brr")
+SampleMM7HiHat1: %importHeaderedBrr("hooded_edge/AYAYAYAYAYAYAYAYA/MM7 Hi-Hat 1.brr")
+SampleMM7Sawtooth: %importHeaderedBrr("hooded_edge/AYAYAYAYAYAYAYAYA/MM7 Sawtooth.brr")
+SampleR8CrashCym: %importHeaderedBrr("hooded_edge/AYAYAYAYAYAYAYAYA/R-8 Crash Cym.brr")
+SampleRS1Oboe: %importHeaderedBrr("hooded_edge/AYAYAYAYAYAYAYAYA/RS1 Oboe.brr")
+SampleS2SynthBrass: %importHeaderedBrr("hooded_edge/AYAYAYAYAYAYAYAYA/S2 Synth Brass.brr")
+SampleS3SlapBassII: %importHeaderedBrr("hooded_edge/AYAYAYAYAYAYAYAYA/S3 Slap Bass II.brr")
+SampleSomeOrgans: %importHeaderedBrr("hooded_edge/AYAYAYAYAYAYAYAYA/Some Organs.brr")
+SampleTopPiano: %importHeaderedBrr("hooded_edge/AYAYAYAYAYAYAYAYA/Top Piano.brr")
+SampleXGSawtooth: %importHeaderedBrr("hooded_edge/AYAYAYAYAYAYAYAYA/XG Sawtooth.brr")
+SampleYasuiSnare: %importHeaderedBrr("hooded_edge/AYAYAYAYAYAYAYAYA/Yasui Snare.brr")
+
+Sample02SMW2Plus3: %importHeaderedBrr("hooded_edge/KNUCKLES-BUT-CHINESE/02 SMW @2+3.brr")
+SampleAquariusLead: %importHeaderedBrr("hooded_edge/KNUCKLES-BUT-CHINESE/Aquarius Lead.brr")
+SampleDKNI4SynthBrass: %importHeaderedBrr("hooded_edge/KNUCKLES-BUT-CHINESE/DKNI4 Synth Brass.brr")
+SampleDR660Kick: %importHeaderedBrr("hooded_edge/KNUCKLES-BUT-CHINESE/DR-660 Kick.brr")
+SampleEBElecPiano: %importHeaderedBrr("hooded_edge/KNUCKLES-BUT-CHINESE/EB Elec Piano.brr")
+SampleR8Tom2: %importHeaderedBrr("hooded_edge/KNUCKLES-BUT-CHINESE/R-8 Tom 2.brr")
+SampleSawtoothX: %importHeaderedBrr("hooded_edge/KNUCKLES-BUT-CHINESE/Sawtooth X.brr")
+SampleSOIFatPunchAltSmall: %importHeaderedBrr("hooded_edge/KNUCKLES-BUT-CHINESE/SOI Fat Punch Alt (Small).brr")
+SampleSOIFMElecPiano2: %importHeaderedBrr("hooded_edge/KNUCKLES-BUT-CHINESE/SOI FM Elec Piano 2.brr")
+SampleSOILoudLead: %importHeaderedBrr("hooded_edge/KNUCKLES-BUT-CHINESE/SOI Loud Lead.brr")
+SampleSOIPianoMed2: %importHeaderedBrr("hooded_edge/KNUCKLES-BUT-CHINESE/SOI Piano Med 2.brr")
+SampleSOIPulse50O4High: %importHeaderedBrr("hooded_edge/KNUCKLES-BUT-CHINESE/SOI Pulse 50% O4 High.brr")
+SampleXR10Clap: %importHeaderedBrr("hooded_edge/KNUCKLES-BUT-CHINESE/XR-10 Clap.brr")
+
+SampleChipVoice9VL: %importHeaderedBrr("hooded_edge/NGL-HISTORY-SUX/Chip Voice 9 VL.brr")
+SampleDNBBassDrum: %importHeaderedBrr("hooded_edge/NGL-HISTORY-SUX/DNB Bass Drum.brr")
+SampleKenPulseWave: %importHeaderedBrr("hooded_edge/NGL-HISTORY-SUX/Ken Pulse Wave.brr")
+SampleKirbClarinet: %importHeaderedBrr("hooded_edge/NGL-HISTORY-SUX/Kirb Clarinet.brr")
+SampleMM7Pulse50: %importHeaderedBrr("hooded_edge/NGL-HISTORY-SUX/MM7 Pulse 50%.brr")
+SampleRudraSawtooth: %importHeaderedBrr("hooded_edge/NGL-HISTORY-SUX/Rudra Sawtooth.brr")
+SampleS550LATom: %importHeaderedBrr("hooded_edge/NGL-HISTORY-SUX/S-550 LA Tom.brr")
+SampleScarletPiano3p: %importHeaderedBrr("hooded_edge/NGL-HISTORY-SUX/Scarlet Piano 3+.brr")
+SampleTR909HiHat: %importHeaderedBrr("hooded_edge/NGL-HISTORY-SUX/TR-909 Hi-Hat.brr")
+SampleWindStringEns: %importHeaderedBrr("hooded_edge/NGL-HISTORY-SUX/Wind String Ens.brr")
+
+SampleUltimaHiHat: %importHeaderedBrr("hooded_edge/Osana-Reimu/Ultima Hi-Hat.brr")
+SampleChronoPulseWidthMod: %importHeaderedBrr("hooded_edge/Osana-Reimu/Chrono Pulse-Width Mod.brr")
+SampleJV1080Square: %importHeaderedBrr("hooded_edge/Osana-Reimu/JV1080 Square.brr")
+SampleMM7Pulse1875: %importHeaderedBrr("hooded_edge/Osana-Reimu/MM7 Pulse 18.75%.brr")
+SampleShinobiFMSynthBass: %importHeaderedBrr("hooded_edge/Osana-Reimu/Shinobi FM Synth Bass.brr")
+
+SampleMMX1StringEns: %importHeaderedBrr("hooded_edge/PRISMPUNK-SISTERS/MMX1 String Ens.brr")
+SampleMMX1TechnologyNoise: %importHeaderedBrr("hooded_edge/PRISMPUNK-SISTERS/MMX1 Technology Noise.brr")
+SamplePopfulMailOverdrive: %importHeaderedBrr("hooded_edge/PRISMPUNK-SISTERS/PM Overdrive.brr")
+SampleSOIHardSync1AltSmall: %importHeaderedBrr("hooded_edge/PRISMPUNK-SISTERS/SOI HardSync 1 Alt (Small).brr")
+SampleSOISpicyGuitar: %importHeaderedBrr("hooded_edge/PRISMPUNK-SISTERS/SOI Spicy Guitar.brr")
+SampleSOMElecPiano: %importHeaderedBrr("hooded_edge/PRISMPUNK-SISTERS/SOM Elec Piano.brr")
+SampleVCR7NylonGuitarLow: %importHeaderedBrr("hooded_edge/PRISMPUNK-SISTERS/VCR7 Nylon Guitar (Low).brr")
+
+SampleKDL3Trumpet: %importHeaderedBrr("hooded_edge/UNO-Reverse-Card/KDL3 Trumpet.brr")
+SamplePlokOverdrive: %importHeaderedBrr("hooded_edge/UNO-Reverse-Card/Plok Overdrive.brr")
+SampleS3Bell: %importHeaderedBrr("hooded_edge/UNO-Reverse-Card/S3 Bell.brr")
+SampleSukuDistGuitar: %importHeaderedBrr("hooded_edge/UNO-Reverse-Card/Suku Dist Guitar.brr")
+
+SampleSOIPulse25O4High: %importHeaderedBrr("hooded_edge/WAWEE-IS-NEET/SOI Pulse 25% O4 High.brr")
+
+%padSafe($F38000)
 check bankcross full
 
 %BEGIN_FREESPACE(81)
 SampleTransferDefPointers: ; can't cross banks
 dl 0, ; 03 (used in game over screen but uses song 4)
-   0, ; 06
+   SampleTransferDef_Rumia, ; 06
    0, ; 09 statue room
    0, ; 0C
    0, ; 0F
    0, ; 12
-   0, ; 15
-   0, ; 18
+   SampleTransferDef_Kaguya, ; 15
+   SampleTransferDef_Meiling, ; 18
    0, ; 1B
    0, ; 1E tourian (alive idol)
-   0, ; 21
+   SampleTransferDef_Seija, ; 21
    0, ; 24
-   0, ; 27 (penguinmire)
+   SampleTransferDef_PrismriverSisters, ; 27 (penguinmire)
    0, ; 2A (miniboss)
    0, ; 2D
-   0, ; 30
+   SampleTransferDef_Marisa, ; 30
    0, ; 33 zebes boom (used)
    0, ; 36
    0, ; 39 death
@@ -251,7 +322,7 @@ dl 0, ; 03 (used in game over screen but uses song 4)
    0, ; 48
    0, ; 4B (upper outskirts)
    0, ; 4E (lower outskirts)
-   0, ; 51 (blood bethel)
+   SampleTransferDef_KeineStage, ; 51 (blood bethel)
    0, ; 54 (upper deep purple)
    0, ; 57 (lower Sheol)
    0, ; 5A (ice castle)
@@ -259,11 +330,190 @@ dl 0, ; 03 (used in game over screen but uses song 4)
    0, ; 60 (lower deep purple)
    0, ; 63 (upper Sheol)
    0, ; 66 (title screen)
-   0, ; 69 (touhou area)
-   0, ; 6C
+   SampleTransferDef_Aya, ; 69 (touhou area)
+   0, ; 6C (greater junko)
    0, ; 6F (pre-snake)
    0, ; 72 (the new mother brain music)
-   0, ; 75 (escape)
+   SampleTransferDef_Nue, ; 75 (escape)
    0, ; 78 (credits 2)
    0  ; 7B that song from alttp (used in one true junko room)
+
+SampleTransferDef_Aya:
+{
+   dw !p_songSpecificData
+   dl SampleMM7Sawtooth
+   dl SampleXGSawtooth
+   dl SampleS2SynthBrass
+   dl SampleSomeOrgans
+   dl SampleTopPiano
+   dl SampleRS1Oboe
+   dl SampleBDH1SawWave
+   dl SampleCoolStringEns
+   dl SampleS3SlapBassII
+   dl SampleYasuiSnare
+   dl SampleDR880Kick
+   dl SampleMM7HiHat1
+   dl SampleR8CrashCym
+   dw 0
+}
+
+SampleTransferDef_Meiling:
+{
+   dw !p_songSpecificData
+   dl SampleDefaultSMW01
+   dl SampleDefaultSMW0C
+   dl SampleSOIFatPunchAltSmall
+   dl SampleSOIFMElecPiano2
+   dl SampleDKNI4SynthBrass
+   dl SampleSOILoudLead
+   dl SampleSOIPulse50O4High
+   dl SampleSOIPianoMed2
+   dl Sample02SMW2Plus3
+   dl SampleAquariusLead
+   dl SampleSawtoothX
+   dl SampleEBElecPiano
+   dl SampleS3SlapBassII
+   dl SampleYasuiSnare
+   dl SampleDR660Kick
+   dl SampleXR10Clap
+   dl SampleR8Tom2
+   dl SampleMM7HiHat1
+   dl SampleR8CrashCym
+   dw 0
+}
+
+SampleTransferDef_KeineStage:
+{
+   dw !p_songSpecificData
+   dl SampleScarletPiano3p
+   dl SampleRS1Oboe
+   dl SampleKenPulseWave
+   dl SampleRudraSawtooth
+   dl SampleMM7Pulse50
+   dl SampleKirbClarinet
+   dl SampleWindStringEns
+   dl SampleEBElecPiano
+   dl SampleS3SlapBassII
+   dl SampleYasuiSnare
+   dl SampleDNBBassDrum
+   dl SampleS550LATom
+   dl SampleTR909HiHat
+   dl SampleR8CrashCym
+   dw 0
+}
+
+SampleTransferDef_Rumia:
+{
+   dw !p_songSpecificData
+   dl SampleChronoPulseWidthMod
+   dl Sample02SMW2Plus3
+   dl SampleJV1080Square
+   dl SampleMM7Pulse1875
+   dl SampleMM7Sawtooth
+   dl SampleBDH1SawWave
+   dl SampleCoolStringEns
+   dl SampleShinobiFMSynthBass
+   dl SampleYasuiSnare
+   dl SampleDR660Kick
+   dl SampleR8Tom2
+   dl SampleUltimaHiHat
+   dl SampleR8CrashCym
+   dw 0
+}
+
+SampleTransferDef_PrismriverSisters:
+{
+   dw !p_songSpecificData
+   dl SampleDefaultSMW00
+   dl SampleDefaultSMW08
+   dl SampleSOMElecPiano
+   dl SamplePopfulMailOverdrive
+   dl SampleDKNI4SynthBrass
+   dl SampleSOIHardSync1AltSmall
+   dl SampleMM7Sawtooth
+   dl SampleSOISpicyGuitar
+   dl SampleAquariusLead
+   dl SampleMM7Pulse50
+   dl SampleMMX1StringEns
+   dl SampleChronoPulseWidthMod
+   dl SampleVCR7NylonGuitarLow
+   dl SampleS3SlapBassII
+   dl SampleYasuiSnare
+   dl SampleDR660Kick
+   dl SampleS550LATom
+   dl SampleTR909HiHat
+   dl SampleR8CrashCym
+   dl SampleMMX1TechnologyNoise
+   dw 0
+}
+
+SampleTransferDef_Seija:
+{
+   dw !p_songSpecificData
+   dl SamplePlokOverdrive
+   dl SampleS2SynthBrass
+   dl SampleXGSawtooth
+   dl SampleKDL3Trumpet
+   dl SampleSukuDistGuitar
+   dl SampleS3Bell
+   dl SampleMMX1StringEns
+   dl SampleS3SlapBassII
+   dl SampleYasuiSnare
+   dl SampleDR880Kick
+   dl SampleUltimaHiHat
+   dl SampleR8CrashCym
+   dw 0
+}
+
+SampleTransferDef_Kaguya:
+{
+   dw !p_songSpecificData
+   dl SampleDefaultSMW0C
+   dl SampleXGSawtooth
+   dl SampleDKNI4SynthBrass
+   dl SampleSOIPulse25O4High
+   dl SampleWindStringEns
+   dl SampleS3SlapBassII
+   dl SampleYasuiSnare
+   dl SampleDR880Kick
+   dl SampleTR909HiHat
+   dl SampleR8CrashCym
+   dw 0
+}
+
+SampleTransferDef_Marisa:
+{
+   dw !p_songSpecificData
+   dl SampleKDL3Trumpet
+   dl SamplePopfulMailOverdrive
+   dl SampleSOIFMElecPiano2
+   dl SampleSOIPulse50O4High
+   dl SampleSOIPulse25O4High
+   dl SampleMM7Sawtooth
+   dl SampleYasuiSnare
+   dl SampleDR880Kick
+   dl SampleTR909HiHat
+   dl SampleR8CrashCym
+   dw 0
+}
+
+SampleTransferDef_Nue:
+{
+   dw !p_songSpecificData
+   dl SampleDefaultSMW00
+   dl SampleDefaultSMW0C
+   dl SampleS3Bell
+   dl SampleS2SynthBrass
+   dl SampleChronoPulseWidthMod
+   dl SampleMM7Pulse50
+   dl SampleWindStringEns
+   dl SampleS3SlapBassII
+   dl SampleYasuiSnare
+   dl SampleDR880Kick
+   dl SampleR8Tom2
+   dl SampleTR909HiHat
+   dl SampleR8CrashCym
+   dw 0
+}
+
 %END_FREESPACE(81)

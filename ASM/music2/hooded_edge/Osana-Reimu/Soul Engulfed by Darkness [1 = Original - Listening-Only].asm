@@ -66,22 +66,26 @@ spcblock 4*$16+!p_sampleTable nspc ; sample table
   dw Sample20,Sample20+909
 endspcblock
 
-spcblock !p_songSpecificData nspc ; sample data
-  Sample14: incbin "Chrono Pulse-Width Mod.brr":2..0
-  Sample15: incbin "02 SMW @2+3.brr":2..0
-  Sample16: incbin "JV1080 Square.brr":2..0
-  Sample17: incbin "MM7 Pulse 18.75%.brr":2..0
-  Sample18: incbin "MM7 Sawtooth.brr":2..0
-  Sample19: incbin "BDH1 Saw Wave.brr":2..0
-  Sample1A: incbin "Cool String Ens.brr":2..0
-  Sample1B: incbin "Shinobi FM Synth Bass.brr":2..0
-  Sample1C: incbin "Yasui Snare.brr":2..0
-  Sample1D: incbin "DR-660 Kick.brr":2..0
-  Sample1E: incbin "R-8 Tom 2.brr":2..0
-  Sample1F: incbin "Ultima Hi-Hat.brr":2..0
-  Sample20: incbin "R-8 Crash Cym.brr":2..0
+pushpc
+org !p_songSpecificData ; sample data
+  Sample14: skip filesize("Chrono Pulse-Width Mod.brr")-2
+  Sample15: skip filesize("02 SMW @2+3.brr")-2
+  Sample16: skip filesize("JV1080 Square.brr")-2
+  Sample17: skip filesize("MM7 Pulse 18.75%.brr")-2
+  Sample18: skip filesize("MM7 Sawtooth.brr")-2
+  Sample19: skip filesize("BDH1 Saw Wave.brr")-2
+  Sample1A: skip filesize("Cool String Ens.brr")-2
+  Sample1B: skip filesize("Shinobi FM Synth Bass.brr")-2
+  Sample1C: skip filesize("Yasui Snare.brr")-2
+  Sample1D: skip filesize("DR-660 Kick.brr")-2
+  Sample1E: skip filesize("R-8 Tom 2.brr")-2
+  Sample1F: skip filesize("Ultima Hi-Hat.brr")-2
+  Sample20: skip filesize("R-8 Crash Cym.brr")-2
+  NoteLengthTable:
+pullpc
 
-NoteLengthTable: ; note length table
+spcblock NoteLengthTable nspc
+  ; note length table
   db $33,$66,$80,$99,$B3,$CC,$E6,$FF
   db $19,$33,$4C,$66,$72,$7F,$8C,$99,$A5,$B2,$BF,$CC,$D8,$E5,$F2,$FC
 

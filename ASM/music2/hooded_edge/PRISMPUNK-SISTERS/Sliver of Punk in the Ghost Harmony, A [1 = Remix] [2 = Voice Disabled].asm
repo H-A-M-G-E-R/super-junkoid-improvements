@@ -102,29 +102,33 @@ spcblock 4*$16+!p_sampleTable nspc ; sample table
   dw Sample25,Sample25+54
 endspcblock
 
-spcblock !p_songSpecificData nspc ; sample data
-  Sample00: incbin "00 SMW @0.brr":2..0
-  Sample08: incbin "08 SMW @6.brr":2..0
-  Sample14: incbin "SOM Elec Piano.brr":2..0
-  Sample15: incbin "PM Overdrive.brr":2..0
-  Sample16: incbin "DKNI4 Synth Brass.brr":2..0
-  Sample17: incbin "SOI HardSync 1 Alt (Small).brr":2..0
-  Sample18: incbin "MM7 Sawtooth.brr":2..0
-  Sample19: incbin "SOI Spicy Guitar.brr":2..0
-  Sample1A: incbin "Aquarius Lead.brr":2..0
-  Sample1B: incbin "KMT Square 50%.brr":2..0
-  Sample1C: incbin "MMX1 String Ens.brr":2..0
-  Sample1D: incbin "CRONO Pulse-Width Mod.brr":2..0
-  Sample1E: incbin "VCR7 Nylon Guitar (Low).brr":2..0
-  Sample1F: incbin "S3 Slap Bass II.brr":2..0
-  Sample20: incbin "Yasui Snare.brr":2..0
-  Sample21: incbin "DR-660 Kick.brr":2..0
-  Sample22: incbin "S-550 LA Tom.brr":2..0
-  Sample23: incbin "TR-909 Hi-Hat.brr":2..0
-  Sample24: incbin "R-8 Crash Cym.brr":2..0
-  Sample25: incbin "MMX1 Technology Noise.brr":2..0
+pushpc
+org !p_songSpecificData ; sample data
+  Sample00: skip filesize("00 SMW @0.brr")-2
+  Sample08: skip filesize("08 SMW @6.brr")-2
+  Sample14: skip filesize("SOM Elec Piano.brr")-2
+  Sample15: skip filesize("PM Overdrive.brr")-2
+  Sample16: skip filesize("DKNI4 Synth Brass.brr")-2
+  Sample17: skip filesize("SOI HardSync 1 Alt (Small).brr")-2
+  Sample18: skip filesize("MM7 Sawtooth.brr")-2
+  Sample19: skip filesize("SOI Spicy Guitar.brr")-2
+  Sample1A: skip filesize("Aquarius Lead.brr")-2
+  Sample1B: skip filesize("KMT Square 50%.brr")-2
+  Sample1C: skip filesize("MMX1 String Ens.brr")-2
+  Sample1D: skip filesize("CRONO Pulse-Width Mod.brr")-2
+  Sample1E: skip filesize("VCR7 Nylon Guitar (Low).brr")-2
+  Sample1F: skip filesize("S3 Slap Bass II.brr")-2
+  Sample20: skip filesize("Yasui Snare.brr")-2
+  Sample21: skip filesize("DR-660 Kick.brr")-2
+  Sample22: skip filesize("S-550 LA Tom.brr")-2
+  Sample23: skip filesize("TR-909 Hi-Hat.brr")-2
+  Sample24: skip filesize("R-8 Crash Cym.brr")-2
+  Sample25: skip filesize("MMX1 Technology Noise.brr")-2
+  NoteLengthTable:
+pullpc
 
-NoteLengthTable: ; note length table
+spcblock NoteLengthTable nspc
+  ; note length table
   db $33,$66,$80,$99,$B3,$CC,$E6,$FF
   db $19,$33,$4C,$66,$72,$7F,$8C,$99,$A5,$B2,$BF,$CC,$D8,$E5,$F2,$FC
 

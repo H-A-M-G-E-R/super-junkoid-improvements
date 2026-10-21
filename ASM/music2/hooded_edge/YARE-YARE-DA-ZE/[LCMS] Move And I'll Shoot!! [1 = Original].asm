@@ -84,24 +84,29 @@ spcblock 4*$16+!p_sampleTable nspc ; sample table
   dw Sample24,Sample24+909
 endspcblock
 
-spcblock !p_songSpecificData nspc ; sample data
-  Sample14: incbin "KDL3 Trumpet.brr":2..0
-  Sample15: incbin "Chrono Square Wave.brr":2..0
+pushpc
+org !p_songSpecificData ; sample data
+  Sample14: skip filesize("KDL3 Trumpet.brr")-2
+  Sample17: skip filesize("Popful Mail Overdrive.brr")-2
+  Sample1A: skip filesize("MM FM Elec Piano 2.brr")-2
+  Sample1C: skip filesize("MM Pulse 50% O4 High.brr")-2
+  Sample1D: skip filesize("MM Pulse 25% O4 High.brr")-2
+  Sample1F: skip filesize("MM7 Sawtooth.brr")-2
+  Sample21: skip filesize("Yasui Snare.brr")-2
+  Sample22: skip filesize("DR-880 Kick.brr")-2
+  Sample23: skip filesize("TR-909 Hi-Hat.brr")-2
+  Sample24: skip filesize("R-8 Crash Cym.brr")-2
+  Sample15:
+pullpc
+
+spcblock Sample15 nspc
+  incbin "Chrono Square Wave.brr":2..0
   Sample16: incbin "MM Synth EP 4.brr":2..0
-  Sample17: incbin "Popful Mail Overdrive.brr":2..0
   Sample18: incbin "Chrono Perc Organ.brr":2..0
   Sample19: incbin "MM FM Elec Piano 1.brr":2..0
-  Sample1A: incbin "MM FM Elec Piano 2.brr":2..0
   Sample1B: incbin "MM Pulse 50% O4 Low.brr":2..0
-  Sample1C: incbin "MM Pulse 50% O4 High.brr":2..0
-  Sample1D: incbin "MM Pulse 25% O4 High.brr":2..0
   Sample1E: incbin "MMX2 String Ens.brr":2..0
-  Sample1F: incbin "MM7 Sawtooth.brr":2..0
   Sample20: incbin "Cool Slap Bass.brr":2..0
-  Sample21: incbin "Yasui Snare.brr":2..0
-  Sample22: incbin "DR-880 Kick.brr":2..0
-  Sample23: incbin "TR-909 Hi-Hat.brr":2..0
-  Sample24: incbin "R-8 Crash Cym.brr":2..0
 
 NoteLengthTable: ; note length table
   db $33,$66,$80,$99,$B3,$CC,$E6,$FF

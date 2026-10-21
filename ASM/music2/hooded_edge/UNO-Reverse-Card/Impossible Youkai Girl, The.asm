@@ -63,21 +63,25 @@ spcblock 4*$16+!p_sampleTable nspc ; sample table
   dw Sample1F,Sample1F+909
 endspcblock
 
-spcblock !p_songSpecificData nspc ; sample data
-  Sample14: incbin "Plok Overdrive.brr":2..0
-  Sample15: incbin "S2 Synth Brass.brr":2..0
-  Sample16: incbin "XG Sawtooth.brr":2..0
-  Sample17: incbin "KDL3 Trumpet.brr":2..0
-  Sample18: incbin "Suku Dist Guitar.brr":2..0
-  Sample19: incbin "S3 Bell.brr":2..0
-  Sample1A: incbin "MMX1 String Ens.brr":2..0
-  Sample1B: incbin "S3 Slap Bass II.brr":2..0
-  Sample1C: incbin "Yasui Snare.brr":2..0
-  Sample1D: incbin "DR-880 Kick.brr":2..0
-  Sample1E: incbin "Ultima Hi-Hat.brr":2..0
-  Sample1F: incbin "R-8 Crash Cym.brr":2..0
+pushpc
+org !p_songSpecificData ; sample data
+  Sample14: skip filesize("Plok Overdrive.brr")-2
+  Sample15: skip filesize("S2 Synth Brass.brr")-2
+  Sample16: skip filesize("XG Sawtooth.brr")-2
+  Sample17: skip filesize("KDL3 Trumpet.brr")-2
+  Sample18: skip filesize("Suku Dist Guitar.brr")-2
+  Sample19: skip filesize("S3 Bell.brr")-2
+  Sample1A: skip filesize("MMX1 String Ens.brr")-2
+  Sample1B: skip filesize("S3 Slap Bass II.brr")-2
+  Sample1C: skip filesize("Yasui Snare.brr")-2
+  Sample1D: skip filesize("DR-880 Kick.brr")-2
+  Sample1E: skip filesize("Ultima Hi-Hat.brr")-2
+  Sample1F: skip filesize("R-8 Crash Cym.brr")-2
+  NoteLengthTable:
+pullpc
 
-NoteLengthTable: ; note length table
+spcblock NoteLengthTable nspc
+  ; note length table
   db $33,$66,$80,$99,$B3,$CC,$E6,$FF
   db $19,$33,$4C,$66,$72,$7F,$8C,$99,$A5,$B2,$BF,$CC,$D8,$E5,$F2,$FC
 

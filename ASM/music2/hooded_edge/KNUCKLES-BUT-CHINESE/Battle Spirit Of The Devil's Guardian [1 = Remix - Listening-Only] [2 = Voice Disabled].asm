@@ -94,28 +94,32 @@ spcblock 4*$16+!p_sampleTable nspc ; sample table
   dw Sample24,Sample24+909
 endspcblock
 
-spcblock !p_songSpecificData nspc ; sample data
-  Sample01: incbin "01 SMW @1.brr":2..0
-  Sample0C: incbin "0C SMW @13.brr":2..0
-  Sample14: incbin "SOI Fat Punch Alt (Small).brr":2..0
-  Sample15: incbin "SOI FM Elec Piano 2.brr":2..0
-  Sample16: incbin "DKNI4 Synth Brass.brr":2..0
-  Sample17: incbin "SOI Loud Lead.brr":2..0
-  Sample18: incbin "SOI Pulse 50% O4 High.brr":2..0
-  Sample19: incbin "SOI Piano Med 2.brr":2..0
-  Sample1A: incbin "02 SMW @2+3.brr":2..0
-  Sample1B: incbin "Aquarius Lead.brr":2..0
-  Sample1C: incbin "Sawtooth X.brr":2..0
-  Sample1D: incbin "EB Elec Piano.brr":2..0
-  Sample1E: incbin "S3 Slap Bass II.brr":2..0
-  Sample1F: incbin "Yasui Snare.brr":2..0
-  Sample20: incbin "DR-660 Kick.brr":2..0
-  Sample21: incbin "XR-10 Clap.brr":2..0
-  Sample22: incbin "R-8 Tom 2.brr":2..0
-  Sample23: incbin "MM7 Hi-Hat 1.brr":2..0
-  Sample24: incbin "R-8 Crash Cym.brr":2..0
+pushpc
+org !p_songSpecificData ; sample data
+  Sample01: skip filesize("01 SMW @1.brr")-2
+  Sample0C: skip filesize("0C SMW @13.brr")-2
+  Sample14: skip filesize("SOI Fat Punch Alt (Small).brr")-2
+  Sample15: skip filesize("SOI FM Elec Piano 2.brr")-2
+  Sample16: skip filesize("DKNI4 Synth Brass.brr")-2
+  Sample17: skip filesize("SOI Loud Lead.brr")-2
+  Sample18: skip filesize("SOI Pulse 50% O4 High.brr")-2
+  Sample19: skip filesize("SOI Piano Med 2.brr")-2
+  Sample1A: skip filesize("02 SMW @2+3.brr")-2
+  Sample1B: skip filesize("Aquarius Lead.brr")-2
+  Sample1C: skip filesize("Sawtooth X.brr")-2
+  Sample1D: skip filesize("EB Elec Piano.brr")-2
+  Sample1E: skip filesize("S3 Slap Bass II.brr")-2
+  Sample1F: skip filesize("Yasui Snare.brr")-2
+  Sample20: skip filesize("DR-660 Kick.brr")-2
+  Sample21: skip filesize("XR-10 Clap.brr")-2
+  Sample22: skip filesize("R-8 Tom 2.brr")-2
+  Sample23: skip filesize("MM7 Hi-Hat 1.brr")-2
+  Sample24: skip filesize("R-8 Crash Cym.brr")-2
+  NoteLengthTable:
+pullpc
 
-NoteLengthTable: ; note length table
+spcblock NoteLengthTable nspc
+  ; note length table
   db $33,$66,$80,$99,$B3,$CC,$E6,$FF
   db $19,$33,$4C,$66,$72,$7F,$8C,$99,$A5,$B2,$BF,$CC,$D8,$E5,$F2,$FC
 

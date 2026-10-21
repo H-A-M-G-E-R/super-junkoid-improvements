@@ -2,7 +2,6 @@
 ; By H A M
 ; Rewrites normal enemy touch AI routine to free up space. Also makes speedboosting/shinesparking/(pseudo) screwing not cancel iframes, and makes odd contact damage work correctly!
 ; Update 1.1: Enemies with HP greater than 32767=7FFFh now damage properly! And damage is fixed!
-; I don't know why P. Yoshi made screw attack useless by setting its damage to 0... Other than that, they didn't alter other contact damages...
 lorom
 
 org $A0A4A1
@@ -61,7 +60,7 @@ RTS
 
 ; 2.0 nerfed shinespark damage to 100
 ContactDamageTable:
-dw 500,300,2000,200 ; speed boosting, shinesparking, screw attacking, pseudo screwing respectively
+dw 500,100,6,200 ; speed boosting, shinesparking, screw attacking, pseudo screwing respectively
 
 FrozenCheck: ; Scyzer's Frozen Enemy Speed Boost Vulnerability (https://metroidconstruction.com/resource.php?id=550)
 	LDA $0A6E : DEC : BEQ + : DEC : BEQ +
