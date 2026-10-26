@@ -34,7 +34,7 @@ incsrc "ASM/player/draw speedboost echo fix.asm"
 incsrc "player/footstep_type_ram_flag.asm"
 ;incsrc "ASM/player/ITEMWavedash.asm"
 incsrc "ASM/player/no more morph bounce.asm" ; for real
-;incsrc "ASM/player/remove appearance fanfare.asm"
+incsrc "ASM/player/remove appearance fanfare.asm"
 incsrc "ASM/player/remove springball lock.asm"
 ;incsrc "ASM/player/sparksuit.asm"
 incsrc "ASM/player/speed_booster_vertical_momentum_fix.asm" ; already did for normal jumps but not for walljumps

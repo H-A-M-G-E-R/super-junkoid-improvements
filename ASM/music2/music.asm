@@ -124,6 +124,7 @@ org $8FE736+4 : db $06,$04 ; clay homonculus
 org $8FE76A+4 : db $06,$04 ; clay homonculus (black dress)
 
 org $8FD846+4 : db $0F,$05 ; mini penguin
+org $8FD860+4 : db $0F,$05
 org $8FBFD6+4 : db $0F,$05 ; penguinmire
 org $8FD9FF+4 : db $0F,$05 ; snowmen
 org $8FDA19+4 : db $0F,$05
