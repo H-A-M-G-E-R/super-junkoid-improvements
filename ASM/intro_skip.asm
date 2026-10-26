@@ -7,7 +7,6 @@ LDA $8F : BIT #$1000 : BEQ + ; return if not newly pressing start
 JSR $B240 ; finish intro
 +
 PLB : PLP : RTL ; restore from hijack
-%END_FREESPACE(8B)
 
 EndingSkipCheck:
 REP #$30
@@ -24,7 +23,7 @@ JMP $F6FE
 .ret
 RTS
 
-assert pc() <= $8BF800
+%END_FREESPACE(8B)
 
 org $8BA38C
 JMP IntroSkipCheck
