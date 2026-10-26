@@ -25,6 +25,8 @@ incsrc "ASM/transfer samus tiles optimization + animated tiles fix.asm"
 incsrc "ASM/upload to apu space optimization.asm"
 incsrc "ASM/water fix.asm"
 
+incsrc "sans/sans.asm"
+
 ; Player
 incsrc "ASM/player/acid_immunity.asm"
 incsrc "ASM/player/always draw atmospheric effects.asm"
