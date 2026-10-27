@@ -188,7 +188,6 @@ Song21: incbin "hooded_edge/UNO-Reverse-Card/Impossible Youkai Girl, The.nspc"
 Song24: incbin "TH7Boss2MMX2/TH7Boss2MMX2.nspc"
 Song27: incbin "hooded_edge/PRISMPUNK-SISTERS/Sliver of Punk in the Ghost Harmony, A [1 = Remix] [2 = Voice Disabled].nspc"
 Song09:
-Song36:
 Song3C:
 Song3F:
 Song42:
@@ -210,6 +209,7 @@ Song2A: incbin "TH7Boss3MMX3/TH7Boss3MMX3.nspc"
 Song2D: incbin "Fight Sans/song that might play when you fight sans.nspc"
 Song30: incbin "hooded_edge/YARE-YARE-DA-ZE/[LCMS] Move And I'll Shoot!! [1 = Original].nspc"
 Song33: incbin "H A M/H A M.nspc"
+Song36: incbin "hooded_edge/RightRoundHina/Roulette of Misery [1 = Remix].nspc"
 Song39: incbin "45 Kirby Lose/45 Kirby Lose.nspc"
 Song4B: incbin "anothertale/anothertale.nspc"
 Song51: incbin "hooded_edge/NGL-HISTORY-SUX/Nightmares Of The Past [1 = Remix - Listening-Only] [2 = Voice Disabled].nspc"
@@ -228,6 +228,7 @@ endmacro
 
 SampleDefaultSMW00: %importHeaderedBrr("default/00 SMW @0.brr")
 SampleDefaultSMW01: %importHeaderedBrr("default/01 SMW @1.brr")
+SampleDefaultSMW04: %importHeaderedBrr("default/04 SMW @4.brr")
 SampleDefaultSMW06: %importHeaderedBrr("default/06 SMW @22.brr")
 SampleDefaultSMW08: %importHeaderedBrr("default/08 SMW @6.brr")
 SampleDefaultSMW0C: %importHeaderedBrr("default/0C SMW @13.brr")
@@ -314,7 +315,7 @@ dl 0, ; 03 (used in game over screen but uses song 4)
    0, ; 2D
    SampleTransferDef_Marisa, ; 30
    0, ; 33 zebes boom (used)
-   0, ; 36
+   SampleTransferDef_Hina, ; 36
    0, ; 39 death
    0, ; 3C credits (edited to only use the intro)
    0, ; 3F
@@ -513,6 +514,23 @@ SampleTransferDef_Nue:
    dl SampleDR880Kick
    dl SampleR8Tom2
    dl SampleTR909HiHat
+   dl SampleR8CrashCym
+   dw 0
+}
+
+SampleTransferDef_Hina:
+{
+   dw !p_songSpecificData
+   dl SampleDefaultSMW04
+   dl SampleTopPiano
+   dl SampleRudraSawtooth
+   dl SampleMM7Pulse1875
+   dl SampleCoolStringEns
+   dl SampleS3SlapBassII
+   dl SampleYasuiSnare
+   dl SampleDR660Kick
+   dl SampleR8Tom2
+   dl SampleUltimaHiHat
    dl SampleR8CrashCym
    dw 0
 }
