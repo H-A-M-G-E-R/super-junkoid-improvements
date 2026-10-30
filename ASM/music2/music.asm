@@ -195,7 +195,6 @@ Song45:
 Song48:
 Song4E:
 Song57:
-Song5D:
 Song6C:
 Song6F:
 Song78:
@@ -215,6 +214,7 @@ Song4B: incbin "anothertale/anothertale.nspc"
 Song51: incbin "hooded_edge/NGL-HISTORY-SUX/Nightmares Of The Past [1 = Remix - Listening-Only] [2 = Voice Disabled].nspc"
 Song54: incbin "Core/Core - Optimized.nspc"
 Song5A: incbin "TH7Stage1(MMX)/TH7Stage1(MMX).nspc"
+Song5D: incbin "hooded_edge/GAP-HAG/Lovestruck Kiss Of Phantasm [1 = Remix].nspc"
 Song60: incbin "60/60.nspc"
 Song63: incbin "hooded_edge/MUKYU/Danza de la Mente [2 = LOWER Volume] [1 = Remix].nspc"
 Song66: incbin "TH7Title(MMX)/TH7Title(MMX).nspc"
@@ -228,6 +228,7 @@ endmacro
 
 SampleDefaultSMW00: %importHeaderedBrr("default/00 SMW @0.brr")
 SampleDefaultSMW01: %importHeaderedBrr("default/01 SMW @1.brr")
+SampleDefaultSMW02: %importHeaderedBrr("default/02 SMW @2.brr")
 SampleDefaultSMW04: %importHeaderedBrr("default/04 SMW @4.brr")
 SampleDefaultSMW06: %importHeaderedBrr("default/06 SMW @22.brr")
 SampleDefaultSMW08: %importHeaderedBrr("default/08 SMW @6.brr")
@@ -293,7 +294,12 @@ SampleSukuDistGuitar: %importHeaderedBrr("hooded_edge/UNO-Reverse-Card/Suku Dist
 
 SampleSOIPulse25O4High: %importHeaderedBrr("hooded_edge/WAWEE-IS-NEET/SOI Pulse 25% O4 High.brr")
 
-%padSafe($F38000)
+Sample08SMW6C: %importHeaderedBrr("hooded_edge/GAP-HAG/08 SMW @6C.brr")
+SampleKenTrumpet: %importHeaderedBrr("hooded_edge/GAP-HAG/Ken Trumpet.brr")
+SampleMM7ElecPiano: %importHeaderedBrr("hooded_edge/GAP-HAG/MM7 Elec Piano.brr")
+SampleSoiPianoHigh: %importHeaderedBrr("hooded_edge/GAP-HAG/Soi Piano High.brr")
+
+%padSafe($F28000)
 check bankcross full
 
 %BEGIN_FREESPACE(81)
@@ -328,7 +334,7 @@ dl 0, ; 03 (used in game over screen but uses song 4)
    0, ; 54 (upper deep purple)
    0, ; 57 (lower Sheol)
    0, ; 5A (ice castle)
-   0, ; 5D (dead idol)
+   SampleTransferDef_Yukari, ; 5D (dead idol)
    0, ; 60 (lower deep purple)
    0, ; 63 (upper Sheol)
    0, ; 66 (title screen)
@@ -504,6 +510,7 @@ SampleTransferDef_Nue:
    dw !p_songSpecificData
    dl SampleDefaultSMW00
    dl SampleDefaultSMW0C
+   dl Sample08SMW6C
    dl SampleS3Bell
    dl SampleS2SynthBrass
    dl SampleChronoPulseWidthMod
@@ -531,6 +538,29 @@ SampleTransferDef_Hina:
    dl SampleDR660Kick
    dl SampleR8Tom2
    dl SampleUltimaHiHat
+   dl SampleR8CrashCym
+   dw 0
+}
+
+SampleTransferDef_Yukari:
+{
+   dw !p_songSpecificData
+   dl SampleDefaultSMW02
+   dl SampleDefaultSMW08
+   dl SampleDefaultSMW0C
+   dl SampleChronoPulseWidthMod
+   dl SampleMM7ElecPiano
+   dl SampleSoiPianoHigh
+   dl SamplePopfulMailOverdrive
+   dl SampleMM7Pulse50
+   dl Sample08SMW6C
+   dl SampleKenTrumpet
+   dl SampleMMX1StringEns
+   dl SampleS3SlapBassII
+   dl SampleYasuiSnare
+   dl SampleDR880Kick
+   dl SampleS550LATom
+   dl SampleTR909HiHat
    dl SampleR8CrashCym
    dw 0
 }

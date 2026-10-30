@@ -86,6 +86,7 @@ pushpc
 org !p_songSpecificData ; sample data
   Sample00: skip filesize("00 SMW @0.brr")-2
   Sample0C: skip filesize("0C SMW @13.brr")-2
+  Sample15: skip filesize("08 SMW @6C.brr")-2
   Sample16: skip filesize("S3 Bell.brr")-2
   Sample17: skip filesize("S2 Synth Brass.brr")-2
   Sample18: skip filesize("Chrono Pulse-Width Mod.brr")-2
@@ -102,7 +103,6 @@ pullpc
 
 spcblock Sample14 nspc
   incbin "MM Piano Elec Piano 1.brr":2..0
-  Sample15: incbin "08 SMW @6C.brr":2..0
   Sample1B: incbin "MM Piano Synth EP 2.brr":2..0
 
 NoteLengthTable: ; note length table
